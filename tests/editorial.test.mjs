@@ -18,7 +18,7 @@ const fixture = (content = body, data = {}, importLine = "import SpoilerSection 
 const lint = (source, options = {}) => validateEditorial(source, { file, componentPath, ...options });
 const codes = source => lint(source).map(issue => issue.code);
 
-test('the existing article passes without changing its lore or metadata', async () => {
+test('the current chronicle satisfies the editorial coverage contract', async () => {
   const realFile = path.join(root, 'src/content/chronicles/khaenriah.mdx');
   assert.deepEqual(lint(await readFile(realFile, 'utf8'), { file: realFile }), []);
 });

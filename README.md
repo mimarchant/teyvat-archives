@@ -78,7 +78,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [x] Persistencia de progreso de lectura
 
-La entrada de Khaenri'ah es deliberadamente un borrador sin afirmaciones de lore verificadas ni fuentes inventadas. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
+La entrada de Khaenri'ah es un primer borrador de lectura de fuentes, con anuncios oficiales localizados y un diálogo consultado de forma indirecta. Sigue pendiente de contraste con el juego; la [lista de revisión](docs/khaenriah-editorial-review.md) detalla lo que falta antes de aprobarla. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
 
 ## Recursos visuales
 
