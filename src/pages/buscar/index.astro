@@ -1,17 +1,22 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import SearchExplorer from '../../components/search/SearchExplorer.vue';
+import '../../styles/search.css';
+
 const query = Astro.url.searchParams.get('q')?.trim() ?? '';
 ---
-<SiteLayout title="Buscar — Teyvat Archives">
-  <section class="article-shell page-wrap">
-    <p class="eyebrow">EL ARCHIVO ESTÁ ABIERTO</p>
-    <h1 style="font:500 clamp(48px,7vw,76px)/1 var(--serif);margin:18px 0">Buscar en el archivo</h1>
-    <form class="search-form" action="/buscar/" style="width:min(560px,100%);margin:30px 0 50px;border-color:var(--gold)">
-      <label class="sr-only" for="q">Buscar en el archivo</label>
-      <input id="q" name="q" type="search" value={query} placeholder="Personaje, lugar, acontecimiento..." />
-      <button type="submit" aria-label="Buscar">↗</button>
-    </form>
-    <p style="color:var(--muted);max-width:560px">{query ? `La búsqueda de “${query}” todavía no está conectada a un índice.` : 'La búsqueda global se incorporará en una siguiente etapa, cuando exista un primer conjunto de entradas editoriales verificadas.'}</p>
-    <a class="text-link" href="/">← Volver al inicio</a>
+<SiteLayout
+  title="Buscar en el archivo — Teyvat Archives"
+  description="Encuentra crónicas, personajes, lugares y misterios dentro de Teyvat Archives."
+>
+  <section class="search-page page-wrap" data-pagefind-ignore>
+    <a class="back-link" href="/">← Volver al archivo</a>
+    <header class="search-page__header">
+      <p class="eyebrow"><span></span> CONSULTA DEL ARCHIVO</p>
+      <h1>Buscar en <em>Teyvat.</em></h1>
+      <p>Busca nombres, acontecimientos, civilizaciones y conceptos. Los resultados se construyen a partir del contenido editorial publicado.</p>
+    </header>
+    <SearchExplorer client:load initialQuery={query} />
+    <p class="search-page__note">Los borradores editoriales no aparecen en los resultados. Cada entrada publicada conserva su clasificación y sus referencias.</p>
   </section>
 </SiteLayout>

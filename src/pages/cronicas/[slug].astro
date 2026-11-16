@@ -20,9 +20,10 @@ const classificationLabel = {
   unresolved: 'Sin resolver',
 }[entry.data.classification];
 const spoilerLabel = entry.data.spoilerLevel === 'none' ? 'Sin spoilers' : `Hasta ${entry.data.spoilerLevel}`;
+const isDraft = entry.data.reviewStatus === 'draft';
 ---
 <SiteLayout title={`${entry.data.title} — Teyvat Archives`} description={entry.data.summary}>
-  <article class="article-shell page-wrap">
+  <article class="article-shell page-wrap" data-pagefind-ignore={isDraft ? true : undefined}>
     <a class="back-link" href="/#cronicas">← Volver a Crónicas</a>
 
     <header class="article-header article-header--editorial">
@@ -44,7 +45,7 @@ const spoilerLabel = entry.data.spoilerLevel === 'none' ? 'Sin spoilers' : `Hast
     </header>
 
     <div class="article-layout article-layout--editorial">
-      <aside class="article-sidebar" aria-label="Navegación del artículo">
+      <aside class="article-sidebar" aria-label="Navegación del artículo" data-pagefind-ignore>
         <p class="eyebrow">EN ESTA PÁGINA</p>
         <nav class="article-toc">
           {headings.filter((heading) => heading.depth === 2).map((heading) => (
