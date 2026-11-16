@@ -45,7 +45,7 @@ npm run build
 
 La suite incorpora 14 pruebas de progreso: formatos inválidos, claves por artículo, aislamiento de biblioteca, almacenamiento bloqueado, cuotas, geometría, secciones cerradas, revisiones cambiadas y anclas eliminadas. Se mantienen las 32 pruebas del grafo y la validación editorial.
 
-Resultado de esta entrega: 46 pruebas correctas; validador editorial sin errores; Astro check con 0 errores, 0 warnings de diagnóstico y 0 hints; build correcto con 6 páginas generadas y 4 indexadas por Pagefind. Persisten los avisos de las tres colecciones vacías o ausentes (entities, quests y mysteries).
+Resultado tras la corrección de compatibilidad: 49 pruebas correctas; validador editorial sin errores; Astro check con 0 errores, 0 warnings de diagnóstico y 0 hints; build correcto con 6 páginas generadas y 4 indexadas por Pagefind. Persisten los avisos de las tres colecciones vacías o ausentes (entities, quests y mysteries).
 
 Revisión en navegador realizada:
 
@@ -57,3 +57,7 @@ Revisión en navegador realizada:
 - Ausencia de desbordamiento horizontal a 320, 375, 390, 768 y 1280 px.
 
 No se modificaron el lore, las fuentes ni el contenido editorial. No se añadieron dependencias.
+
+## Compatibilidad del build
+
+El cálculo de revisión usa Web Crypto (`crypto.subtle.digest`) y conserva exactamente el SHA-256 anterior. Evita depender de tipos de Node que puedan existir fuera del repositorio y faltar en una instalación de Cloudflare. Tres pruebas adicionales verifican compatibilidad de hashes, cambios de contenido y tipado aislado sin paquetes externos ni tipos automáticos de Node. No requiere dependencias nuevas.
