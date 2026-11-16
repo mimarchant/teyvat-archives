@@ -26,10 +26,9 @@ export const relationLabels: Record<GraphEdge['type'], string> = {
 };
 export const nodeId = (collection: ArchiveCollection, id: string) => `${collection}:${id}`;
 
-/** Only collections with an implemented article route receive a link. */
 function articleHref(entry: ArchiveEntry) {
   const routes: Partial<Record<ArchiveCollection, string>> = {
-    chronicles: 'cronicas', entities: 'entidades', quests: 'misiones',
+    chronicles: 'cronicas', entities: 'entidades', quests: 'misiones', mysteries: 'misterios',
   };
   const route = routes[entry.collection];
   return route ? `/${route}/${entry.id.split('/').map(encodeURIComponent).join('/')}/` : undefined;
