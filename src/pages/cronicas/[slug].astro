@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { contentRevision } from '../../lib/content-revision';
+import { isSearchableArticle } from '../../lib/search-visibility';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import SaveToLibrary from '../../components/SaveToLibrary.vue';
 import SpoilerPreferences from '../../components/editorial/SpoilerPreferences.vue';
@@ -24,10 +25,10 @@ const classificationLabel = {
   unresolved: 'Sin resolver',
 }[entry.data.classification];
 const spoilerLabel = entry.data.spoilerLevel === 'none' ? 'Sin spoilers' : `Hasta ${entry.data.spoilerLevel}`;
-const isDraft = entry.data.reviewStatus === 'draft';
+const searchable = isSearchableArticle(entry.data);
 ---
 <SiteLayout title={`${entry.data.title} — Teyvat Archives`} description={entry.data.summary}>
-  <article class="article-shell page-wrap" data-pagefind-ignore={isDraft ? true : undefined}>
+  <article class="article-shell page-wrap" data-pagefind-ignore={searchable ? undefined : true}>
     <a class="back-link" href="/cronicas/">← Volver a Crónicas</a>
 
     <header class="article-header article-header--editorial">
