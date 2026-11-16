@@ -1,6 +1,6 @@
 # Teyvat Archives
 
-Prototipo de un archivo de lore de Genshin Impact en español. Sprint 02: experiencia editorial y control de spoilers.
+Prototipo de un archivo de lore de Genshin Impact en español. Sprint 06: grafo de conocimiento, filtros y evidencia por relación.
 
 ## Stack
 
@@ -11,7 +11,7 @@ Prototipo de un archivo de lore de Genshin Impact en español. Sprint 02: experi
 
 ## Requisitos
 
-- Node.js 22.12.0 o superior (recomendado)
+- Node.js 22.23.4 o superior compatible con las dependencias fijadas
 - npm
 
 ## Inicio local
@@ -26,6 +26,7 @@ Abre la URL que indique Astro en la terminal.
 ## Comprobación
 
 ```bash
+npm test
 npm run check
 npm run build
 npm run preview
@@ -70,9 +71,10 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Preferencia de spoilers persistida localmente
 - [x] Registro de fuentes con estado vacío explícito
 - [x] Guardado local de una entrada en la biblioteca
-- [ ] Búsqueda real (Pagefind)
-- [ ] Atlas con filtros
-- [ ] Grafo de conocimiento
+- [x] Búsqueda real (Pagefind)
+- [x] Atlas con filtros
+- [x] Crónicas con timeline y filtros
+- [x] Grafo de conocimiento con evidencia por relación
 - [ ] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [ ] Persistencia de progreso de lectura
 
@@ -85,3 +87,7 @@ Las imágenes remotas actuales son placeholders editoriales de Unsplash para pro
 ## Nota de marca
 
 Proyecto fan no oficial, no afiliado, respaldado ni patrocinado por HoYoverse.
+
+## Sprint 06
+
+Consulta [SPRINT-06.md](SPRINT-06.md) para el contrato de relaciones, validación, control de spoilers y alcance del ajuste móvil. No hay relaciones de lore publicadas hasta que existan fuentes revisadas.

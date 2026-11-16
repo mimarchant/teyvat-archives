@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import KnowledgeExplorer from '../../components/graph/KnowledgeExplorer.vue';
+import { buildKnowledgeGraph } from '../../data/graph';
+import '../../styles/graph.css';
+const collections = await Promise.all([
+  getCollection('chronicles'), getCollection('entities'), getCollection('quests'), getCollection('mysteries'),
+]);
+const graph = buildKnowledgeGraph(collections.flat());
+---
+<SiteLayout title="Conexiones — Teyvat Archives" description="Explora las entradas del archivo y sus relaciones documentadas, con clasificación editorial y fuentes.">
+  <section class="page-wrap graph-hero">
+    <p class="eyebrow">06 / TODO ESTÁ CONECTADO</p>
+    <h1>Un archivo de <em>conexiones</em></h1>
+    <p>Explora las entradas, sigue sus relaciones y consulta qué evidencia sostiene cada vínculo.</p>
+    <p class="graph-note">Una conexión solo aparece si está registrada con fuentes. Su clasificación y estado de revisión no equivalen a una confirmación histórica. Las entradas aisladas conservan su lugar en el archivo.</p>
+    <a class="back-link" href="#explorar-conexiones">Explorar conexiones ↓</a>
+  </section>
+  <section class="page-wrap graph-directory" id="explorar-conexiones" aria-label="Explorar conexiones" data-pagefind-ignore>
+    <KnowledgeExplorer client:load graph={graph} />
+    <noscript><p>Activa JavaScript para explorar el grafo y controlar sus spoilers. Los títulos protegidos permanecen ocultos por defecto.</p></noscript>
+  </section>
+</SiteLayout>
