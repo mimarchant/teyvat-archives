@@ -1,26 +1,47 @@
 ---
-title: "Khaenri'ah"
-summary: "Una crónica en preparación sobre la civilización conocida como Khaenri'ah y su lugar en la historia de Teyvat."
-cover: "/images/chronicles/khaenriah-placeholder.webp"
-spoilerLevel: "snezhnaya"
-classification: "unresolved"
+title: "Khaenri'ah: lectura de un testimonio"
+summary: "Una lectura acotada de un testimonio sobre Khaenri'ah, con sus referencias y límites de verificación."
+spoilerLevel: "liyue"
+classification: "interpretation"
 updatedAt: 2026-11-16
 reviewStatus: "draft"
-era: "Por documentar"
-timelineOrder: 900
-sources: []
+era: "Cronología pendiente de contraste"
+region: "Khaenri'ah"
+chronologyConfirmed: false
+sources:
+  - id: "anuncio-acto-iv"
+    type: "official"
+    title: "Anuncio oficial del Capítulo I, acto IV"
+    gameVersion: "1.4"
+    reference: "HoYoverse, 10 de abril de 2021. https://genshin.hoyoverse.com/m/en/news/detail/11605"
+    supports: "Confirma el acto anunciado y su disponibilidad inicial; no explica las causas del desastre."
+  - id: "notas-1-4"
+    type: "official"
+    title: "Notas oficiales de la versión 1.4"
+    gameVersion: "1.4"
+    reference: "Sección New Quests. https://genshin.hoyoverse.com/en/news/detail/9368"
+    supports: "Sitúa la incorporación de la misión en esa actualización."
+  - id: "testimonio-dainsleif"
+    type: "dialogue"
+    title: "Dainsleif — pasaje de A Herald Without Adherents"
+    gameVersion: "1.4"
+    reference: "Capítulo I, acto IV, pasaje de Dainsleif. Consulta indirecta en inglés: https://genshin-impact.fandom.com/wiki/A_Herald_Without_Adherents . Pendiente de cotejo directo con el archivo del juego."
+    supports: "Localiza el testimonio analizado. La transcripción consultada es secundaria; su texto y localización requieren contraste primario."
 sections:
-  - id: "introduccion"
-    title: "Introducción"
+  - id: "alcance"
+    title: "Alcance de esta lectura"
     spoilerLevel: "none"
-  - id: "alcance-editorial"
-    title: "Alcance de esta crónica"
+  - id: "testimonio"
+    title: "El testimonio consultado"
+    spoilerLevel: "liyue"
+  - id: "lectura-editorial"
+    title: "Cómo leer el testimonio"
+    spoilerLevel: "liyue"
+  - id: "contraste"
+    title: "Qué falta contrastar"
     spoilerLevel: "none"
-  - id: "contexto-historico"
-    title: "Contexto histórico"
-    spoilerLevel: "snezhnaya"
   - id: "fuentes-y-evidencias"
-    title: "Fuentes y evidencias"
+    title: "Fuentes y procedencia"
     spoilerLevel: "none"
 ---
 
@@ -28,33 +49,49 @@ import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
 import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
 
 <SpoilerSection level="none" label="Nota editorial sin spoilers">
-> **Estado editorial: borrador.** Esta página muestra la estructura editorial y los componentes de lectura. No contiene todavía una reconstrucción histórica verificada.
+> **Borrador para revisión.** Los anuncios oficiales están localizados. El diálogo central se consultó mediante una transcripción secundaria y todavía debe cotejarse directamente con el juego. Esta entrada no está verificada.
 </SpoilerSection>
 
-## Introducción
+## Alcance de esta lectura
 
 <SpoilerSection level="none" label="Contenido sin spoilers">
-Esta crónica será una puerta de entrada a la historia de Khaenri'ah. Su objetivo es ordenar los acontecimientos, explicar qué se conoce y distinguir con claridad los hechos confirmados de las interpretaciones que todavía están en discusión.
+Una crónica puede empezar con una pregunta pequeña: ¿qué afirma una fuente concreta y hasta dónde permite llegar? Aquí se estudia un pasaje de Dainsleif del Capítulo I, acto IV, conocido en inglés como *We Will Be Reunited*.
+
+Las notas oficiales lo incluyen en la versión 1.4. Su anuncio de abril de 2021 fija la disponibilidad inicial para el día 12. Son referencias sobre la publicación de la misión, no sobre el calendario interno del mundo. No se usan para fechar acontecimientos históricos.
+
+El alcance termina en ese testimonio. No es una síntesis de las revelaciones posteriores ni declara que una cuestión siga sin resolver en la versión actual.
 </SpoilerSection>
 
-## Alcance de esta crónica
+## El testimonio consultado
 
-<SpoilerSection level="none" label="Contenido sin spoilers">
-La página se construirá a partir de evidencia localizable dentro del juego: misiones, diálogos, libros, descripciones de objetos, cinemáticas y material oficial pertinente. Cada afirmación importante deberá enlazar con la fuente que la respalda.
+<SpoilerSection level="liyue" label="Spoilers del Capítulo I, acto IV">
+La transcripción inglesa atribuye a Dainsleif tres afirmaciones: Khaenri'ah no había tenido un dios, su civilización fue construida por humanos y su devastación se produjo quinientos años antes por intervención de los dioses. Se registran aquí como contenido atribuido a su relato, pendiente de cotejo directo.
 
-No se incluirán fechas, causas ni relaciones históricas por inferencia editorial. Cuando una fuente no permita llegar a una conclusión, la incertidumbre se conservará en el texto.
+<EvidenceBlock classification="interpretation" title="Procedencia del pasaje" source="Transcripción secundaria del diálogo; verificación directa pendiente." reference="Registro testimonio-dainsleif" />
 </SpoilerSection>
 
-## Contexto histórico
+## Cómo leer el testimonio
 
-<SpoilerSection level="snezhnaya" label="Revelaciones de historia avanzada">
-El contenido de esta sección está pendiente de investigación y verificación. Antes de completarla, se contrastarán las referencias narrativas relevantes y se registrará qué parte de cada afirmación está explícitamente confirmada.
+<SpoilerSection level="liyue" label="Análisis del pasaje anterior">
+Registrar lo dicho por un personaje y reconstruir un acontecimiento son operaciones distintas. Esta lectura editorial propone conservar el hablante, la misión y el contexto de cada afirmación, en lugar de convertir un pasaje aislado en una explicación total.
 
-<EvidenceBlock classification="unresolved" title="¿Qué aspectos de la historia de Khaenri'ah están confirmados directamente por fuentes primarias?" />
+Tampoco se deducen culpables individuales, motivaciones, una secuencia completa o una fecha absoluta. Cada ampliación necesitará su propia evidencia y una comparación con el contenido posterior. La ausencia de una explicación en este pasaje no demuestra que no exista en otras fuentes.
 </SpoilerSection>
 
-## Fuentes y evidencias
+## Qué falta contrastar
 
-<SpoilerSection level="none" label="Estado de las fuentes">
-Todavía no hay fuentes verificadas asociadas a esta entrada. La sección se completará con referencias precisas —misión, capítulo, libro, diálogo u objeto— y una nota breve que explique qué afirmación respalda cada una.
+<SpoilerSection level="none" label="Estado de revisión">
+Antes de cambiar el estado editorial se debe localizar el pasaje en el historial del juego, comprobar su contexto y revisar su localización española. Después habrá que contrastar cualquier ampliación con las misiones pertinentes, respetando el alcance declarado.
+
+Las paráfrasis de esta entrada no son citas de la localización española. Hasta completar el contraste, deben leerse como un borrador de trabajo, no como una reconstrucción histórica aprobada.
+</SpoilerSection>
+
+## Fuentes y procedencia
+
+<SpoilerSection level="none" label="Referencias de consulta">
+- [Anuncio de la misión en el sitio oficial](https://genshin.hoyoverse.com/m/en/news/detail/11605): referencia primaria de publicación.
+- [Notas oficiales de la versión 1.4](https://genshin.hoyoverse.com/en/news/detail/9368): contexto de incorporación del acto.
+- [Transcripción inglesa del pasaje](https://genshin-impact.fandom.com/wiki/A_Herald_Without_Adherents): referencia secundaria para localizar el diálogo, no sustituto de su cotejo en el juego.
+
+El registro inferior describe qué respalda cada referencia. Los anuncios oficiales no se emplean para validar el contenido histórico del diálogo.
 </SpoilerSection>
