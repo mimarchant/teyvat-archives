@@ -38,6 +38,20 @@ const sourceSchema = z.object({
   supports: z.string(),
 });
 
+const relationSchema = z.object({
+  id: z.string().min(1),
+  target: z.object({
+    collection: z.enum(['chronicles', 'entities', 'quests', 'mysteries']),
+    id: z.string().min(1),
+  }),
+  type: z.enum(['mentions', 'located-in', 'part-of', 'participates-in', 'related-to']),
+  classification: loreClassification,
+  spoilerLevel,
+  reviewStatus,
+  sourceIds: z.array(z.string().min(1)).min(1),
+  explanation: z.string().min(1),
+});
+
 const baseSchema = z.object({
   title: z.string(),
   summary: z.string(),
@@ -47,6 +61,7 @@ const baseSchema = z.object({
   updatedAt: z.coerce.date(),
   reviewStatus: reviewStatus.default("draft"),
   sources: z.array(sourceSchema).default([]),
+  relations: z.array(relationSchema).default([]),
   sections: z
     .array(
       z.object({
