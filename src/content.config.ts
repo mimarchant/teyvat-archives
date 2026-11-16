@@ -1,17 +1,9 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import { spoilerLevels } from "./data/spoilers";
 
-const spoilerLevel = z.enum([
-  "none",
-  "mondstadt",
-  "liyue",
-  "inazuma",
-  "sumeru",
-  "fontaine",
-  "natlan",
-  "snezhnaya",
-]);
+const spoilerLevel = z.enum(spoilerLevels);
 
 const reviewStatus = z.enum(["draft", "needs-review", "verified"]);
 const loreClassification = z.enum([

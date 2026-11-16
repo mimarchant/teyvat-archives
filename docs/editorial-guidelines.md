@@ -40,3 +40,9 @@ La preferencia se guarda en `localStorage`. Como el sitio es estático, ocultar 
 - `verified`: fuentes revisadas y afirmaciones contrastadas.
 
 No usar `verified` si existen fuentes pendientes, referencias vagas o inferencias presentadas como canon.
+
+## Comprobación automática de spoilers
+
+Antes de publicar, ejecutar `npm run check:editorial` o `npm run check`. La validación está incluida también en `npm run build` y bloquea la compilación cuando faltan bloques o hay niveles inconsistentes.
+
+La [convención de escritura y referencia de diagnósticos](editorial-validation.md) explica cómo registrar secciones, envolver el preámbulo y usar `SpoilerSection`. Esta comprobación valida la estructura, no la veracidad del lore ni el significado narrativo de un posible spoiler.

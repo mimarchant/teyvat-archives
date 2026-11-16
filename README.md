@@ -56,7 +56,7 @@ Clasificaciones: `canon`, `interpretation`, `theory`, `unresolved`.
 
 Estados editoriales: `draft`, `needs-review`, `verified`.
 
-**Importante:** Zod valida el frontmatter de las entradas. No valida automáticamente que cada bloque del cuerpo MDX tenga un nivel de spoiler correcto. Esa convención y su validación editorial deben implementarse antes de publicar contenido con spoilers.
+**Importante:** Zod valida el frontmatter. `npm run check:editorial` verifica la cobertura de bloques y la coherencia de niveles del cuerpo MDX antes de compilar. La clasificación narrativa correcta de un texto sigue requiriendo revisión humana; consulta [la guía de validación](docs/editorial-validation.md).
 
 ## Estado de este prototipo
 
@@ -75,7 +75,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Atlas con filtros
 - [x] Crónicas con timeline y filtros
 - [x] Grafo de conocimiento con evidencia por relación
-- [ ] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
+- [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [ ] Persistencia de progreso de lectura
 
 La entrada de Khaenri'ah es deliberadamente un borrador sin afirmaciones de lore verificadas ni fuentes inventadas. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
