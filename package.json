@@ -8,7 +8,7 @@
     "build": "npm run check && astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "npm run check:editorial && astro check",
-    "test": "node --experimental-strip-types --test tests/graph.test.mjs tests/editorial.test.mjs",
+    "test": "node --experimental-strip-types --test tests/graph.test.mjs tests/editorial.test.mjs tests/reading-progress.test.mjs tests/content-revision.test.mjs",
     "check:editorial": "node --experimental-strip-types scripts/check-editorial.mjs"
   },
   "dependencies": {

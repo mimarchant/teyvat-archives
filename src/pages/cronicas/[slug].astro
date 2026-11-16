@@ -1,8 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { contentRevision } from '../../lib/content-revision';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import SaveToLibrary from '../../components/SaveToLibrary.vue';
 import SpoilerPreferences from '../../components/editorial/SpoilerPreferences.vue';
+import ReadingProgress from '../../components/editorial/ReadingProgress.vue';
+import '../../styles/reading-progress.css';
 
 export async function getStaticPaths() {
   const entries = await getCollection('chronicles');
@@ -11,6 +14,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
+const revision = await contentRevision(entry.body ?? '', headings, entry.data.updatedAt.toISOString());
 const date = entry.data.updatedAt.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
 const statusLabel = entry.data.reviewStatus === 'verified' ? 'Verificada' : entry.data.reviewStatus === 'needs-review' ? 'Revisión pendiente' : 'Borrador editorial';
 const classificationLabel = {
@@ -53,13 +57,14 @@ const isDraft = entry.data.reviewStatus === 'draft';
           ))}
         </nav>
         <SpoilerPreferences client:load />
+        <ReadingProgress client:load entryId={entry.id} revision={revision} />
         <div class="editorial-note">
           <span aria-hidden="true">✧</span>
           <p>Las afirmaciones deben estar respaldadas por fuentes identificables del juego.</p>
         </div>
       </aside>
 
-      <div class="article-main">
+      <div class="article-main" id="contenido-articulo">
         <div class="prose prose--editorial"><Content /></div>
         <section class="source-register" id="registro-de-fuentes">
           <div class="source-register__heading">
