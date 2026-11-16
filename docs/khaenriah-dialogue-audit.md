@@ -29,13 +29,26 @@ No se confirma una explicación exhaustiva del desastre, la identidad de cada ag
 
 La versión exacta del ejecutable no fue comprobada. La grabación es histórica y no demuestra que esos textos permanezcan iguales en el cliente 7.2. No se abrió ni ejecutó el juego en la cuenta del usuario.
 
-## Estado editorial y publicación
+## Estado tras el cotejo inicial (registro histórico)
 
 La entrada avanza de `draft` a `needs-review`, manteniendo su clasificación general como interpretación. El bloque de evidencia identifica como confirmado el contenido del diálogo observado, no una reconstrucción omnisciente de lo sucedido.
 
 Quedan pendientes la revisión final de redacción y, si se quiere afirmar vigencia textual en 7.2, el cotejo con ese cliente. El artículo sigue limitado al pasaje histórico; no se presenta como una historia completa actualizada.
 
 La cronología permanece sin confirmar para esta entrada y no se añaden relaciones al grafo. La fuente secundaria se conserva como localizador y la grabación recibe un registro separado con sus tiempos.
+
+## Revisión editorial final — 16 de noviembre de 2026
+
+Se completa la revisión de redacción y se cambia la entrada a `verified` exclusivamente para el análisis histórico declarado. Esta revisión utiliza el cotejo visual ya registrado; no constituye una segunda observación independiente ni una comprobación nueva del cliente.
+
+- Las tres paráfrasis conservan el hablante y tienen momentos localizables en el registro audiovisual.
+- Se conserva «mortales» de la localización española observada.
+- Los anuncios oficiales solo respaldan el contexto de publicación; la transcripción secundaria solo ayuda a localizar el pasaje.
+- El bloque `canon` confirma la presencia de las afirmaciones en el diálogo. La lectura editorial general mantiene `interpretation`.
+- Se eliminan los avisos de revisión pendiente y se mantiene visible el alcance histórico. No se afirma vigencia en 7.2, causalidad exhaustiva ni fecha absoluta.
+- No se confirma el orden cronológico de la entrada ni se añaden relaciones al grafo. El artículo continúa excluido de Pagefind por su nivel de spoilers.
+
+La comprobación del cliente 7.2 queda fuera del alcance, no como evidencia pendiente de una afirmación publicada sobre esa versión. Cualquier ampliación requiere revisión adicional.
 
 ## Protección del buscador
 

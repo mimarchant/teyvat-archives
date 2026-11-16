@@ -41,6 +41,8 @@ La preferencia se guarda en `localStorage`. Como el sitio es estático, ocultar 
 
 No usar `verified` si existen fuentes pendientes, referencias vagas o inferencias presentadas como canon.
 
+Una entrada verificada debe declarar el alcance de su revisión. El cotejo de un diálogo histórico confirma lo dicho por el personaje en el registro observado; no confirma por sí solo su explicación del mundo ni su vigencia en versiones posteriores. Registrar los límites y la procedencia del registro permite verificar un análisis histórico sin presentarlo como una síntesis actualizada. Si se amplía el alcance, las afirmaciones nuevas requieren su propio contraste.
+
 ## Comprobación automática de spoilers
 
 Antes de publicar, ejecutar `npm run check:editorial` o `npm run check`. La validación está incluida también en `npm run build` y bloquea la compilación cuando faltan bloques o hay niveles inconsistentes.
