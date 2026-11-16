@@ -12,7 +12,7 @@
 
 ## Pendiente de validación
 
-La instalación de dependencias no pudo completarse en el entorno de preparación por timeout de acceso al registro npm. Ejecutar localmente:
+La instalación de dependencias no pudo completarse en el entorno de preparación por timeout de acceso al registro npm. Ejecutar localmente:https://github.com/new
 
 ```bash
 npm install
