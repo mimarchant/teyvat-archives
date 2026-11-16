@@ -35,7 +35,7 @@ test('builds directed relationships with the origin evidence and editorial class
 test('article links encode IDs and omit collections without implemented routes', () => {
   const graph = buildKnowledgeGraph([entry('entities', 'a b/é'), entry('quests', 'quest'), entry('mysteries', 'mystery')]);
   assert.equal(graph.nodes.find(n => n.collection === 'entities').href, '/entidades/a%20b/%C3%A9/');
-  assert.equal(graph.nodes.find(n => n.collection === 'quests').href, undefined);
+  assert.equal(graph.nodes.find(n => n.collection === 'quests').href, '/misiones/quest/');
   assert.equal(graph.nodes.find(n => n.collection === 'mysteries').href, undefined);
 });
 test('rejects dangling targets', () => {
@@ -115,4 +115,24 @@ test('the second sourced line adds only its reviewed Zibai mention', async () =>
   assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
   assert.equal(visibleEdges(graph, ids, 'warn', [edge.key]).length, 1);
   assert.equal(graph.nodes.find(node => node.id === edge.to).href, '/entidades/zibai/');
+});
+
+test('the first quest article links its reviewed passage without inventing character participation', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('quests', 'we-will-be-reunited'), load('chronicles', 'khaenriah'), load('entities', 'dainsleif'),
+  ]));
+  const edge = graph.edges.find(item => item.key === 'quests:we-will-be-reunited/relacionada-cronica-khaenriah');
+  assert.ok(edge);
+  assert.equal(edge.to, 'chronicles:khaenriah');
+  assert.equal(edge.type, 'related-to');
+  assert.equal(edge.classification, 'interpretation');
+  assert.deepEqual(edge.evidence.map(source => source.id), ['anuncio-oficial-acto-iv', 'registro-audiovisual-pasaje']);
+  assert.equal(graph.nodes.find(node => node.id === edge.from).href, '/misiones/we-will-be-reunited/');
+  assert.equal(graph.edges.some(item => item.from === edge.from && item.to === 'entities:dainsleif'), false);
+  assert.equal(graph.edges.filter(item => item.from === edge.from).length, 1);
 });

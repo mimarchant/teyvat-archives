@@ -29,7 +29,7 @@ Todas las colecciones admiten `relations`, una lista opcional que por defecto es
 
 La compilación rechaza destinos inexistentes, autorreferencias, identificadores duplicados y fuentes no registradas. Estas comprobaciones validan integridad, no veracidad: sigue siendo necesaria la revisión editorial del contenido y de lo que respalda cada fuente. Los tipos de relación son dirigidos; no se infieren vínculos transitivos ni relaciones inversas nuevas.
 
-Crónicas y entidades tienen ruta de artículo. Los nodos de misiones y misterios pueden explorarse en el panel, pero no se les asignan enlaces inexistentes. El explorador se excluye de Pagefind para evitar indexar metadatos protegidos y borradores. El ocultamiento es una preferencia de interfaz, no un control de acceso al contenido estático.
+Crónicas, entidades y misiones tienen ruta de artículo. Los nodos de misterios pueden explorarse en el panel, pero no se les asignan enlaces inexistentes. El explorador se excluye de Pagefind para evitar indexar metadatos protegidos y borradores. El ocultamiento es una preferencia de interfaz, no un control de acceso al contenido estático.
 
 ## Validación
 

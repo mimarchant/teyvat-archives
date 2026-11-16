@@ -82,6 +82,8 @@ La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una 
 
 El archivo incorpora una segunda línea documental desde el teaser oficial *Nightmare of Yore*: una [crónica de Lang-Gan y una ficha de Zibai](docs/nightmare-of-yore-source-audit.md), conectadas solo por la presencia explícita del personaje en el relato. No se asignan fecha absoluta, región ni desenlace.
 
+La colección de misiones se abre con una [ficha verificada del Capítulo I, acto IV](docs/first-quest-entry.md). Registra su publicación original, su sinopsis y los requisitos anunciados en 2021, además de una conexión editorial acotada con la crónica de Khaenri'ah.
+
 ## Recursos visuales
 
 Las imágenes remotas actuales son placeholders editoriales de Unsplash para probar composición y contraste. Antes de publicar, deben reemplazarse por recursos con derechos y permisos adecuados. El proyecto no debe asumir afiliación con HoYoverse ni reutilizar assets del juego sin revisar sus condiciones de uso.
