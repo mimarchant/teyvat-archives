@@ -93,6 +93,7 @@ const entities = defineCollection({
       "concept",
       "location",
       "artifact",
+      "creature",
     ]),
   }),
 });

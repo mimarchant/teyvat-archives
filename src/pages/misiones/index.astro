@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import QuestDirectory from '../../components/quests/QuestDirectory.vue';
+import '../../styles/quests.css';
+
+const order = new Map([
+  ['bough-keeper-dainsleif', 10], ['we-will-be-reunited', 20], ['requiem-of-the-echoing-depths', 30],
+  ['caribert', 40], ['bedtime-story', 50], ['paralogism', 60], ['a-space-and-time-for-you', 70],
+]);
+const entries = (await getCollection('quests')).sort((a, b) =>
+  (order.get(a.id) ?? 999) - (order.get(b.id) ?? 999) || a.data.title.localeCompare(b.data.title, 'es'));
+const directoryEntries = entries.map(entry => ({ id: entry.id, title: entry.data.title, summary: entry.data.summary,
+  questType: entry.data.questType, reviewStatus: entry.data.reviewStatus, spoilerLevel: entry.data.spoilerLevel }));
+---
+<SiteLayout title="Misiones — Teyvat Archives" description="Ruta documental de misiones de Teyvat con fuentes oficiales y control local de spoilers.">
+  <section class="page-wrap quest-directory">
+    <header class="quest-directory__header">
+      <p class="eyebrow"><span></span> RUTA DOCUMENTAL</p>
+      <h1>Misiones del <em>archivo</em></h1>
+      <p>Una secuencia de fichas editoriales sobre publicación, acceso y límites documentales. No reemplaza el diario de viaje ni resume argumentos completos.</p>
+    </header>
+    <div class="quest-directory__note">
+      <strong>{entries.length} fichas de misión</strong>
+      <span>El orden sigue la progresión de capítulos documentada, no una cronología absoluta de Teyvat.</span>
+    </div>
+    <QuestDirectory client:load entries={directoryEntries} />
+    <noscript><p class="quest-directory__fallback">Activa JavaScript para aplicar tus preferencias de spoilers y abrir las fichas.</p></noscript>
+  </section>
+</SiteLayout>
