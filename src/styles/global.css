@@ -7,3 +7,20 @@
 @media(max-width:900px){.article-layout--editorial{grid-template-columns:210px minmax(0,1fr);gap:38px}}
 @media(max-width:680px){.article-header--editorial{padding-top:45px}.article-kicker-row{align-items:flex-start;flex-direction:column;gap:8px}.article-actions{align-items:flex-start;flex-direction:column;gap:10px}.article-layout--editorial{grid-template-columns:1fr;gap:32px}.article-sidebar{display:block}.article-toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:8px}.spoiler-preferences{margin-top:8px}.editorial-note{margin-top:15px}.prose--editorial{font-size:16px}.prose--editorial>h2{font-size:34px}.source-register{margin-top:50px}}
 html[data-spoiler-mode="hide"] .spoiler-section:not([data-spoiler-level="none"]) .spoiler-section__summary{opacity:.62;cursor:not-allowed}
+
+/* Keep the decorative rings inside their own section on small screens. */
+.mystery-inner{position:relative;isolation:isolate}
+.mystery-mark{pointer-events:none}
+@media(max-width:680px){
+  .hero h1{font-size:clamp(52px,16vw,68px)}
+  .hero-actions{flex-wrap:wrap}
+  .intro-strip>p{min-width:0;overflow-wrap:anywhere}
+  .intro-strip .round-link{flex-shrink:0}
+  .feature-grid,.connections-section{grid-template-columns:minmax(0,1fr)}
+  .archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .archive-item{min-width:0;overflow-wrap:anywhere}
+  .archive-item h3{font-size:clamp(23px,7vw,29px)}
+  .connection-art,.connection-copy,.feature-stack{min-width:0}
+  .mystery-inner>div:first-child{position:relative;z-index:1;min-width:0}
+  .mystery-inner h2{font-size:clamp(38px,11vw,49px)}
+}
