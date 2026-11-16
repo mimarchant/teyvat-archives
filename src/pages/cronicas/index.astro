@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ChronicleTimeline from '../../components/chronicles/ChronicleTimeline.vue';
+import { toChronicle } from '../../data/chronicles';
+import '../../styles/chronicles.css';
+const entries = (await getCollection('chronicles')).map(toChronicle);
+---
+<SiteLayout title="Crónicas — Teyvat Archives" description="Explora las crónicas de Teyvat y su estado editorial, con filtros y control de spoilers.">
+  <section class="page-wrap chronicles-hero">
+    <p class="eyebrow">05 / MEMORIA DEL MUNDO</p>
+    <h1>Crónicas de <em>Teyvat</em></h1>
+    <p>Fragmentos de historia, preguntas abiertas y huellas por documentar.</p>
+    <p class="chronicles-note">Solo las entradas con una secuencia confirmada se ordenan cronológicamente. Las demás se reúnen sin asignarles fechas ni relaciones históricas. Un borrador no constituye lore verificado.</p>
+    <a class="back-link" href="#explorar-cronicas">Explorar el archivo ↓</a>
+  </section>
+  <section id="explorar-cronicas" class="page-wrap chronicles-directory" aria-label="Explorar crónicas" data-pagefind-ignore>
+    <ChronicleTimeline client:load entries={entries} />
+    <noscript><p>Activa JavaScript para filtrar la timeline y revelar las crónicas protegidas. Sus títulos y resúmenes permanecen ocultos por defecto.</p></noscript>
+  </section>
+</SiteLayout>
