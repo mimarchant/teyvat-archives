@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && pagefind --site dist",
+    "build": "npm run check && astro build && pagefind --site dist",
     "preview": "astro preview",
-    "check": "astro check",
-    "test": "node --experimental-strip-types --test tests/graph.test.mjs"
+    "check": "npm run check:editorial && astro check",
+    "test": "node --experimental-strip-types --test tests/graph.test.mjs tests/editorial.test.mjs",
+    "check:editorial": "node --experimental-strip-types scripts/check-editorial.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "latest",
@@ -19,6 +20,8 @@
   "devDependencies": {
     "@astrojs/check": "latest",
     "pagefind": "^1.6.0",
-    "typescript": "latest"
+    "typescript": "latest",
+    "satteri": "0.11.7",
+    "yaml": "2.9.1"
   }
 }
