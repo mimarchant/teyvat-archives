@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import '../styles/atlas.css';
+import AtlasExplorer from '../components/atlas/AtlasExplorer.vue';
+import { atlasEntries, atlasCategories, atlasCategoryLabels } from '../data/atlas';
+---
+
+<SiteLayout
+  title="Atlas de Teyvat — Teyvat Archives"
+  description="Explora las naciones, civilizaciones, regiones y lugares históricos del mundo de Teyvat."
+>
+  <section class="atlas-page-hero">
+    <div class="page-wrap atlas-page-hero__inner">
+      <p class="eyebrow"><span></span> 03 / GEOGRAFÍA E HISTORIA</p>
+      <p class="atlas-page-hero__overline">EL MUNDO CONOCIDO</p>
+      <h1>Atlas de <em>Teyvat</em></h1>
+      <p class="atlas-page-hero__intro">Cada territorio conserva fragmentos de una historia mayor. Explora sus naciones, sigue las huellas de civilizaciones antiguas y descubre cómo se conectan los lugares que dieron forma al mundo.</p>
+      <div class="atlas-page-hero__foot"><span>ARCHIVO CARTOGRÁFICO</span><span>08 ENTRADAS INICIALES</span></div>
+    </div>
+  </section>
+
+  <section class="page-wrap atlas-directory">
+    <div class="atlas-directory__heading">
+      <div>
+        <p class="eyebrow">ÍNDICE DEL MUNDO</p>
+        <h2>Explorar el <em>territorio</em></h2>
+      </div>
+      <p>Este atlas es un directorio editorial, no un mapa geográfico. Las entradas se ampliarán a medida que documentemos sus fuentes y conexiones.</p>
+    </div>
+    <AtlasExplorer
+      client:load
+      entries={atlasEntries}
+      categories={atlasCategories}
+      categoryLabels={atlasCategoryLabels}
+    />
+  </section>
+  <section class="atlas-note-band">
+    <div class="page-wrap">
+      <span class="atlas-note-band__mark">✧</span>
+      <div><p class="eyebrow">NOTA EDITORIAL</p><p>El Atlas prioriza la claridad sobre la exhaustividad: una entrada en preparación no debe confundirse con una ficha de lore verificada. Las descripciones introductorias son orientativas y las futuras fichas incorporarán fuentes, clasificación y nivel de spoilers.</p></div>
+    </div>
+  </section>
+</SiteLayout>
