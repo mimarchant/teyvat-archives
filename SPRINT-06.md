@@ -10,7 +10,7 @@
 - Navegación principal y llamada al grafo desde el inicio.
 - Corrección del desbordamiento móvil: contenedor de posicionamiento para el adorno de Misterios, columnas reducibles en Archivo y ajustes de tipografía, botones y contenido flexible.
 
-Actualmente hay una sola entrada, Khaenri'ah, en borrador y sin fuentes. Se conserva como nodo aislado. No se crearon relaciones, afirmaciones de lore ni fuentes para poblar el mapa.
+En la entrega original había una sola entrada, Khaenri'ah, en borrador y sin fuentes. Se conservó como nodo aislado. El estado posterior se documenta en [la primera ficha y conexión](docs/dainsleif-first-connection.md): dos entradas y una mención con evidencia revisada.
 
 ## Modelo de relaciones
 
@@ -29,7 +29,7 @@ Todas las colecciones admiten `relations`, una lista opcional que por defecto es
 
 La compilación rechaza destinos inexistentes, autorreferencias, identificadores duplicados y fuentes no registradas. Estas comprobaciones validan integridad, no veracidad: sigue siendo necesaria la revisión editorial del contenido y de lo que respalda cada fuente. Los tipos de relación son dirigidos; no se infieren vínculos transitivos ni relaciones inversas nuevas.
 
-Solo las crónicas tienen actualmente ruta de artículo. Los nodos de otras colecciones pueden explorarse en el panel, pero no se les asignan enlaces inexistentes. El explorador se excluye de Pagefind para evitar indexar metadatos protegidos y borradores. El ocultamiento es una preferencia de interfaz, no un control de acceso al contenido estático.
+Crónicas y entidades tienen ruta de artículo. Los nodos de misiones y misterios pueden explorarse en el panel, pero no se les asignan enlaces inexistentes. El explorador se excluye de Pagefind para evitar indexar metadatos protegidos y borradores. El ocultamiento es una preferencia de interfaz, no un control de acceso al contenido estático.
 
 ## Validación
 
