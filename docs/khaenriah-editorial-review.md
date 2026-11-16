@@ -1,5 +1,7 @@
 # Primera revisión editorial de Khaenri'ah
 
+> Registro de la primera entrega. El [cotejo audiovisual posterior](khaenriah-dialogue-audit.md) documenta la comprobación de los tres pasajes y el avance a revisión editorial pendiente. Las limitaciones y tareas descritas abajo corresponden al punto de partida, no al estado actual del cotejo.
+
 Fecha de consulta: 16 de noviembre de 2026.
 
 Límite de spoilers autorizado para investigar: versión 7.2. No se utiliza información posterior ni filtraciones. Esto es un techo de spoilers, no una declaración de revisión exhaustiva hasta esa versión.

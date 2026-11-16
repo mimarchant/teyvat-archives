@@ -14,9 +14,9 @@ const query = Astro.url.searchParams.get('q')?.trim() ?? '';
     <header class="search-page__header">
       <p class="eyebrow"><span></span> CONSULTA DEL ARCHIVO</p>
       <h1>Buscar en <em>Teyvat.</em></h1>
-      <p>Busca nombres, acontecimientos, civilizaciones y conceptos. Los resultados se construyen a partir del contenido editorial publicado.</p>
+      <p>Busca nombres, acontecimientos, civilizaciones y conceptos entre el contenido disponible para búsqueda sin spoilers.</p>
     </header>
     <SearchExplorer client:load initialQuery={query} />
-    <p class="search-page__note">Los borradores editoriales no aparecen en los resultados. Cada entrada publicada conserva su clasificación y sus referencias.</p>
+    <p class="search-page__note">La búsqueda incluye páginas de exploración y artículos verificados sin spoilers. Las demás entradas están disponibles en <a class="back-link" href="/cronicas/">Crónicas</a>.</p>
   </section>
 </SiteLayout>

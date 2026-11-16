@@ -78,7 +78,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [x] Persistencia de progreso de lectura
 
-La entrada de Khaenri'ah es un primer borrador de lectura de fuentes, con anuncios oficiales localizados y un diálogo consultado de forma indirecta. Sigue pendiente de contraste con el juego; la [lista de revisión](docs/khaenriah-editorial-review.md) detalla lo que falta antes de aprobarla. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
+La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. Sigue pendiente de revisión editorial; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
 
 ## Recursos visuales
 
