@@ -76,7 +76,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Crónicas con timeline y filtros
 - [x] Grafo de conocimiento con evidencia por relación
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
-- [ ] Persistencia de progreso de lectura
+- [x] Persistencia de progreso de lectura
 
 La entrada de Khaenri'ah es deliberadamente un borrador sin afirmaciones de lore verificadas ni fuentes inventadas. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
 
@@ -91,3 +91,7 @@ Proyecto fan no oficial, no afiliado, respaldado ni patrocinado por HoYoverse.
 ## Sprint 06
 
 Consulta [SPRINT-06.md](SPRINT-06.md) para el contrato de relaciones, validación, control de spoilers y alcance del ajuste móvil. No hay relaciones de lore publicadas hasta que existan fuentes revisadas.
+
+## Progreso de lectura
+
+Los artículos de crónicas guardan una posición local y permiten continuar, marcar como leído o borrar el registro. Consulta [la guía de progreso](docs/reading-progress.md) para persistencia, accesibilidad y comportamiento con spoilers.
