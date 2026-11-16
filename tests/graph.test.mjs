@@ -94,3 +94,25 @@ test('published connection resolves its article and evidence without bypassing s
   assert.equal(visibleEdges(graph, ids, 'show').length, 1);
   assert.equal(graph.nodes.find(n => n.id === graph.edges[0].to).href, '/entidades/dainsleif/');
 });
+
+test('the second sourced line adds only its reviewed Zibai mention', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('chronicles', 'khaenriah'), load('entities', 'dainsleif'),
+    load('chronicles', 'lang-gan'), load('entities', 'zibai'),
+  ]));
+  assert.equal(graph.nodes.length, 4);
+  assert.equal(graph.edges.length, 2);
+  const edge = graph.edges.find(item => item.key === 'chronicles:lang-gan/menciona-zibai');
+  assert.ok(edge);
+  assert.equal(edge.to, 'entities:zibai');
+  assert.deepEqual(edge.evidence.map(source => source.id), ['teaser-nightmare-yore']);
+  const ids = new Set(graph.nodes.map(node => node.id));
+  assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
+  assert.equal(visibleEdges(graph, ids, 'warn', [edge.key]).length, 1);
+  assert.equal(graph.nodes.find(node => node.id === edge.to).href, '/entidades/zibai/');
+});

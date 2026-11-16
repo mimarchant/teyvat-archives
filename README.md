@@ -80,6 +80,8 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
 
+El archivo incorpora una segunda línea documental desde el teaser oficial *Nightmare of Yore*: una [crónica de Lang-Gan y una ficha de Zibai](docs/nightmare-of-yore-source-audit.md), conectadas solo por la presencia explícita del personaje en el relato. No se asignan fecha absoluta, región ni desenlace.
+
 ## Recursos visuales
 
 Las imágenes remotas actuales son placeholders editoriales de Unsplash para probar composición y contraste. Antes de publicar, deben reemplazarse por recursos con derechos y permisos adecuados. El proyecto no debe asumir afiliación con HoYoverse ni reutilizar assets del juego sin revisar sus condiciones de uso.
