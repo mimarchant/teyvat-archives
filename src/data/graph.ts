@@ -28,8 +28,9 @@ export const nodeId = (collection: ArchiveCollection, id: string) => `${collecti
 
 /** Only collections with an implemented article route receive a link. */
 function articleHref(entry: ArchiveEntry) {
-  return entry.collection === 'chronicles'
-    ? `/cronicas/${entry.id.split('/').map(encodeURIComponent).join('/')}/` : undefined;
+  const routes: Partial<Record<ArchiveCollection, string>> = { chronicles: 'cronicas', entities: 'entidades' };
+  const route = routes[entry.collection];
+  return route ? `/${route}/${entry.id.split('/').map(encodeURIComponent).join('/')}/` : undefined;
 }
 
 export function buildKnowledgeGraph(entries: readonly ArchiveEntry[]): KnowledgeGraph {

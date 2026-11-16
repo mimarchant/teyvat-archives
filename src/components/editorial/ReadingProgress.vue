@@ -3,8 +3,8 @@ import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue';
 import { clearProgress, loadProgress, readingPosition, readingStorageKey, resumePosition, saveProgress,
   type ProgressStorage, type ReadingProgress } from '../../lib/reading-progress';
 
-const props = defineProps<{ entryId: string; revision: string }>();
-const key = readingStorageKey('chronicles', props.entryId);
+const props = withDefaults(defineProps<{ entryId: string; revision: string; collection?: 'chronicles' | 'entities' }>(), { collection: 'chronicles' });
+const key = readingStorageKey(props.collection, props.entryId);
 const record = ref<ReadingProgress | null>(null);
 const ready = ref(false);
 const persistent = ref(true);

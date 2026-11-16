@@ -1,5 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { parse } from 'yaml';
 import { buildKnowledgeGraph, canReveal, visibleEdges } from '../src/data/graph.ts';
 
 // Synthetic editorial fixtures, never loaded into the site's content collections.
@@ -19,7 +21,7 @@ test('preserves isolated entries without inventing edges or routes', () => {
   const graph = buildKnowledgeGraph([entry('entities', 'same'), entry('chronicles', 'same')]);
   assert.equal(graph.nodes.length, 2);
   assert.equal(graph.edges.length, 0);
-  assert.equal(graph.nodes.find(n => n.collection === 'entities').href, undefined);
+  assert.equal(graph.nodes.find(n => n.collection === 'entities').href, '/entidades/same/');
   assert.equal(graph.nodes.find(n => n.collection === 'chronicles').href, '/cronicas/same/');
 });
 test('builds directed relationships with the origin evidence and editorial classification', () => {
@@ -28,6 +30,13 @@ test('builds directed relationships with the origin evidence and editorial class
   assert.equal(graph.edges[0].to, 'entities:fixture-b');
   assert.equal(graph.edges[0].classification, 'theory');
   assert.deepEqual(graph.edges[0].evidence, [source]);
+});
+
+test('article links encode IDs and omit collections without implemented routes', () => {
+  const graph = buildKnowledgeGraph([entry('entities', 'a b/é'), entry('quests', 'quest'), entry('mysteries', 'mystery')]);
+  assert.equal(graph.nodes.find(n => n.collection === 'entities').href, '/entidades/a%20b/%C3%A9/');
+  assert.equal(graph.nodes.find(n => n.collection === 'quests').href, undefined);
+  assert.equal(graph.nodes.find(n => n.collection === 'mysteries').href, undefined);
 });
 test('rejects dangling targets', () => {
   assert.throws(() => buildKnowledgeGraph([linked()[0]]), /destino inexistente/);
@@ -68,4 +77,20 @@ test('neither evidence nor topology is exposed when either endpoint is hidden', 
   for (const id of graph.nodes.map(node => node.id)) {
     assert.deepEqual(visibleEdges(graph, new Set([id]), 'show'), []);
   }
+});
+
+test('published connection resolves its article and evidence without bypassing spoilers', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([load('chronicles', 'khaenriah'), load('entities', 'dainsleif')]));
+  const ids = new Set(graph.nodes.map(n => n.id));
+  assert.equal(graph.edges.length, 1);
+  assert.equal(graph.edges[0].evidence[0].id, 'registro-audiovisual-dainsleif');
+  assert.equal(visibleEdges(graph, ids, 'hide').length, 0);
+  assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
+  assert.equal(visibleEdges(graph, ids, 'show').length, 1);
+  assert.equal(graph.nodes.find(n => n.id === graph.edges[0].to).href, '/entidades/dainsleif/');
 });

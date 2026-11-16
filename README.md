@@ -90,7 +90,7 @@ Proyecto fan no oficial, no afiliado, respaldado ni patrocinado por HoYoverse.
 
 ## Sprint 06
 
-Consulta [SPRINT-06.md](SPRINT-06.md) para el contrato de relaciones, validación, control de spoilers y alcance del ajuste móvil. No hay relaciones de lore publicadas hasta que existan fuentes revisadas.
+Consulta [SPRINT-06.md](SPRINT-06.md) para el contrato de relaciones, validación, control de spoilers y alcance del ajuste móvil. El archivo incluye ahora una [primera ficha y conexión documentada](docs/dainsleif-first-connection.md): la crónica de Khaenri'ah menciona a Dainsleif como hablante del testimonio. El vínculo no afirma causalidad ni una biografía completa.
 
 ## Progreso de lectura
 
