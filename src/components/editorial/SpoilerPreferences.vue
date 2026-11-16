@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 type SpoilerMode = 'hide' | 'warn' | 'show';
 const mode = ref<SpoilerMode>('warn');
@@ -23,15 +23,25 @@ function applyMode(nextMode: SpoilerMode) {
       summary.title = nextMode === 'hide' ? 'Cambia el modo de spoilers a Advertir o Mostrar para revelar esta sección.' : '';
     }
   });
-  localStorage.setItem('teyvat-spoiler-mode', nextMode);
+  try { localStorage.setItem('teyvat-spoiler-mode', nextMode); } catch { /* La preferencia sigue activa en esta página. */ }
+  window.dispatchEvent(new CustomEvent('teyvat-spoiler-change', { detail: nextMode }));
+}
+
+function syncStorage(event: StorageEvent) {
+  if (event.key !== 'teyvat-spoiler-mode' && event.key !== null) return;
+  const next = event.newValue;
+  applyMode(next === 'hide' || next === 'show' ? next : 'warn');
 }
 
 onMounted(() => {
-  const stored = localStorage.getItem('teyvat-spoiler-mode');
+  window.addEventListener('storage', syncStorage);
+  let stored: string | null = null;
+  try { stored = localStorage.getItem('teyvat-spoiler-mode'); } catch { /* Usar el modo seguro por defecto. */ }
   const valid = options.some((option) => option.value === stored);
   applyMode(valid ? (stored as SpoilerMode) : 'warn');
   ready.value = true;
 });
+onUnmounted(() => window.removeEventListener('storage', syncStorage));
 </script>
 
 <template>

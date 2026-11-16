@@ -66,6 +66,8 @@ const chronicles = defineCollection({
   schema: baseSchema.extend({
     era: z.string().optional(),
     timelineOrder: z.number().optional(),
+    chronologyConfirmed: z.boolean().default(false),
+    region: z.string().optional(),
   }),
 });
 
