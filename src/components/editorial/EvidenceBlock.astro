@@ -1,0 +1,21 @@
+---
+interface Props {
+  classification: 'canon' | 'interpretation' | 'theory' | 'unresolved';
+  title: string;
+  source?: string;
+  reference?: string;
+}
+const { classification, title, source, reference } = Astro.props;
+const labels = {
+  canon: 'Canon confirmado',
+  interpretation: 'Interpretación',
+  theory: 'Teoría',
+  unresolved: 'Sin resolver',
+};
+---
+<aside class={`evidence-block evidence-block--${classification}`} aria-label={`Clasificación: ${labels[classification]}`}>
+  <div class="evidence-block__topline"><span class="evidence-block__symbol" aria-hidden="true">{classification === 'canon' ? '✓' : classification === 'theory' ? '?' : classification === 'unresolved' ? '…' : '◇'}</span><span>{labels[classification]}</span></div>
+  <p class="evidence-block__title">{title}</p>
+  {source && <p class="evidence-block__source">Evidencia: {source}{reference ? ` · ${reference}` : ''}</p>}
+  {!source && <p class="evidence-block__source">Fuente pendiente de documentar. No publicar como afirmación verificada.</p>}
+</aside>

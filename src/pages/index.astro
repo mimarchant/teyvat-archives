@@ -1,0 +1,77 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Teyvat Archives — The Living Archive" description="Explora la historia, las civilizaciones y los misterios de Teyvat.">
+  <section class="hero">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="hero-content page-wrap">
+      <p class="eyebrow"><span></span> UN ARCHIVO VIVO DE TEYVAT</p>
+      <h1>Every story<br /><em>leaves a trace.</em></h1>
+      <p class="hero-description">La historia de Teyvat está escrita en sus ruinas, sus leyendas y las personas que aún recuerdan. Sigue cada rastro.</p>
+      <div class="hero-actions">
+        <a class="button button--gold" href="#cronicas">Comenzar a explorar <span>↗</span></a>
+        <a class="text-link" href="#atlas">Descubrir el Atlas <span>→</span></a>
+      </div>
+      <div class="hero-index"><span>ARCHIVO Nº 0001</span><span>UNA HISTORIA AÚN INCOMPLETA</span></div>
+    </div>
+    <div class="hero-side-note" aria-hidden="true">THE WORLD OF TEYVAT · EST. UNKNOWN</div>
+  </section>
+
+  <section class="intro-strip page-wrap">
+    <div class="intro-symbol">✧</div>
+    <p>Un lugar para conectar las piezas.<br /><span>Desde el origen del mundo hasta los secretos que todavía esperan ser descubiertos.</span></p>
+    <a href="#archivo" class="round-link" aria-label="Explorar el archivo">↘</a>
+  </section>
+
+  <section id="cronicas" class="section page-wrap">
+    <div class="section-heading">
+      <div><p class="eyebrow">01 / LA HISTORIA</p><h2>Crónicas de <em>Teyvat</em></h2></div>
+      <a class="text-link" href="#cronicas">Ver todas las crónicas <span>→</span></a>
+    </div>
+    <div class="feature-grid">
+      <a class="feature-card feature-card--large" href="/cronicas/khaenriah/">
+        <div class="feature-image feature-image--ruins"></div>
+        <div class="feature-overlay"></div>
+        <div class="feature-meta"><span>CRÓNICA HISTÓRICA</span><span>LECTURA · 12 MIN</span></div>
+        <div class="feature-copy"><p class="eyebrow">CIVILIZACIONES PERDIDAS</p><h3>Khaenri'ah</h3><p>Una nación sin dios. Un reino bajo la tierra. Un destino que cambió el curso de la historia.</p><span class="feature-cta">Explorar la crónica <b>↗</b></span></div>
+      </a>
+      <div class="feature-stack">
+        <article class="mini-card mini-card--timeline"><p class="eyebrow">LÍNEA TEMPORAL</p><h3>Las eras<br />de Teyvat</h3><p>Recorre los grandes acontecimientos que dieron forma al mundo.</p><a href="#cronicas" class="arrow-link" aria-label="Explorar línea temporal">↗</a><span class="mini-decoration">Ⅰ · Ⅱ · Ⅲ</span></article>
+        <article class="mini-card mini-card--origins"><p class="eyebrow">ORÍGENES</p><h3>Antes de<br />la memoria</h3><p>El mundo antiguo y las preguntas que aún no tienen respuesta.</p><a href="#misterios" class="arrow-link" aria-label="Explorar los orígenes">↗</a><span class="mini-decoration">✧</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="archivo" class="archive-band">
+    <div class="page-wrap">
+      <div class="section-heading section-heading--light"><div><p class="eyebrow">02 / CONSULTA</p><h2>El <em>Archivo</em></h2></div><p class="section-aside">Personajes, facciones, conceptos y entidades.<br />Cada entrada es una pieza del relato.</p></div>
+      <div class="archive-grid">
+        <a class="archive-item" href="#archivo"><span class="archive-icon">♙</span><span class="archive-number">001</span><h3>Personajes</h3><p>Vidas, vínculos y destinos.</p><span class="archive-arrow">↗</span></a>
+        <a class="archive-item" href="#archivo"><span class="archive-icon">⌂</span><span class="archive-number">002</span><h3>Facciones</h3><p>Órdenes, grupos y alianzas.</p><span class="archive-arrow">↗</span></a>
+        <a class="archive-item" href="#archivo"><span class="archive-icon">✧</span><span class="archive-number">003</span><h3>Entidades</h3><p>Dioses, seres y fuerzas.</p><span class="archive-arrow">↗</span></a>
+        <a class="archive-item" href="#archivo"><span class="archive-icon">◇</span><span class="archive-number">004</span><h3>Conceptos</h3><p>Ideas que sostienen el mundo.</p><span class="archive-arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="atlas" class="section page-wrap atlas-section">
+    <div class="section-heading"><div><p class="eyebrow">03 / GEOGRAFÍA E HISTORIA</p><h2>Atlas de <em>Teyvat</em></h2></div><a class="text-link" href="#atlas">Explorar el Atlas <span>→</span></a></div>
+    <p class="section-lead">Naciones, regiones y civilizaciones que dejaron su huella en el mundo.</p>
+    <div class="atlas-grid">
+      <a class="atlas-card atlas-card--mondstadt" href="#atlas"><span class="atlas-kicker">LA CIUDAD DE LA LIBERTAD</span><strong>Mondstadt</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
+      <a class="atlas-card atlas-card--liyue" href="#atlas"><span class="atlas-kicker">EL PUERTO DE LOS CONTRATOS</span><strong>Liyue</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
+      <a class="atlas-card atlas-card--inazuma" href="#atlas"><span class="atlas-kicker">EL REINO DE LA ETERNIDAD</span><strong>Inazuma</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
+    </div>
+  </section>
+
+  <section id="misterios" class="mystery-band">
+    <div class="page-wrap mystery-inner"><div><p class="eyebrow">04 / LO QUE AÚN NO SABEMOS</p><h2>Algunos secretos<br />siguen <em>esperando.</em></h2><p>Reúne pistas, contrasta fuentes y distingue lo confirmado de lo que todavía es una teoría.</p><a class="button button--outline" href="#misterios">Entrar a Misterios <span>↗</span></a></div><div class="mystery-mark" aria-hidden="true"><span>✧</span><i></i><b></b></div></div>
+  </section>
+
+  <section id="conexiones" class="section page-wrap connections-section">
+    <div class="connection-copy"><p class="eyebrow">05 / TODO ESTÁ CONECTADO</p><h2>Las historias<br />nunca están <em>aisladas.</em></h2><p>Explora las relaciones entre personajes, acontecimientos, lugares y conceptos. Sigue una conexión y descubre qué evidencia la sostiene.</p><a href="#conexiones" class="text-link">Explorar el grafo de conocimiento <span>→</span></a></div>
+    <div class="connection-art" aria-label="Ilustración conceptual de conexiones entre entidades"><svg viewBox="0 0 520 360" role="img" aria-hidden="true"><g class="graph-lines"><path d="M260 175 100 90 72 245 260 175 420 70 450 255 260 175 100 90 420 70M100 90 450 255M72 245 420 70"/><path d="M260 175 260 30M260 175 260 330"/></g><g class="graph-nodes"><circle cx="260" cy="175" r="27"/><circle cx="100" cy="90" r="13"/><circle cx="72" cy="245" r="9"/><circle cx="420" cy="70" r="16"/><circle cx="450" cy="255" r="11"/><circle cx="260" cy="30" r="7"/><circle cx="260" cy="330" r="8"/></g><g class="graph-labels"><text x="260" y="219">TEYVAT</text><text x="57" y="65">ORIGEN</text><text x="382" y="42">ENTIDAD</text><text x="392" y="286">EVENTO</text></g></svg></div>
+  </section>
+
+  <section id="buscar" class="search-band"><div class="page-wrap search-inner"><div><p class="eyebrow">EL ARCHIVO ESTÁ ABIERTO</p><h2>¿Qué estás buscando?</h2></div><form class="search-form" action="/buscar/"><label class="sr-only" for="q">Buscar en el archivo</label><input id="q" name="q" type="search" placeholder="Personaje, lugar, acontecimiento..." /><button type="submit" aria-label="Buscar">↗</button></form></div></section>
+</SiteLayout>

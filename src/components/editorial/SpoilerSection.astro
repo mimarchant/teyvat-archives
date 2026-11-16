@@ -1,0 +1,16 @@
+---
+interface Props {
+  level: 'none' | 'mondstadt' | 'liyue' | 'inazuma' | 'sumeru' | 'fontaine' | 'natlan' | 'snezhnaya';
+  label?: string;
+}
+const { level, label = 'Contenido con spoilers' } = Astro.props;
+const isSpoiler = level !== 'none';
+---
+<details class:list={['spoiler-section', !isSpoiler && 'spoiler-section--safe']} data-spoiler-level={level} open={!isSpoiler}>
+  {isSpoiler && <summary class="spoiler-section__summary">
+    <span class="spoiler-section__icon" aria-hidden="true">◈</span>
+    <span>{label} · {level.toUpperCase()}</span>
+    <span class="spoiler-section__action">Revelar <span aria-hidden="true">＋</span></span>
+  </summary>}
+  <div class="spoiler-section__content"><slot /></div>
+</details>

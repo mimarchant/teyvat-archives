@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+const { title = 'Teyvat Archives', description = 'Un archivo vivo de la historia, los personajes y los misterios de Teyvat.' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111923" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Teyvat Archives, inicio">
+        <span class="brand-mark" aria-hidden="true">✧</span>
+        <span class="brand-copy"><strong>TEYVAT ARCHIVES</strong><small>THE LIVING ARCHIVE</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/#cronicas">Crónicas</a>
+        <a href="/#archivo">Archivo</a>
+        <a href="/#atlas">Atlas</a>
+        <a href="/#misterios">Misterios</a>
+        <a href="/#conexiones">Conexiones</a>
+      </nav>
+      <a class="search-link" href="/#buscar"><span aria-hidden="true">⌕</span> <span>Buscar</span></a>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="/"><span class="brand-mark">✧</span><span class="brand-copy"><strong>TEYVAT ARCHIVES</strong><small>EVERY STORY LEAVES A TRACE</small></span></a>
+      <p>Un proyecto de archivo y exploración creado por fans. No está afiliado a HoYoverse.</p>
+      <span class="footer-note">Un proyecto en construcción · v0.1</span>
+    </footer>
+  </body>
+</html>
