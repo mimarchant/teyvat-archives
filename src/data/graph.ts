@@ -28,7 +28,9 @@ export const nodeId = (collection: ArchiveCollection, id: string) => `${collecti
 
 /** Only collections with an implemented article route receive a link. */
 function articleHref(entry: ArchiveEntry) {
-  const routes: Partial<Record<ArchiveCollection, string>> = { chronicles: 'cronicas', entities: 'entidades' };
+  const routes: Partial<Record<ArchiveCollection, string>> = {
+    chronicles: 'cronicas', entities: 'entidades', quests: 'misiones',
+  };
   const route = routes[entry.collection];
   return route ? `/${route}/${entry.id.split('/').map(encodeURIComponent).join('/')}/` : undefined;
 }

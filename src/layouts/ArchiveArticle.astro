@@ -9,11 +9,17 @@ import ReadingProgress from '../components/editorial/ReadingProgress.vue';
 import '../styles/reading-progress.css';
 
 import type { CollectionEntry } from 'astro:content';
-interface Props { entry: CollectionEntry<'chronicles' | 'entities'> }
+interface Props { entry: CollectionEntry<'chronicles' | 'entities' | 'quests'> }
 
 const { entry } = Astro.props;
 const isChronicle = entry.collection === 'chronicles';
 const savedId = isChronicle ? entry.id : `${entry.collection}:${entry.id}`;
+const articleLabels = {
+  chronicles: { kicker: 'CRÓNICA HISTÓRICA', backHref: '/cronicas/', backLabel: 'Volver a Crónicas' },
+  entities: { kicker: 'FICHA DE ENTIDAD', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
+  quests: { kicker: 'FICHA DE MISIÓN', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
+} as const;
+const articleLabel = articleLabels[entry.collection];
 const { Content, headings } = await render(entry);
 const revision = await contentRevision(entry.body ?? '', headings, entry.data.updatedAt.toISOString());
 const date = entry.data.updatedAt.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
@@ -29,11 +35,11 @@ const searchable = isSearchableArticle(entry.data);
 ---
 <SiteLayout title={`${entry.data.title} — Teyvat Archives`} description={entry.data.summary}>
   <article class="article-shell page-wrap" data-pagefind-ignore={searchable ? undefined : true}>
-    <a class="back-link" href={isChronicle ? '/cronicas/' : '/conexiones/'}>← {isChronicle ? 'Volver a Crónicas' : 'Volver a Conexiones'}</a>
+    <a class="back-link" href={articleLabel.backHref}>← {articleLabel.backLabel}</a>
 
     <header class="article-header article-header--editorial">
       <div class="article-kicker-row">
-        <p class="eyebrow"><span></span> {isChronicle ? 'CRÓNICA HISTÓRICA' : 'FICHA DE ENTIDAD'}</p>
+        <p class="eyebrow"><span></span> {articleLabel.kicker}</p>
         <span class={`review-status review-status--${entry.data.reviewStatus}`}>{statusLabel}</span>
       </div>
       <h1>{entry.data.title}</h1>
