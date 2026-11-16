@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import MysteryDirectory from '../../components/mysteries/MysteryDirectory.vue';
+import '../../styles/mysteries.css';
+
+const entries = (await getCollection('mysteries')).sort((a, b) =>
+  b.data.updatedAt.getTime() - a.data.updatedAt.getTime() || a.data.title.localeCompare(b.data.title, 'es'));
+const directoryEntries = entries.map(entry => ({ id: entry.id, title: entry.data.title, summary: entry.data.summary,
+  status: entry.data.status, reviewStatus: entry.data.reviewStatus, spoilerLevel: entry.data.spoilerLevel }));
+---
+<SiteLayout title="Misterios — Teyvat Archives" description="Preguntas abiertas de Teyvat documentadas con fuentes, límites y estado editorial.">
+  <section class="page-wrap mystery-directory">
+    <header class="mystery-directory__header">
+      <p class="eyebrow"><span></span> 04 / LO QUE AÚN NO SABEMOS</p>
+      <h1>Expedientes <em>abiertos</em></h1>
+      <p>Cada expediente separa las pistas verificadas de lo que la fuente todavía no permite concluir.</p>
+    </header>
+
+    <div class="mystery-directory__note">
+      <strong>{entries.length} preguntas documentadas</strong>
+      <span>El estado describe la pregunta, no el avance de la historia principal.</span>
+    </div>
+
+    <MysteryDirectory client:load entries={directoryEntries} />
+    <noscript><p class="mystery-directory__fallback">Activa JavaScript para aplicar tus preferencias de spoilers y abrir los expedientes.</p></noscript>
+  </section>
+</SiteLayout>

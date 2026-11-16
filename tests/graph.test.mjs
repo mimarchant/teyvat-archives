@@ -32,11 +32,11 @@ test('builds directed relationships with the origin evidence and editorial class
   assert.deepEqual(graph.edges[0].evidence, [source]);
 });
 
-test('article links encode IDs and omit collections without implemented routes', () => {
+test('article links encode IDs for every implemented collection route', () => {
   const graph = buildKnowledgeGraph([entry('entities', 'a b/é'), entry('quests', 'quest'), entry('mysteries', 'mystery')]);
   assert.equal(graph.nodes.find(n => n.collection === 'entities').href, '/entidades/a%20b/%C3%A9/');
   assert.equal(graph.nodes.find(n => n.collection === 'quests').href, '/misiones/quest/');
-  assert.equal(graph.nodes.find(n => n.collection === 'mysteries').href, undefined);
+  assert.equal(graph.nodes.find(n => n.collection === 'mysteries').href, '/misterios/mystery/');
 });
 test('rejects dangling targets', () => {
   assert.throws(() => buildKnowledgeGraph([linked()[0]]), /destino inexistente/);
@@ -103,10 +103,10 @@ test('the second sourced line adds only its reviewed Zibai mention', async () =>
   };
   const graph = buildKnowledgeGraph(await Promise.all([
     load('chronicles', 'khaenriah'), load('entities', 'dainsleif'),
-    load('chronicles', 'lang-gan'), load('entities', 'zibai'),
+    load('chronicles', 'lang-gan'), load('entities', 'zibai'), load('entities', 'lang-gan'),
   ]));
-  assert.equal(graph.nodes.length, 4);
-  assert.equal(graph.edges.length, 2);
+  assert.equal(graph.nodes.length, 5);
+  assert.equal(graph.edges.length, 3);
   const edge = graph.edges.find(item => item.key === 'chronicles:lang-gan/menciona-zibai');
   assert.ok(edge);
   assert.equal(edge.to, 'entities:zibai');
@@ -125,6 +125,7 @@ test('the first quest article links its reviewed passage without inventing chara
   };
   const graph = buildKnowledgeGraph(await Promise.all([
     load('quests', 'we-will-be-reunited'), load('chronicles', 'khaenriah'), load('entities', 'dainsleif'),
+    load('entities', 'abyss-order'), load('entities', 'treasure-hoarders'),
   ]));
   const edge = graph.edges.find(item => item.key === 'quests:we-will-be-reunited/relacionada-cronica-khaenriah');
   assert.ok(edge);
@@ -134,5 +135,41 @@ test('the first quest article links its reviewed passage without inventing chara
   assert.deepEqual(edge.evidence.map(source => source.id), ['anuncio-oficial-acto-iv', 'registro-audiovisual-pasaje']);
   assert.equal(graph.nodes.find(node => node.id === edge.from).href, '/misiones/we-will-be-reunited/');
   assert.equal(graph.edges.some(item => item.from === edge.from && item.to === 'entities:dainsleif'), false);
-  assert.equal(graph.edges.filter(item => item.from === edge.from).length, 1);
+  assert.equal(graph.edges.filter(item => item.from === edge.from).length, 3);
+  assert.deepEqual(graph.edges.filter(item => item.from === edge.from && item.type === 'mentions').map(item => item.to).sort(),
+    ['entities:abyss-order', 'entities:treasure-hoarders']);
+});
+
+test('the expansion pack gives both open mysteries article routes and sourced targets', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('mysteries', 'voice-over-lang-gan'), load('mysteries', 'fate-of-lang-gan'),
+    load('entities', 'lang-gan'), load('chronicles', 'lang-gan'), load('entities', 'zibai'),
+  ]));
+  const mysteries = graph.nodes.filter(node => node.collection === 'mysteries');
+  assert.equal(mysteries.length, 2);
+  assert.ok(mysteries.every(node => node.href?.startsWith('/misterios/')));
+  assert.deepEqual(graph.edges.filter(edge => edge.from.startsWith('mysteries:')).map(edge => edge.to).sort(),
+    ['chronicles:lang-gan', 'entities:lang-gan']);
+  assert.ok(graph.edges.filter(edge => edge.from.startsWith('mysteries:')).every(edge =>
+    edge.classification === 'unresolved' && edge.evidence.length === 1));
+});
+
+test('Bough Keeper links only the name documented by its official title', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('quests', 'bough-keeper-dainsleif'), load('entities', 'dainsleif'),
+  ]));
+  assert.equal(graph.edges.length, 1);
+  assert.equal(graph.edges[0].to, 'entities:dainsleif');
+  assert.equal(graph.edges[0].spoilerLevel, 'none');
+  assert.deepEqual(graph.edges[0].evidence.map(source => source.id), ['notas-oficiales-1-3']);
 });

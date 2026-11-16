@@ -9,7 +9,7 @@ import ReadingProgress from '../components/editorial/ReadingProgress.vue';
 import '../styles/reading-progress.css';
 
 import type { CollectionEntry } from 'astro:content';
-interface Props { entry: CollectionEntry<'chronicles' | 'entities' | 'quests'> }
+interface Props { entry: CollectionEntry<'chronicles' | 'entities' | 'quests' | 'mysteries'> }
 
 const { entry } = Astro.props;
 const isChronicle = entry.collection === 'chronicles';
@@ -18,6 +18,7 @@ const articleLabels = {
   chronicles: { kicker: 'CRÓNICA HISTÓRICA', backHref: '/cronicas/', backLabel: 'Volver a Crónicas' },
   entities: { kicker: 'FICHA DE ENTIDAD', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
   quests: { kicker: 'FICHA DE MISIÓN', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
+  mysteries: { kicker: 'EXPEDIENTE ABIERTO', backHref: '/misterios/', backLabel: 'Volver a Misterios' },
 } as const;
 const articleLabel = articleLabels[entry.collection];
 const { Content, headings } = await render(entry);

@@ -1,0 +1,28 @@
+.mystery-directory { padding-block: clamp(5rem, 10vw, 9rem); }
+.mystery-directory__header { max-width: 760px; }
+.mystery-directory__header h1 { margin: 1rem 0; font-size: clamp(3.5rem, 9vw, 7rem); line-height: .82; }
+.mystery-directory__header h1 em { color: var(--gold); font-weight: 400; }
+.mystery-directory__header > p:last-child { max-width: 620px; font-size: 1.1rem; line-height: 1.7; }
+.mystery-directory__note { display: flex; justify-content: space-between; gap: 1rem; margin: 4rem 0 1rem; padding-block: 1rem; border-block: 1px solid var(--line); color: var(--muted); }
+.mystery-directory__note strong { color: var(--paper); text-transform: uppercase; letter-spacing: .08em; }
+.mystery-directory__controls { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: 2rem; align-items: end; margin-bottom: 1rem; }
+.mystery-directory__controls > p { margin: 0; color: var(--muted); text-align: right; }
+.mystery-list { margin: 0; padding: 0; list-style: none; }
+.mystery-list li { border-bottom: 1px solid var(--line); }
+.mystery-list a, .mystery-list__protected { display: grid; grid-template-columns: 4rem 1fr auto; gap: 1.5rem; align-items: center; padding: 2rem 1rem; color: inherit; text-decoration: none; transition: background .2s ease; }
+.mystery-list a:hover, .mystery-list a:focus-visible { background: color-mix(in srgb, var(--gold) 8%, transparent); }
+.mystery-list__number, .mystery-list__meta { color: var(--gold); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.mystery-list__copy { display: grid; gap: .5rem; }
+.mystery-list__copy strong { font-family: var(--serif); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; }
+.mystery-list__copy > span:last-child { color: var(--muted); line-height: 1.55; }
+.mystery-list__copy button { justify-self: start; margin-top: .5rem; border: 1px solid var(--line); background: transparent; color: var(--gold-light); padding: .55rem .8rem; cursor: pointer; }
+.mystery-list__copy button:hover, .mystery-list__copy button:focus-visible { border-color: var(--gold); }
+.mystery-list__arrow { font-size: 1.5rem; }
+.mystery-directory__fallback { padding: 1rem; border: 1px solid var(--line); color: var(--muted); }
+@media (max-width: 640px) {
+  .mystery-directory__note { flex-direction: column; }
+  .mystery-directory__controls { grid-template-columns: 1fr; }
+  .mystery-directory__controls > p { text-align: left; }
+  .mystery-list a, .mystery-list__protected { grid-template-columns: 2rem 1fr; gap: 1rem; padding-inline: 0; }
+  .mystery-list__arrow { display: none; }
+}
