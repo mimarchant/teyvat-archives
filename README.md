@@ -84,7 +84,7 @@ El archivo incorpora una segunda línea documental desde el teaser oficial *Nigh
 
 La colección de misiones se abre con una [ficha verificada del Capítulo I, acto IV](docs/first-quest-entry.md). Registra su publicación original, su sinopsis y los requisitos anunciados en 2021, además de una conexión editorial acotada con la crónica de Khaenri'ah.
 
-El Atlas enlaza un [paquete territorial de las siete naciones](docs/nations-atlas-pack.md), construido con la presentación española del mapa oficial y el encuadre promocional histórico de *Travail*. Las fichas no resumen arcos argumentales ni inventan relaciones entre territorios.
+El Atlas enlaza un [paquete territorial de las siete naciones](docs/nations-atlas-pack.md), ampliado después con [fuentes oficiales específicas para cada región](docs/seven-nations-expansion.md). Las fichas distinguen la presentación general, el alcance de cada actualización y el encuadre histórico de *Travail*; no resumen arcos completos ni inventan relaciones entre territorios.
 
 ## Recursos visuales
 

@@ -185,15 +185,17 @@ test('three official creature descriptions add only their explicit Abyss Order a
   ]);
 });
 
-test('the seven nation records stay isolated and use only the two declared official presentations', async () => {
+test('the seven nation records stay isolated and preserve their sourced expansion levels', async () => {
   const ids = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'snezhnaya'];
+  const expectedLevels = { mondstadt: 'none', liyue: 'none', inazuma: 'inazuma', sumeru: 'sumeru',
+    fontaine: 'fontaine', natlan: 'natlan', snezhnaya: 'snezhnaya' };
   const entries = await Promise.all(ids.map(async (id) => {
     const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
     const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
     assert.equal(data.entityType, 'nation');
-    assert.equal(data.spoilerLevel, 'none');
+    assert.equal(data.spoilerLevel, expectedLevels[id]);
     assert.equal(data.reviewStatus, 'verified');
-    assert.equal(data.sources.length, 2);
+    assert.ok(data.sources.length >= 3);
     assert.ok(data.sources.some(source => source.id === `mapa-oficial-${id}`));
     assert.ok(data.sources.some(source => source.id === `travail-${id}`));
     return { collection: 'entities', id, data: { relations: [], ...data } };

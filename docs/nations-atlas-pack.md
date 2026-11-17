@@ -1,6 +1,6 @@
 # Paquete territorial de las siete naciones
 
-Esta entrega convierte las siete naciones del Atlas en fichas editoriales verificadas y enlazables. Todas comparten un alcance deliberadamente introductorio.
+Esta entrega inicial convirtió las siete naciones del Atlas en fichas editoriales verificadas y enlazables. Su alcance introductorio fue ampliado posteriormente en el [paquete de expansión de las siete naciones](seven-nations-expansion.md).
 
 ## Fuentes comunes
 
@@ -19,7 +19,7 @@ Las dos capas no se mezclan: el mapa describe la presentación territorial actua
 - Natlan.
 - Snezhnaya.
 
-Las siete entradas usan el nuevo tipo `nation`, tienen nivel de spoiler `none`, revisión `verified`, dos fuentes oficiales y ninguna relación de grafo. La ausencia de relaciones es intencional: compartir un tráiler, un elemento o una posición en el itinerario promocional no demuestra por sí solo una relación narrativa entre naciones.
+Las siete entradas usan el tipo `nation`, mantienen revisión `verified` y no añaden relaciones narrativas entre territorios. La entrega inicial usó dos fuentes comunes y nivel `none`; la ampliación posterior añadió fuentes regionales y elevó el nivel únicamente en las secciones que describen contenido de versiones concretas.
 
 ## Integración
 

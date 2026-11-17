@@ -1,5 +1,9 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { atlasEntries } from '../data/atlas';
+import '../styles/home-atlas.css';
+
+const nationEntries = atlasEntries.filter((entry) => entry.category === 'nation');
 ---
 <SiteLayout title="Teyvat Archives — The Living Archive" description="Explora la historia, las civilizaciones y los misterios de Teyvat.">
   <section class="hero">
@@ -58,9 +62,13 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     <div class="section-heading"><div><p class="eyebrow">03 / GEOGRAFÍA E HISTORIA</p><h2>Atlas de <em>Teyvat</em></h2></div><a class="text-link" href="/atlas/">Explorar el Atlas <span>→</span></a></div>
     <p class="section-lead">Naciones, regiones y civilizaciones que dejaron su huella en el mundo.</p>
     <div class="atlas-grid">
-      <a class="atlas-card atlas-card--mondstadt" href="/entidades/mondstadt/"><span class="atlas-kicker">LA CIUDAD DE LA LIBERTAD</span><strong>Mondstadt</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
-      <a class="atlas-card atlas-card--liyue" href="/entidades/liyue/"><span class="atlas-kicker">EL PUERTO DE LOS CONTRATOS</span><strong>Liyue</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
-      <a class="atlas-card atlas-card--inazuma" href="/entidades/inazuma/"><span class="atlas-kicker">EL REINO DE LA ETERNIDAD</span><strong>Inazuma</strong><span class="atlas-discover">Descubrir <b>↗</b></span></a>
+      {nationEntries.map((entry) => (
+        <a class:list={['atlas-card', `atlas-card--${entry.id}`]} href={entry.href}>
+          <span class="atlas-kicker">{entry.subtitle.toUpperCase()}</span>
+          <strong>{entry.name}</strong>
+          <span class="atlas-discover">Descubrir <b>↗</b></span>
+        </a>
+      ))}
     </div>
   </section>
 
