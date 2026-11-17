@@ -10,7 +10,7 @@ La relación dirigida `chronicles:khaenriah/menciona-dainsleif` tiene tipo `ment
 
 ## Artículos y persistencia
 
-Crónicas y entidades utilizan `ArchiveArticle.astro`, con el mismo índice, fuentes, preferencias de spoilers, biblioteca y progreso. El grafo enlaza únicamente colecciones con ruta implementada: crónicas y entidades. Misiones y misterios siguen sin enlace de artículo.
+Crónicas y entidades utilizan `ArchiveArticle.astro`, con el mismo índice, fuentes, preferencias de spoilers, biblioteca y progreso. La relación se conserva como metadato editorial validado, pero ya no se publica mediante un mapa visual.
 
 El progreso usa la colección como parte de la clave. Las crónicas conservan sus claves existentes y las entidades usan su propio espacio. La biblioteca conserva los IDs históricos de crónicas y añade el prefijo `entities:` para las nuevas fichas. No se cambia ni migra información guardada.
 
@@ -18,7 +18,7 @@ Ambos artículos tienen nivel Liyue y quedan fuera de Pagefind. La ficha se alca
 
 ## Comprobación
 
-Ejecutar `npm test`, `npm run check` y `npm run build`. Las pruebas del grafo incluyen las rutas de entidades y la integridad de la conexión publicada, con ocultamiento en los modos ocultar y advertir. La comprobación editorial recorre ambas colecciones.
+Ejecutar `npm test`, `npm run check` y `npm run build`. Las pruebas de relaciones incluyen las rutas de entidades y la integridad de la conexión documentada, con ocultamiento en los modos ocultar y advertir. La comprobación editorial recorre ambas colecciones.
 
 Resultado: 55 pruebas aprobadas; check con 0 errores, 0 advertencias de diagnóstico y 0 sugerencias; build con 7 páginas generadas y 4 indexadas. Persisten los avisos de las colecciones vacías de misiones y misterios.
 

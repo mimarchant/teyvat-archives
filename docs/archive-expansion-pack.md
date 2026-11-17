@@ -8,7 +8,7 @@ Este paquete amplía el archivo en una sola entrega con seis entradas verificada
 - una misión de mundo: `Bough Keeper: Dainsleif`;
 - dos misterios abiertos sobre la voz y el desenlace del relato de Lang-Gan.
 
-También incorpora la ruta `/misterios/`, páginas individuales, control local de spoilers en el directorio y enlaces tipados en el grafo. Las fichas no intentan cubrir la biografía completa de una entidad o el argumento completo de una misión.
+También incorpora la ruta `/misterios/`, páginas individuales, control local de spoilers en el directorio y relaciones tipadas que se validan internamente. Las fichas no intentan cubrir la biografía completa de una entidad o el argumento completo de una misión.
 
 ## Fuentes primarias
 
