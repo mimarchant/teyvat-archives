@@ -1,6 +1,6 @@
 # Teyvat Archives
 
-Prototipo de un archivo de lore de Genshin Impact en español. Sprint 06: grafo de conocimiento, filtros y evidencia por relación.
+Prototipo de un archivo editorial de lore de Genshin Impact en español, con contenido tipado, fuentes, spoilers locales y rutas simples de exploración.
 
 ## Stack
 
@@ -74,7 +74,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Búsqueda real (Pagefind)
 - [x] Atlas con filtros
 - [x] Crónicas con timeline y filtros
-- [x] Grafo de conocimiento con evidencia por relación
+- [x] Relaciones tipadas y validadas internamente
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [x] Persistencia de progreso de lectura
 - [x] Directorio tipado de entidades y fichas territoriales de las siete naciones
@@ -95,9 +95,9 @@ Las imágenes remotas actuales son placeholders editoriales de Unsplash para pro
 
 Proyecto fan no oficial, no afiliado, respaldado ni patrocinado por HoYoverse.
 
-## Sprint 06
+## Relaciones editoriales
 
-Consulta [SPRINT-06.md](SPRINT-06.md) para el contrato de relaciones, validación, control de spoilers y alcance del ajuste móvil. El archivo incluye ahora una [primera ficha y conexión documentada](docs/dainsleif-first-connection.md): la crónica de Khaenri'ah menciona a Dainsleif como hablante del testimonio. El vínculo no afirma causalidad ni una biografía completa.
+Las relaciones se conservan como metadatos tipados para validar destinos, evidencia y límites editoriales. Ya no se presentan como un mapa público: la navegación principal prioriza Crónicas, Archivo, Atlas, Misiones, Misterios y Búsqueda.
 
 ## Progreso de lectura
 

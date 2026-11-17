@@ -14,9 +14,9 @@ No se añade una relación de participación con Dainsleif. Su nombre aparece en
 
 ## Ruta y persistencia
 
-`ArchiveArticle.astro` admite ahora crónicas, entidades y misiones. Las misiones usan `/misiones/[slug]/`, reciben la etiqueta «Ficha de misión», vuelven a Conexiones y guardan biblioteca y progreso en el espacio `quests:`. Las claves históricas de crónicas y entidades no cambian.
+`ArchiveArticle.astro` admite ahora crónicas, entidades y misiones. Las misiones usan `/misiones/[slug]/`, reciben la etiqueta «Ficha de misión», vuelven al directorio de Misiones y guardan biblioteca y progreso en el espacio `quests:`. Las claves históricas de crónicas y entidades no cambian.
 
-El grafo enlaza nodos de misiones solo porque existe una ruta real. Misterios continúa sin enlace hasta que tenga su propia plantilla.
+La relación de la misión se valida contra rutas y fuentes reales. El sitio ya no utiliza un mapa visual para presentarla.
 
 La ficha tiene nivel Liyue, queda fuera de Pagefind y mantiene cerradas sus secciones protegidas en los modos ocultar y advertir.
 
