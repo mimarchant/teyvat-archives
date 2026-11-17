@@ -41,3 +41,14 @@
   .search-explorer__form button{padding:10px;font-size:11px}
   .search-results__heading{align-items:flex-start;gap:12px}
 }
+@media(min-width:681px){
+  .search-page__header>p:last-child{font-size:18px;line-height:1.7}
+  .search-explorer__form input{font-size:18px}
+  .search-explorer__form button{font-size:14px}
+  .search-explorer__hint,.search-page__note{font-size:14px}
+  .search-explorer__status{font-size:15px}
+  .search-results__heading>span{font-size:13px}
+  .search-result__excerpt{font-size:16px}
+  .search-result__link{font-size:14px}
+  .search-results__empty p{font-size:15px}
+}

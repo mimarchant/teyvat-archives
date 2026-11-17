@@ -33,3 +33,10 @@
   .entity-list a, .entity-list__protected { grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; padding-inline: 0; }
   .entity-list__arrow { display: none; }
 }
+@media (min-width: 681px) {
+  .entity-directory__header > p:last-child { font-size: 1.2rem; }
+  .entity-directory__note, .entity-directory__status { font-size: 1rem; }
+  .directory-spoiler-warning { font-size: .95rem; }
+  .directory-spoiler-warning strong, .entity-directory__filter, .entity-list__number, .entity-list__meta { font-size: .85rem; }
+  .entity-list__copy > span:last-of-type { font-size: 1.05rem; }
+}

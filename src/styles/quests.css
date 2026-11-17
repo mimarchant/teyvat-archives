@@ -28,3 +28,10 @@
   .quest-list a, .quest-list__protected { grid-template-columns: 2rem 1fr; gap: 1rem; padding-inline: 0; }
   .quest-list__arrow { display: none; }
 }
+@media (min-width: 681px) {
+  .quest-directory__header > p:last-child { font-size: 1.2rem; }
+  .quest-directory__note, .quest-directory__controls > p { font-size: 1rem; }
+  .directory-spoiler-warning { font-size: .95rem; }
+  .directory-spoiler-warning strong, .quest-list__number, .quest-list__meta { font-size: .85rem; }
+  .quest-list__copy > span:last-of-type { font-size: 1.05rem; }
+}
