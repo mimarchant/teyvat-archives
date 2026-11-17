@@ -6,6 +6,8 @@
 .quest-directory__note { display: flex; justify-content: space-between; gap: 1rem; margin: 4rem 0 1rem; padding-block: 1rem; border-block: 1px solid var(--line); color: var(--muted); }
 .quest-directory__note strong { color: var(--paper); text-transform: uppercase; letter-spacing: .08em; }
 .quest-directory__controls { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: 2rem; align-items: end; margin-bottom: 1rem; }
+.directory-spoiler-warning { display: grid; gap: .3rem; padding: 1rem 1.1rem; border: 1px solid rgba(210, 189, 145, .48); border-left: 3px solid var(--gold-light); background: rgba(180, 154, 105, .1); color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.directory-spoiler-warning strong { color: var(--gold-light); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
 .quest-directory__controls > p { margin: 0; color: var(--muted); text-align: right; }
 .quest-list { margin: 0; padding: 0; list-style: none; }
 .quest-list li { border-bottom: 1px solid var(--line); }

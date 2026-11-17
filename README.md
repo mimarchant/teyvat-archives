@@ -1,6 +1,6 @@
 # Teyvat Archives
 
-Prototipo de un archivo editorial de lore de Genshin Impact en español, con contenido tipado, fuentes, spoilers locales y rutas simples de exploración.
+Prototipo de un archivo editorial de lore de Genshin Impact en español, con contenido tipado, fuentes, advertencias de spoilers y rutas simples de exploración.
 
 ## Stack
 
@@ -67,8 +67,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Ruta de crónica de ejemplo
 - [x] Plantilla editorial con índice automático
 - [x] Bloques de evidencia clasificados
-- [x] Control de spoilers por sección (ocultar / advertir / mostrar)
-- [x] Preferencia de spoilers persistida localmente
+- [x] Advertencias de spoilers visibles antes de cada sección sensible
 - [x] Registro de fuentes con estado vacío explícito
 - [x] Guardado local de una entrada en la biblioteca
 - [x] Búsqueda real (Pagefind)
@@ -79,7 +78,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Persistencia de progreso de lectura
 - [x] Directorio tipado de entidades y fichas territoriales de las siete naciones
 
-La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
+La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX muestran una advertencia antes de cada sección sensible, pero no ocultan el contenido.
 
 El archivo incorpora una segunda línea documental desde el teaser oficial *Nightmare of Yore*: una [crónica de Lang-Gan y una ficha de Zibai](docs/nightmare-of-yore-source-audit.md), conectadas solo por la presencia explícita del personaje en el relato. No se asignan fecha absoluta, región ni desenlace.
 
@@ -101,4 +100,4 @@ Las relaciones se conservan como metadatos tipados para validar destinos, eviden
 
 ## Progreso de lectura
 
-Los artículos de crónicas guardan una posición local y permiten continuar, marcar como leído o borrar el registro. Consulta [la guía de progreso](docs/reading-progress.md) para persistencia, accesibilidad y comportamiento con spoilers.
+Los artículos guardan una posición local y permiten continuar, marcar como leído o borrar el registro. Consulta [la guía de progreso](docs/reading-progress.md) para persistencia, accesibilidad y convivencia con las advertencias de spoilers.

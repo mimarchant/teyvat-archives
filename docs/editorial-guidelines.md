@@ -25,13 +25,9 @@ Una fuente que solo menciona dos personajes no demuestra por sí sola una relaci
 
 El nivel de spoiler se asigna por sección. El nivel general de la entrada funciona como advertencia inicial, no como sustituto de la clasificación granular.
 
-Modos de lectura:
+Las secciones con un nivel distinto de `none` muestran una alerta antes del contenido. La alerta debe indicar el alcance de la sección y avisar que continuar puede revelar detalles importantes de la historia. El contenido permanece visible: no hay modos de lectura, preferencia local ni botones para ocultarlo o revelarlo.
 
-- `hide`: secciones con spoilers cerradas y sin interacción para revelarlas;
-- `warn`: secciones cerradas que el lector puede revelar manualmente;
-- `show`: todas las secciones abiertas.
-
-La preferencia se guarda en `localStorage`. Como el sitio es estático, ocultar contenido en la interfaz no lo protege frente a inspección del HTML o de los archivos publicados. Si más adelante se necesita impedir que el contenido spoiler llegue al navegador, habrá que separar ese contenido en recursos que solo se soliciten tras validar la preferencia.
+Los directorios muestran títulos y resúmenes junto con su nivel de spoiler. El buscador mantiene fuera de sus extractos los artículos con spoilers para evitar revelaciones sin contexto.
 
 ## Revisión
 

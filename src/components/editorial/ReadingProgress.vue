@@ -82,11 +82,7 @@ function resume() {
   const measured = layout();
   if (!measured) return;
   const index = measured.markers.findIndex(marker => marker.id === record.value?.anchor);
-  const start = measured.markers[Math.max(0, index)]?.top ?? measured.top;
-  const end = measured.markers[Math.max(0, index) + 1]?.top ?? measured.bottom;
-  const closed = [...measured.content.querySelectorAll<HTMLDetailsElement>('details.spoiler-section:not([open])')]
-    .some(element => { const top = element.getBoundingClientRect().top + window.scrollY; return top >= start && top < end; });
-  const destination = resumePosition(record.value, props.revision, measured.markers, measured.bottom, window.innerHeight, closed);
+  const destination = resumePosition(record.value, props.revision, measured.markers, measured.bottom, window.innerHeight);
   if (!destination) return;
   const target = measured.elements.find(element => element.id === destination.anchor);
   if (target) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
@@ -94,7 +90,6 @@ function resume() {
   window.scrollTo({ top: destination.top, behavior: 'instant' });
   notice.value = destination.missing ? 'La sección guardada ya no existe. Volviste al inicio del artículo.'
     : destination.changed ? 'El artículo cambió. Volviste al inicio de la sección guardada para revisarla.'
-    : destination.closed ? 'Volviste a la sección guardada. Su contenido con spoilers sigue oculto.'
     : 'Volviste a tu posición guardada.';
 }
 function toggleCompleted() {
@@ -126,7 +121,6 @@ onMounted(() => {
   window.addEventListener('pagehide', pageHidden);
   window.addEventListener('pageshow', pageShown);
   window.addEventListener('storage', storageChanged);
-  window.addEventListener('teyvat-spoiler-change', cancelTracking);
   document.addEventListener('visibilitychange', visibilityChanged);
 });
 onUnmounted(() => {
@@ -140,7 +134,6 @@ onUnmounted(() => {
   window.removeEventListener('pagehide', pageHidden);
   window.removeEventListener('pageshow', pageShown);
   window.removeEventListener('storage', storageChanged);
-  window.removeEventListener('teyvat-spoiler-change', cancelTracking);
   document.removeEventListener('visibilitychange', visibilityChanged);
 });
 </script>
@@ -160,7 +153,7 @@ onUnmounted(() => {
         <button ref="completionButton" type="button" :aria-pressed="!!completed" @click="toggleCompleted">{{ completed ? 'Marcar como pendiente' : 'Marcar como leído' }}</button>
         <button v-if="record" type="button" @click="reset">Borrar progreso</button>
       </div>
-      <p class="reading-progress__note">Solo en este navegador. La posición no confirma que hayas leído las secciones con spoilers.</p>
+      <p class="reading-progress__note">Solo en este navegador. Revisa las advertencias de spoilers antes de continuar.</p>
       <p v-if="!persistent" class="reading-progress__note">No se pudo guardar en el navegador. El progreso solo se conserva mientras esta página esté abierta.</p>
       <p class="reading-progress__notice" role="status">{{ notice }}</p>
     </template>

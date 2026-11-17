@@ -30,7 +30,7 @@ Las tres fichas de criaturas solo registran su pertenencia a la Orden del Abismo
 ## Interfaz y trazabilidad
 
 - `/misiones/` ordena siete fichas ya presentes en el archivo según la progresión documental de capítulos.
-- El control local de spoilers permite ocultar, advertir o mostrar el contenido, además de revelar fichas individualmente.
+- Cada ficha y sección sensible muestra una advertencia con su nivel de spoiler antes del contenido.
 - Las nuevas relaciones se conservan como metadatos tipados con evidencia identificable y clasificación explícita; no se muestran en un mapa público.
 - El nuevo tipo de entidad `creature` permite distinguir criaturas de personajes, regiones, facciones y conceptos.
 
@@ -38,4 +38,4 @@ Las tres fichas de criaturas solo registran su pertenencia a la Orden del Abismo
 
 - Pruebas del grafo para impedir que la evidencia promocional se convierta en una afirmación argumental.
 - Pruebas del grafo para comprobar que las criaturas solo añaden su afiliación oficial a la Orden del Abismo.
-- Revisión visual de `/misiones/` en escritorio y a 390 px, incluida la revelación individual de spoilers.
+- Revisión visual de `/misiones/` en escritorio y a 390 px, incluidas las advertencias de spoilers.

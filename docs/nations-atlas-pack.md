@@ -24,7 +24,7 @@ Las siete entradas usan el nuevo tipo `nation`, tienen nivel de spoiler `none`, 
 ## Integración
 
 - El Atlas enlaza las siete fichas y deja de presentarlas como contenido en preparación.
-- `/entidades/` ofrece un directorio tipado con filtro, control local de spoilers y revelado individual.
+- `/entidades/` ofrece un directorio tipado con filtro y niveles de spoiler visibles.
 - La navegación principal enlaza el Archivo y Misiones.
 - Las tarjetas de Archivo y Atlas del inicio llevan a rutas reales.
 - Las fichas de entidad vuelven al directorio del Archivo en lugar de usar el grafo como índice general.

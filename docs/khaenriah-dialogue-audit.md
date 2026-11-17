@@ -54,7 +54,7 @@ La comprobación del cliente 7.2 queda fuera del alcance, no como evidencia pend
 
 El paso a `needs-review` reveló que la plantilla solo excluía borradores de Pagefind. Se corrige la política: solo los artículos `verified` con nivel `none` pueden indexarse. Las entradas pendientes de revisión y todas las que contienen spoilers quedan fuera del índice, incluso si están verificadas.
 
-Esta política protege los extractos del buscador; no restringe el acceso a la URL pública ni al HTML. El control de spoilers continúa siendo una preferencia de interfaz.
+Esta política protege los extractos del buscador; no restringe el acceso a la URL pública ni al HTML. Las secciones sensibles muestran advertencias visibles antes de su contenido.
 
 ## Validación técnica
 

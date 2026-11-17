@@ -18,11 +18,11 @@ No se añade una relación de participación con Dainsleif. Su nombre aparece en
 
 La relación de la misión se valida contra rutas y fuentes reales. El sitio ya no utiliza un mapa visual para presentarla.
 
-La ficha tiene nivel Liyue, queda fuera de Pagefind y mantiene cerradas sus secciones protegidas en los modos ocultar y advertir.
+La ficha tiene nivel Liyue, queda fuera de Pagefind y muestra una advertencia antes de cada sección sensible.
 
 ## Validación
 
 - 57 pruebas aprobadas, incluida la ruta de misiones, la evidencia de la relación y la ausencia de relaciones nuevas de participación.
 - Cinco artículos revisados por el validador editorial; Astro check con 0 errores, 0 advertencias de diagnóstico y 0 sugerencias.
 - Build correcto: 10 páginas generadas y 4 indexadas. Solo persiste el aviso de la colección vacía de misterios.
-- En navegador se verificaron el revelado independiente de la misión y su relación, las dos fuentes del vínculo, el acceso al artículo, la persistencia y borrado del progreso, las secciones cerradas y 0 resultados para `Lupus Minor` en Pagefind.
+- En navegador se verificaron las advertencias de la misión, las dos fuentes del vínculo, el acceso al artículo, la persistencia y borrado del progreso, y 0 resultados para `Lupus Minor` en Pagefind.

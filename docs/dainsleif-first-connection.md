@@ -10,16 +10,16 @@ La relación dirigida `chronicles:khaenriah/menciona-dainsleif` tiene tipo `ment
 
 ## Artículos y persistencia
 
-Crónicas y entidades utilizan `ArchiveArticle.astro`, con el mismo índice, fuentes, preferencias de spoilers, biblioteca y progreso. La relación se conserva como metadato editorial validado, pero ya no se publica mediante un mapa visual.
+Crónicas y entidades utilizan `ArchiveArticle.astro`, con el mismo índice, fuentes, advertencias de spoilers, biblioteca y progreso. La relación se conserva como metadato editorial validado, pero ya no se publica mediante un mapa visual.
 
 El progreso usa la colección como parte de la clave. Las crónicas conservan sus claves existentes y las entidades usan su propio espacio. La biblioteca conserva los IDs históricos de crónicas y añade el prefijo `entities:` para las nuevas fichas. No se cambia ni migra información guardada.
 
-Ambos artículos tienen nivel Liyue y quedan fuera de Pagefind. La ficha se alcanza desde una conexión revelada, el enlace protegido de la crónica o una URL directa. El control de spoilers es una preferencia visual, no un control de acceso al HTML estático.
+Ambos artículos tienen nivel Liyue y quedan fuera de Pagefind. Las secciones sensibles muestran una advertencia antes del contenido; la ficha puede abrirse desde el directorio o mediante una URL directa.
 
 ## Comprobación
 
-Ejecutar `npm test`, `npm run check` y `npm run build`. Las pruebas de relaciones incluyen las rutas de entidades y la integridad de la conexión documentada, con ocultamiento en los modos ocultar y advertir. La comprobación editorial recorre ambas colecciones.
+Ejecutar `npm test`, `npm run check` y `npm run build`. Las pruebas de relaciones incluyen las rutas de entidades y la integridad de la conexión documentada. La comprobación editorial recorre ambas colecciones.
 
 Resultado: 55 pruebas aprobadas; check con 0 errores, 0 advertencias de diagnóstico y 0 sugerencias; build con 7 páginas generadas y 4 indexadas. Persisten los avisos de las colecciones vacías de misiones y misterios.
 
-En navegador se comprobó el revelado separado de los dos nodos y la relación, la evidencia, el enlace a la ficha, marcar y borrar su progreso, y la conservación de las secciones cerradas y la exclusión de búsqueda en ambos artículos. La plantilla compartida muestra las fechas editoriales en UTC para evitar que una fecha sin hora retroceda al día anterior durante la compilación local.
+En navegador se comprobaron las advertencias, la evidencia, el enlace a la ficha, marcar y borrar su progreso, y la exclusión de búsqueda en ambos artículos. La plantilla compartida muestra las fechas editoriales en UTC para evitar que una fecha sin hora retroceda al día anterior durante la compilación local.

@@ -78,12 +78,7 @@ test('restoring the same revision uses the saved relative section position', () 
 });
 test('a changed revision returns to the section start and discards its old offset', () => {
   assert.deepEqual(resumePosition(record, 'revision-b', markers, 1200, 500), {
-    anchor: 'section-a', top: 300, missing: false, changed: true, closed: false,
-  });
-});
-test('a collapsed spoiler returns to its heading without opening it or using the hidden offset', () => {
-  assert.deepEqual(resumePosition(record, 'revision-a', markers, 1200, 500, true), {
-    anchor: 'section-a', top: 300, missing: false, changed: false, closed: true,
+    anchor: 'section-a', top: 300, missing: false, changed: true,
   });
 });
 test('removed or arbitrary anchors fall back to the article start', () => {

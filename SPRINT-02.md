@@ -6,7 +6,7 @@
 - Metadatos visibles de estado editorial, clasificación y nivel de spoiler.
 - Bloque de evidencia con clasificación `canon`, `interpretation`, `theory` o `unresolved`.
 - Bloques de sección con niveles de spoiler.
-- Preferencia global de spoilers: ocultar, advertir o mostrar; persistida en localStorage.
+- Advertencias visibles antes de cada sección con spoilers. El control global entregado originalmente fue retirado para simplificar la lectura.
 - Registro de fuentes con estado vacío explícito.
 - Guía editorial inicial.
 

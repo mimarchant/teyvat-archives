@@ -4,7 +4,6 @@ import { contentRevision } from '../lib/content-revision';
 import { isSearchableArticle } from '../lib/search-visibility';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import SaveToLibrary from '../components/SaveToLibrary.vue';
-import SpoilerPreferences from '../components/editorial/SpoilerPreferences.vue';
 import ReadingProgress from '../components/editorial/ReadingProgress.vue';
 import '../styles/reading-progress.css';
 
@@ -64,7 +63,6 @@ const searchable = isSearchableArticle(entry.data);
             <a href={`#${heading.slug}`}>{heading.text}</a>
           ))}
         </nav>
-        <SpoilerPreferences client:load />
         <ReadingProgress client:load collection={entry.collection} entryId={entry.id} revision={revision} />
         <div class="editorial-note">
           <span aria-hidden="true">✧</span>
