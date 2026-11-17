@@ -17,7 +17,7 @@ const savedId = isChronicle ? entry.id : `${entry.collection}:${entry.id}`;
 const articleLabels = {
   chronicles: { kicker: 'CRÓNICA HISTÓRICA', backHref: '/cronicas/', backLabel: 'Volver a Crónicas' },
   entities: { kicker: 'FICHA DE ENTIDAD', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
-  quests: { kicker: 'FICHA DE MISIÓN', backHref: '/conexiones/', backLabel: 'Volver a Conexiones' },
+  quests: { kicker: 'FICHA DE MISIÓN', backHref: '/misiones/', backLabel: 'Volver a Misiones' },
   mysteries: { kicker: 'EXPEDIENTE ABIERTO', backHref: '/misterios/', backLabel: 'Volver a Misterios' },
 } as const;
 const articleLabel = articleLabels[entry.collection];

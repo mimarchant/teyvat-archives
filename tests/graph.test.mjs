@@ -173,3 +173,40 @@ test('Bough Keeper links only the name documented by its official title', async 
   assert.equal(graph.edges[0].spoilerLevel, 'none');
   assert.deepEqual(graph.edges[0].evidence.map(source => source.id), ['notas-oficiales-1-3']);
 });
+
+test('the questline pack keeps promotional evidence distinct from mission plot claims', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('quests', 'requiem-of-the-echoing-depths'), load('quests', 'caribert'),
+    load('quests', 'bedtime-story'), load('quests', 'paralogism'),
+    load('quests', 'a-space-and-time-for-you'), load('entities', 'dainsleif'),
+  ]));
+  assert.equal(graph.nodes.filter(node => node.collection === 'quests').length, 5);
+  assert.equal(graph.edges.length, 1);
+  assert.equal(graph.edges[0].key, 'quests:bedtime-story/trailer-acredita-dainsleif');
+  assert.equal(graph.edges[0].classification, 'interpretation');
+  assert.deepEqual(graph.edges[0].evidence.map(source => source.id), ['trailer-oficial-4-7']);
+  assert.match(graph.edges[0].explanation, /no afirma por sí solo/u);
+});
+
+test('three official creature descriptions add only their explicit Abyss Order affiliation', async () => {
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const graph = buildKnowledgeGraph(await Promise.all([
+    load('entities', 'abyss-order'), load('entities', 'abyss-herald-wicked-torrents'),
+    load('entities', 'abyss-lector-violet-lightning'), load('entities', 'abyss-herald-frost-fall'),
+  ]));
+  assert.equal(graph.nodes.length, 4);
+  assert.equal(graph.edges.length, 3);
+  assert.ok(graph.edges.every(edge => edge.type === 'part-of' && edge.to === 'entities:abyss-order'));
+  assert.deepEqual(graph.edges.map(edge => edge.evidence[0].id).sort(), [
+    'notas-oficiales-1-4-herald', 'notas-oficiales-1-5-lector', 'notas-oficiales-3-5-frost-fall',
+  ]);
+});
