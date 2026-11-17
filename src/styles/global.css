@@ -29,3 +29,43 @@ html[data-spoiler-mode="hide"] .spoiler-section:not([data-spoiler-level="none"])
   .main-nav{gap:18px;scrollbar-width:none;-ms-overflow-style:none}
   .main-nav::-webkit-scrollbar{display:none}
 }
+
+/* Readability pass — display serif for headings, text serif for articles, sans for UI. */
+:root{
+  --muted:#aeb7bf;
+  --reading:'Source Serif 4',Georgia,serif;
+}
+.prose,.prose--editorial{font-family:var(--reading)}
+@media(min-width:681px){
+  body{font-size:18px;line-height:1.65}
+  .brand-copy strong{font-size:13px}
+  .brand-copy small{font-size:10px}
+  .main-nav a,.search-link{font-size:15px}
+  .eyebrow{font-size:12px}
+  .hero-description{font-size:18px;max-width:500px}
+  .button,.text-link{font-size:14px}
+  .hero-index,.hero-side-note,.feature-meta{font-size:11px}
+  .intro-strip p span{font-size:15px}
+  .feature-copy>p:not(.eyebrow),.mini-card>p:not(.eyebrow),.section-aside,.section-lead,.mystery-inner>div>p:not(.eyebrow){font-size:16px;line-height:1.65}
+  .feature-cta,.atlas-discover{font-size:14px}
+  .archive-number,.atlas-kicker{font-size:11px}
+  .archive-item p{font-size:15px;line-height:1.55}
+  .search-form input{font-size:16px}
+  .site-footer p,.footer-note{font-size:12px;line-height:1.55}
+  .back-link,.save-button{font-size:14px}
+  .article-summary{max-width:760px;font:400 24px/1.55 var(--reading)}
+  .article-meta,.article-reading-time,.review-status{font-size:11px}
+  .article-toc a,.article-sidebar a{font-size:14px;line-height:1.5}
+  .editorial-note p{font-size:13px;line-height:1.55}
+  .prose,.prose--editorial{font-size:20px;line-height:1.8;letter-spacing:.003em;color:#e1ded6}
+  .prose p,.prose--editorial p{max-width:68ch}
+  .prose blockquote,.prose--editorial blockquote{font-size:15px;line-height:1.7}
+  .spoiler-section__summary{font-size:12px}
+  .evidence-block__topline{font-size:11px}
+  .evidence-block__title{font-size:22px!important}
+  .evidence-block__source{font-size:14px}
+  .source-empty{font-size:15px}
+  .source-register li strong{font-size:20px}
+  .source-register li span,.source-register li small{font-size:11px}
+  .source-register li p{font-size:15px;line-height:1.6}
+}
