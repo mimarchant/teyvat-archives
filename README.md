@@ -77,12 +77,15 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Grafo de conocimiento con evidencia por relación
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [x] Persistencia de progreso de lectura
+- [x] Directorio tipado de entidades y fichas territoriales de las siete naciones
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX de spoiler permiten controlar la revelación en la interfaz; no constituyen protección de contenido frente a inspección del HTML estático.
 
 El archivo incorpora una segunda línea documental desde el teaser oficial *Nightmare of Yore*: una [crónica de Lang-Gan y una ficha de Zibai](docs/nightmare-of-yore-source-audit.md), conectadas solo por la presencia explícita del personaje en el relato. No se asignan fecha absoluta, región ni desenlace.
 
 La colección de misiones se abre con una [ficha verificada del Capítulo I, acto IV](docs/first-quest-entry.md). Registra su publicación original, su sinopsis y los requisitos anunciados en 2021, además de una conexión editorial acotada con la crónica de Khaenri'ah.
+
+El Atlas enlaza un [paquete territorial de las siete naciones](docs/nations-atlas-pack.md), construido con la presentación española del mapa oficial y el encuadre promocional histórico de *Travail*. Las fichas no resumen arcos argumentales ni inventan relaciones entre territorios.
 
 ## Recursos visuales
 

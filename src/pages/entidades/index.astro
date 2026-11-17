@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import EntityDirectory from '../../components/entities/EntityDirectory.vue';
+import '../../styles/entities.css';
+
+const typeOrder = new Map([
+  ['nation', 10], ['civilization', 20], ['location', 30], ['faction', 40], ['character', 50],
+  ['deity', 60], ['creature', 70], ['artifact', 80], ['concept', 90], ['region', 100],
+]);
+const entries = (await getCollection('entities')).sort((a, b) =>
+  (typeOrder.get(a.data.entityType) ?? 999) - (typeOrder.get(b.data.entityType) ?? 999)
+  || a.data.title.localeCompare(b.data.title, 'es'));
+const directoryEntries = entries.map(entry => ({
+  id: entry.id, title: entry.data.title, summary: entry.data.summary, entityType: entry.data.entityType,
+  reviewStatus: entry.data.reviewStatus, spoilerLevel: entry.data.spoilerLevel,
+}));
+---
+<SiteLayout title="Archivo de entidades — Teyvat Archives" description="Personajes, naciones, facciones, criaturas y conceptos documentados con fuentes y control local de spoilers.">
+  <section class="page-wrap entity-directory">
+    <header class="entity-directory__header">
+      <p class="eyebrow"><span></span> 02 / CONSULTA</p>
+      <h1>El <em>Archivo</em></h1>
+      <p>Explora las fichas editoriales del proyecto. Cada entrada declara sus fuentes, clasificación, revisión y límites documentales.</p>
+    </header>
+    <div class="entity-directory__note">
+      <strong>{entries.length} entradas tipadas</strong>
+      <span>Los filtros describen la forma del archivo; no establecen jerarquías dentro del lore.</span>
+    </div>
+    <EntityDirectory client:load entries={directoryEntries} />
+    <noscript><p class="entity-directory__fallback">Activa JavaScript para filtrar el archivo y aplicar tus preferencias de spoilers.</p></noscript>
+  </section>
+</SiteLayout>

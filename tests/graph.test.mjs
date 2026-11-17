@@ -210,3 +210,22 @@ test('three official creature descriptions add only their explicit Abyss Order a
     'notas-oficiales-1-4-herald', 'notas-oficiales-1-5-lector', 'notas-oficiales-3-5-frost-fall',
   ]);
 });
+
+test('the seven nation records stay isolated and use only the two declared official presentations', async () => {
+  const ids = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'snezhnaya'];
+  const entries = await Promise.all(ids.map(async (id) => {
+    const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    assert.equal(data.entityType, 'nation');
+    assert.equal(data.spoilerLevel, 'none');
+    assert.equal(data.reviewStatus, 'verified');
+    assert.equal(data.sources.length, 2);
+    assert.ok(data.sources.some(source => source.id === `mapa-oficial-${id}`));
+    assert.ok(data.sources.some(source => source.id === `travail-${id}`));
+    return { collection: 'entities', id, data: { relations: [], ...data } };
+  }));
+  const graph = buildKnowledgeGraph(entries);
+  assert.equal(graph.nodes.length, 7);
+  assert.equal(graph.edges.length, 0);
+  assert.ok(graph.nodes.every(node => node.href === `/entidades/${node.id.split(':')[1]}/`));
+});

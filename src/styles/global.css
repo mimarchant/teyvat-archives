@@ -24,3 +24,8 @@ html[data-spoiler-mode="hide"] .spoiler-section:not([data-spoiler-level="none"])
   .mystery-inner>div:first-child{position:relative;z-index:1;min-width:0}
   .mystery-inner h2{font-size:clamp(38px,11vw,49px)}
 }
+
+@media(max-width:680px){
+  .main-nav{gap:18px;scrollbar-width:none;-ms-overflow-style:none}
+  .main-nav::-webkit-scrollbar{display:none}
+}
