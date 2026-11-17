@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { parse } from 'yaml';
-import { buildKnowledgeGraph, canReveal, visibleEdges } from '../src/data/graph.ts';
+import { buildKnowledgeGraph } from '../src/data/graph.ts';
 
 // Synthetic editorial fixtures, never loaded into the site's content collections.
 const source = { id: 'fixture-source', type: 'book', title: 'Fixture source', supports: 'Fixture statement' };
@@ -58,40 +58,16 @@ test('rejects duplicate entry identifiers and self references', () => {
   assert.throws(() => buildKnowledgeGraph([entry('entities', 'a'), entry('entities', 'a')]), /duplicados/);
   assert.throws(() => buildKnowledgeGraph([entry('entities', 'fixture-b', { relations: [relation()] })]), /propia entrada/);
 });
-test('spoiler mode hide cannot be overridden by manual reveal', () => {
-  assert.equal(canReveal('sumeru', 'hide', true), false);
-  assert.equal(canReveal('sumeru', 'warn'), false);
-  assert.equal(canReveal('sumeru', 'warn', true), true);
-  assert.equal(canReveal('sumeru', 'show'), true);
-  assert.equal(canReveal('none', 'hide'), true);
-});
-test('protected relationships stay hidden until explicitly revealed', () => {
-  const graph = buildKnowledgeGraph(linked());
-  const ids = new Set(graph.nodes.map(node => node.id));
-  assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
-  assert.equal(visibleEdges(graph, ids, 'warn', [graph.edges[0].key]).length, 1);
-  assert.equal(visibleEdges(graph, ids, 'hide', [graph.edges[0].key]).length, 0);
-});
-test('neither evidence nor topology is exposed when either endpoint is hidden', () => {
-  const graph = buildKnowledgeGraph(linked());
-  for (const id of graph.nodes.map(node => node.id)) {
-    assert.deepEqual(visibleEdges(graph, new Set([id]), 'show'), []);
-  }
-});
-
-test('published connection resolves its article and evidence without bypassing spoilers', async () => {
+test('published connection resolves its article and evidence', async () => {
   const load = async (collection, id) => {
     const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
     const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
     return { collection, id, data: { relations: [], ...data } };
   };
   const graph = buildKnowledgeGraph(await Promise.all([load('chronicles', 'khaenriah'), load('entities', 'dainsleif')]));
-  const ids = new Set(graph.nodes.map(n => n.id));
   assert.equal(graph.edges.length, 1);
   assert.equal(graph.edges[0].evidence[0].id, 'registro-audiovisual-dainsleif');
-  assert.equal(visibleEdges(graph, ids, 'hide').length, 0);
-  assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
-  assert.equal(visibleEdges(graph, ids, 'show').length, 1);
+  assert.equal(graph.edges[0].spoilerLevel, 'liyue');
   assert.equal(graph.nodes.find(n => n.id === graph.edges[0].to).href, '/entidades/dainsleif/');
 });
 
@@ -111,9 +87,7 @@ test('the second sourced line adds only its reviewed Zibai mention', async () =>
   assert.ok(edge);
   assert.equal(edge.to, 'entities:zibai');
   assert.deepEqual(edge.evidence.map(source => source.id), ['teaser-nightmare-yore']);
-  const ids = new Set(graph.nodes.map(node => node.id));
-  assert.equal(visibleEdges(graph, ids, 'warn').length, 0);
-  assert.equal(visibleEdges(graph, ids, 'warn', [edge.key]).length, 1);
+  assert.equal(edge.spoilerLevel, 'snezhnaya');
   assert.equal(graph.nodes.find(node => node.id === edge.to).href, '/entidades/zibai/');
 });
 
@@ -211,15 +185,17 @@ test('three official creature descriptions add only their explicit Abyss Order a
   ]);
 });
 
-test('the seven nation records stay isolated and use only the two declared official presentations', async () => {
+test('the seven nation records stay isolated and preserve their sourced expansion levels', async () => {
   const ids = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'snezhnaya'];
+  const expectedLevels = { mondstadt: 'none', liyue: 'none', inazuma: 'inazuma', sumeru: 'sumeru',
+    fontaine: 'fontaine', natlan: 'natlan', snezhnaya: 'snezhnaya' };
   const entries = await Promise.all(ids.map(async (id) => {
     const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
     const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
     assert.equal(data.entityType, 'nation');
-    assert.equal(data.spoilerLevel, 'none');
+    assert.equal(data.spoilerLevel, expectedLevels[id]);
     assert.equal(data.reviewStatus, 'verified');
-    assert.equal(data.sources.length, 2);
+    assert.ok(data.sources.length >= 3);
     assert.ok(data.sources.some(source => source.id === `mapa-oficial-${id}`));
     assert.ok(data.sources.some(source => source.id === `travail-${id}`));
     return { collection: 'entities', id, data: { relations: [], ...data } };

@@ -72,6 +72,7 @@ const countLabel = computed(() => {
             <span class="atlas-entry__status" :class="{ 'is-ready': entry.status === 'available' }">
               {{ entry.status === 'available' ? (entry.category === 'nation' ? 'Ficha documentada' : 'Crónica relacionada') : 'Entrada en preparación' }}
             </span>
+            <span class="atlas-entry__spoiler">{{ entry.spoilerLevel }}</span>
             <a v-if="entry.href" :href="entry.href" class="atlas-entry__link">{{ entry.category === 'nation' ? 'Abrir ficha' : 'Leer crónica' }} <span aria-hidden="true">↗</span></a>
             <span v-else class="atlas-entry__coming">Próximamente</span>
           </div>

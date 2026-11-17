@@ -27,7 +27,7 @@ La ficha de Zibai conserva las voces de los habitantes como origen de sus títul
 
 La relación dirigida `chronicles:lang-gan/menciona-zibai` solo registra que el relato identifica a Zibai y le atribuye palabras. No fija la ubicación de Lang-Gan, una fecha, causalidad ni una relación con otras entidades.
 
-El nivel `snezhnaya` funciona como techo de lectura conservador para una publicación de 2026. No afirma que Lang-Gan esté en Snezhnaya. Zibai se registra como personaje; el título divino permanece atribuido a las voces del relato. Ambas entradas quedan fuera de Pagefind y su contenido protegido permanece cerrado en los modos ocultar y advertir.
+El nivel `snezhnaya` funciona como techo de lectura conservador para una publicación de 2026. No afirma que Lang-Gan esté en Snezhnaya. Zibai se registra como personaje; el título divino permanece atribuido a las voces del relato. Ambas entradas quedan fuera de Pagefind y muestran una advertencia antes del contenido sensible.
 
 La cronología no se confirma. La era queda como relato sin fecha absoluta y la región como ubicación sin clasificar.
 
@@ -36,4 +36,4 @@ La cronología no se confirma. La era queda como relato sin fecha absoluta y la 
 - 56 pruebas aprobadas, incluida la integridad de los cuatro nodos y las dos relaciones publicadas.
 - Comprobación editorial de cuatro archivos con 0 errores; Astro check con 0 errores, 0 advertencias de diagnóstico y 0 sugerencias.
 - Build correcto: 9 páginas generadas y 4 indexadas. Persisten los avisos de las colecciones vacías de misiones y misterios.
-- En navegador, ambas entradas aparecieron protegidas hasta revelarlas; la relación y su fuente requirieron un revelado separado. Los artículos conservaron cerradas sus secciones protegidas y `Zibai` produjo 0 resultados en la búsqueda.
+- En navegador, ambas entradas mostraron sus advertencias antes de las secciones sensibles y `Zibai` produjo 0 resultados en la búsqueda.

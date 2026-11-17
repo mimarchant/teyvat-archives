@@ -6,11 +6,52 @@ interface Props {
 const { level, label = 'Contenido con spoilers' } = Astro.props;
 const isSpoiler = level !== 'none';
 ---
-<details class:list={['spoiler-section', !isSpoiler && 'spoiler-section--safe']} data-spoiler-level={level} open={!isSpoiler}>
-  {isSpoiler && <summary class="spoiler-section__summary">
-    <span class="spoiler-section__icon" aria-hidden="true">◈</span>
-    <span>{label} · {level.toUpperCase()}</span>
-    <span class="spoiler-section__action">Revelar <span aria-hidden="true">＋</span></span>
-  </summary>}
-  <div class="spoiler-section__content"><slot /></div>
-</details>
+<div class:list={['editorial-section-block', isSpoiler && 'editorial-section-block--spoiler']} data-spoiler-level={level}>
+  {isSpoiler && (
+    <aside class="spoiler-warning" aria-label="Advertencia de spoilers">
+      <span class="spoiler-warning__icon" aria-hidden="true">!</span>
+      <div>
+        <strong>Advertencia de spoilers</strong>
+        <p>{label}. Si continúas leyendo, puedes encontrar detalles importantes de la historia.</p>
+      </div>
+    </aside>
+  )}
+  <div class="editorial-section-block__content"><slot /></div>
+</div>
+
+<style>
+  .editorial-section-block { margin: 0 0 24px; }
+  .spoiler-warning {
+    display: flex;
+    gap: 14px;
+    margin: 0 0 24px;
+    padding: 16px 18px;
+    border: 1px solid rgba(210, 189, 145, .48);
+    border-left: 3px solid var(--gold-light);
+    background: rgba(180, 154, 105, .1);
+    font-family: var(--sans);
+  }
+  .spoiler-warning__icon {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+  .spoiler-warning strong {
+    display: block;
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .spoiler-warning p {
+    margin: 4px 0 0 !important;
+    color: #c9c4b8;
+    font: 13px/1.55 var(--sans);
+  }
+</style>

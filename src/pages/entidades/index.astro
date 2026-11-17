@@ -16,7 +16,7 @@ const directoryEntries = entries.map(entry => ({
   reviewStatus: entry.data.reviewStatus, spoilerLevel: entry.data.spoilerLevel,
 }));
 ---
-<SiteLayout title="Archivo de entidades — Teyvat Archives" description="Personajes, naciones, facciones, criaturas y conceptos documentados con fuentes y control local de spoilers.">
+<SiteLayout title="Archivo de entidades — Teyvat Archives" description="Personajes, naciones, facciones, criaturas y conceptos documentados con fuentes y advertencias de spoilers.">
   <section class="page-wrap entity-directory">
     <header class="entity-directory__header">
       <p class="eyebrow"><span></span> 02 / CONSULTA</p>
@@ -28,6 +28,6 @@ const directoryEntries = entries.map(entry => ({
       <span>Los filtros describen la forma del archivo; no establecen jerarquías dentro del lore.</span>
     </div>
     <EntityDirectory client:load entries={directoryEntries} />
-    <noscript><p class="entity-directory__fallback">Activa JavaScript para filtrar el archivo y aplicar tus preferencias de spoilers.</p></noscript>
+    <noscript><p class="entity-directory__fallback">Las entradas siguen disponibles, pero necesitas JavaScript para filtrar el archivo.</p></noscript>
   </section>
 </SiteLayout>

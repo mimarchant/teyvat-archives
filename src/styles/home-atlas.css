@@ -1,0 +1,35 @@
+.atlas-card--sumeru {
+  background-image:
+    linear-gradient(145deg, rgba(25, 66, 52, .2), rgba(8, 24, 24, .88)),
+    radial-gradient(circle at 24% 20%, #728b5e 0, #314d42 38%, #17272a 75%);
+}
+
+.atlas-card--fontaine {
+  background-image:
+    linear-gradient(145deg, rgba(30, 78, 101, .12), rgba(10, 25, 38, .9)),
+    radial-gradient(circle at 70% 18%, #7194a7 0, #345d73 38%, #172936 76%);
+}
+
+.atlas-card--natlan {
+  background-image:
+    linear-gradient(145deg, rgba(120, 55, 28, .15), rgba(34, 20, 21, .9)),
+    radial-gradient(circle at 24% 25%, #a66d45 0, #70402f 38%, #2c2528 76%);
+}
+
+.atlas-card--snezhnaya {
+  grid-column: 1 / -1;
+  min-height: 260px;
+  background-image:
+    linear-gradient(120deg, rgba(18, 35, 48, .2), rgba(12, 23, 32, .92)),
+    radial-gradient(circle at 72% 20%, #98adb8 0, #526d7d 30%, #263a48 62%, #16242f 100%);
+}
+
+@media (max-width: 900px) {
+  .atlas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .atlas-card--snezhnaya { grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px) {
+  .atlas-grid { grid-template-columns: 1fr; }
+  .atlas-card--snezhnaya { grid-column: auto; min-height: 280px; }
+}

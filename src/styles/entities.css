@@ -6,6 +6,8 @@
 .entity-directory__note { display: flex; justify-content: space-between; gap: 1rem; margin: 4rem 0 1rem; padding-block: 1rem; border-block: 1px solid var(--line); color: var(--muted); }
 .entity-directory__note strong { color: var(--paper); text-transform: uppercase; letter-spacing: .08em; }
 .entity-directory__toolbar { display: grid; grid-template-columns: minmax(240px, 360px) minmax(220px, 1fr); gap: 2rem; align-items: end; }
+.directory-spoiler-warning { display: grid; gap: .3rem; padding: 1rem 1.1rem; border: 1px solid rgba(210, 189, 145, .48); border-left: 3px solid var(--gold-light); background: rgba(180, 154, 105, .1); color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.directory-spoiler-warning strong { color: var(--gold-light); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
 .entity-directory__filter { display: grid; justify-self: end; width: min(100%, 360px); gap: .45rem; color: var(--muted); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
 .entity-directory__filter select { width: 100%; border: 1px solid var(--line); background: var(--ink); color: var(--paper); padding: .75rem; font: inherit; }
 .entity-directory__status { margin: 1rem 0 0; color: var(--muted); text-align: right; }

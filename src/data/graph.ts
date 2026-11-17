@@ -3,7 +3,6 @@ import type { CollectionEntry } from 'astro:content';
 export type ArchiveCollection = 'chronicles' | 'entities' | 'quests' | 'mysteries';
 export type ArchiveEntry = CollectionEntry<ArchiveCollection>;
 type EntryData = ArchiveEntry['data'];
-export type SpoilerMode = 'hide' | 'warn' | 'show';
 export type GraphNode = Pick<EntryData, 'title' | 'summary' | 'classification' | 'reviewStatus' | 'spoilerLevel'> & {
   id: string;
   collection: ArchiveCollection;
@@ -33,7 +32,6 @@ function articleHref(entry: ArchiveEntry) {
   const route = routes[entry.collection];
   return route ? `/${route}/${entry.id.split('/').map(encodeURIComponent).join('/')}/` : undefined;
 }
-
 export function buildKnowledgeGraph(entries: readonly ArchiveEntry[]): KnowledgeGraph {
   const nodes: GraphNode[] = entries.map(entry => ({
     id: nodeId(entry.collection, entry.id), collection: entry.collection, href: articleHref(entry),
@@ -64,14 +62,5 @@ export function buildKnowledgeGraph(entries: readonly ArchiveEntry[]): Knowledge
   }
   return { nodes, edges: edges.sort((a, b) => a.key.localeCompare(b.key)) };
 }
+// This model validates editorial relations; the public site does not render a connections graph.
 
-export function canReveal(level: GraphNode['spoilerLevel'], mode: SpoilerMode, manuallyRevealed = false) {
-  return level === 'none' || mode === 'show' || (mode === 'warn' && manuallyRevealed);
-}
-
-/** Hiding either endpoint also hides the relationship and its evidence. */
-export function visibleEdges(graph: KnowledgeGraph, visibleNodeIds: ReadonlySet<string>, mode: SpoilerMode,
-  revealedEdgeIds: readonly string[] = []) {
-  return graph.edges.filter(edge => visibleNodeIds.has(edge.from) && visibleNodeIds.has(edge.to) &&
-    canReveal(edge.spoilerLevel, mode, revealedEdgeIds.includes(edge.key)));
-}

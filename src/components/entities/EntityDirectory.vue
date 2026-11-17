@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue';
-import SpoilerPreferences from '../editorial/SpoilerPreferences.vue';
-import { canReveal, type SpoilerMode } from '../../data/graph';
+import { computed, onMounted, ref } from 'vue';
 import { spoilerLevels } from '../../data/spoilers';
 
 type SpoilerLevel = (typeof spoilerLevels)[number];
@@ -16,8 +14,6 @@ type EntityEntry = {
 };
 
 const props = defineProps<{ entries: EntityEntry[] }>();
-const mode = ref<SpoilerMode>('warn');
-const revealed = ref<string[]>([]);
 const activeType = ref<'all' | EntityType>('all');
 const typeLabels: Record<EntityType, string> = {
   character: 'Personajes', civilization: 'Civilizaciones', region: 'Regiones', faction: 'Facciones',
@@ -27,29 +23,20 @@ const typeLabels: Record<EntityType, string> = {
 const entityTypes = (Object.keys(typeLabels) as EntityType[])
   .sort((a, b) => typeLabels[a].localeCompare(typeLabels[b], 'es'));
 const filteredEntries = computed(() => props.entries.filter(entry => activeType.value === 'all' || entry.entityType === activeType.value));
-const isExposed = (entry: EntityEntry) => canReveal(entry.spoilerLevel, mode.value, revealed.value.includes(entry.id));
-const visibleCount = computed(() => filteredEntries.value.filter(isExposed).length);
-
-function updateMode() {
-  const next = document.documentElement.dataset.spoilerMode;
-  mode.value = next === 'hide' || next === 'show' ? next : 'warn';
-  revealed.value = [];
-}
-function reveal(id: string) { revealed.value = [...revealed.value, id]; }
 function updateType(type: string | null) {
   activeType.value = type && entityTypes.includes(type as EntityType) ? type as EntityType : 'all';
 }
 onMounted(() => {
-  updateMode();
   updateType(new URL(window.location.href).searchParams.get('tipo'));
-  window.addEventListener('teyvat-spoiler-change', updateMode);
 });
-onUnmounted(() => window.removeEventListener('teyvat-spoiler-change', updateMode));
 </script>
 
 <template>
   <div class="entity-directory__toolbar">
-    <SpoilerPreferences />
+    <aside class="directory-spoiler-warning" aria-label="Advertencia de spoilers">
+      <strong>Advertencia de spoilers</strong>
+      <span>Este índice muestra títulos y resúmenes. Cada entrada indica hasta qué parte de la historia puede contener detalles.</span>
+    </aside>
     <label class="entity-directory__filter">
       <span>Tipo de entrada</span>
       <select v-model="activeType">
@@ -59,28 +46,19 @@ onUnmounted(() => window.removeEventListener('teyvat-spoiler-change', updateMode
     </label>
   </div>
   <p class="entity-directory__status" role="status">
-    {{ visibleCount }} entradas visibles · {{ filteredEntries.length - visibleCount }} protegidas
+    {{ filteredEntries.length }} {{ filteredEntries.length === 1 ? 'entrada' : 'entradas' }}
   </p>
   <ol v-if="filteredEntries.length" class="entity-list" data-pagefind-ignore>
     <li v-for="(entry, index) in filteredEntries" :key="entry.id">
-      <a v-if="isExposed(entry)" :href="`/entidades/${entry.id}/`">
+      <a :href="`/entidades/${entry.id}/`">
         <span class="entity-list__number">{{ String(index + 1).padStart(2, '0') }}</span>
         <span class="entity-list__copy">
-          <span class="entity-list__meta">{{ typeLabels[entry.entityType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión verificada' : 'Revisión pendiente' }}</span>
+          <span class="entity-list__meta">{{ typeLabels[entry.entityType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión verificada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
           <strong>{{ entry.title }}</strong>
           <span>{{ entry.summary }}</span>
         </span>
         <span class="entity-list__arrow" aria-hidden="true">↗</span>
       </a>
-      <div v-else class="entity-list__protected">
-        <span class="entity-list__number">{{ String(index + 1).padStart(2, '0') }}</span>
-        <span class="entity-list__copy">
-          <span class="entity-list__meta">Contenido protegido · {{ entry.spoilerLevel }}</span>
-          <strong>Entrada protegida</strong>
-          <span>{{ mode === 'hide' ? 'Cambia tu preferencia para mostrar esta entrada.' : 'Puedes revelar el título y el resumen de esta entrada.' }}</span>
-          <button v-if="mode === 'warn'" type="button" @click="reveal(entry.id)">Revelar entrada</button>
-        </span>
-      </div>
     </li>
   </ol>
   <div v-else class="entity-directory__empty" role="status">

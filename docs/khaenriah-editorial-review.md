@@ -41,7 +41,7 @@ Los identificadores de audio son localizadores de la transcripción consultada, 
 3. Conservar la distinción entre un testimonio del personaje y una reconstrucción histórica completa.
 4. Si se amplía el alcance, investigar fuentes posteriores hasta 7.2 y documentarlas individualmente. No presentar límites de este pasaje como preguntas globalmente abiertas en 7.2.
 5. Solo después valorar `needs-review` o `verified`; cualquier cronología o relación exige evidencia propia.
-6. Antes de promover el estado para publicación, revisar el buscador: la exclusión actual de Pagefind protege este borrador, pero no garantiza que una entrada con otro estado mantenga sus pasajes protegidos fuera de los extractos.
+6. Antes de promover el estado para publicación, revisar el buscador: la exclusión actual de Pagefind protege este borrador, pero no garantiza que una entrada con otro estado mantenga sus pasajes sensibles fuera de los extractos.
 
 El borrador actual no debe anunciarse como lore verificado. No se incorporaron hechos tomados de resúmenes comunitarios sobre versiones recientes ni se reutilizaron ilustraciones del juego.
 
@@ -50,5 +50,5 @@ El borrador actual no debe anunciarse como lore verificado. No se incorporaron h
 - 49 pruebas correctas.
 - Validación editorial sin errores; Astro check con 0 errores, 0 warnings de diagnóstico y 0 hints.
 - Build correcto: 6 páginas, 4 indexadas por Pagefind. Persisten los avisos de las tres colecciones vacías.
-- Revisión del artículo en navegador: dos bloques protegidos cerrados inicialmente y exclusión de Pagefind por su estado draft.
+- Revisión del artículo en navegador: advertencias visibles antes de los bloques sensibles y exclusión de Pagefind por su estado draft.
 - Sin desbordamiento horizontal del artículo a 320, 375, 390, 768 y 1280 px.

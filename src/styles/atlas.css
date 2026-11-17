@@ -38,11 +38,12 @@
 .atlas-entry h2{margin:14px 0 1px;font:500 31px/.95 var(--serif);color:var(--paper)}
 .atlas-entry__subtitle{margin:4px 0 11px;color:var(--gold-light);font:italic 15px var(--serif)}
 .atlas-entry__description{margin:0;color:#aeb8be;font-size:11px;line-height:1.65}
-.atlas-entry__footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:15px}
+.atlas-entry__footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:15px}
 .atlas-entry__status,.atlas-entry__coming{color:#87939b;font-size:9px}
 .atlas-entry__status:before{content:'';display:inline-block;width:5px;height:5px;margin:0 7px 1px 0;border-radius:50%;background:#8d9290}
 .atlas-entry__status.is-ready{color:#b7c8b2}
 .atlas-entry__status.is-ready:before{background:#91b28b}
+.atlas-entry__spoiler{color:var(--gold-light);font-size:9px;letter-spacing:.04em}
 .atlas-entry__link{color:var(--gold-light);font-size:10px}
 .atlas-entry__link span{margin-left:5px}
 .atlas-empty{padding:70px 20px;text-align:center;border:1px dashed var(--line);color:var(--muted)}

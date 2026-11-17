@@ -49,7 +49,7 @@ export function clearProgress(storage: ProgressStorage | null, key: string) {
   catch { return false; }
 }
 
-/** Geometry is measured against the rendered layout; collapsed spoilers stay collapsed. */
+/** Geometry is measured against the rendered article layout. */
 export function readingPosition(scrollTop: number, viewportHeight: number, articleTop: number, articleBottom: number,
   markers: readonly ReadingMarker[]) {
   const line = scrollTop + Math.min(120, viewportHeight * 0.2);
@@ -65,15 +65,15 @@ export function readingPosition(scrollTop: number, viewportHeight: number, artic
   return { anchor: marker.id, offset, percent };
 }
 
-/** Unknown anchors fall back to the article start; changed/closed sections ignore stale offsets. */
+/** Unknown anchors fall back to the article start; changed sections ignore stale offsets. */
 export function resumePosition(record: ReadingProgress, revision: string, markers: readonly ReadingMarker[],
-  articleBottom: number, viewportHeight: number, closedSection = false) {
+  articleBottom: number, viewportHeight: number) {
   const index = markers.findIndex(marker => marker.id === record.anchor);
   const marker = markers[index < 0 ? 0 : index];
   if (!marker) return null;
   const sameRevision = record.revision === revision;
   const end = markers[(index < 0 ? 0 : index) + 1]?.top ?? articleBottom;
-  const offset = index < 0 || !sameRevision || closedSection ? 0 : record.offset;
+  const offset = index < 0 || !sameRevision ? 0 : record.offset;
   const top = Math.max(0, marker.top + Math.max(0, end - marker.top - 1) * offset - Math.min(120, viewportHeight * 0.2));
-  return { anchor: marker.id, top, missing: index < 0, changed: !sameRevision, closed: closedSection };
+  return { anchor: marker.id, top, missing: index < 0, changed: !sameRevision };
 }
