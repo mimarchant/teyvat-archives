@@ -131,3 +131,10 @@ export const archonQuests: ArchonQuestEntry[] = [
 
 export const archonQuestArcs = [...new Set(archonQuests.map((entry) => entry.arc))];
 export const archonQuestVersions = [...new Set(archonQuests.map((entry) => entry.version))];
+
+export const archonQuestArcAnchor = (arc: string) => `capitulo-${arc
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLocaleLowerCase('es')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/(^-|-$)/g, '')}`;
