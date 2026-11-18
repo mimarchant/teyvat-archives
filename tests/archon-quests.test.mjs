@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { archonQuests, archonQuestSources } from '../src/data/archon-quests.ts';
+import { archonQuests, archonQuestArcAnchor, archonQuestArcs, archonQuestSources } from '../src/data/archon-quests.ts';
 import { archonQuestExpandedSummaries } from '../src/data/archon-quest-summaries.ts';
 
 test('the Archon Quest archive covers every act through version 7.2', () => {
@@ -41,4 +41,11 @@ test('every act has a substantial narrative summary and an explicit outcome', ()
     assert.ok(expanded.narrative.length >= 280, `${entry.id} narrative is too short`);
     assert.ok(expanded.outcome.length >= 100, `${entry.id} outcome is too short`);
   }
+});
+
+test('chapter navigation anchors are stable, readable and unique', () => {
+  const anchors = archonQuestArcs.map(archonQuestArcAnchor);
+  assert.equal(new Set(anchors).size, archonQuestArcs.length);
+  for (const anchor of anchors) assert.match(anchor, /^capitulo-[a-z0-9]+(?:-[a-z0-9]+)*$/);
+  assert.equal(archonQuestArcAnchor('Canción lunar'), 'capitulo-cancion-lunar');
 });

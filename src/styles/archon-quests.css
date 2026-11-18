@@ -29,12 +29,22 @@
 .archon-filter input::placeholder { color: #8f9aa2; }
 .archon-filter input:focus, .archon-filter select:focus, .archon-filters__reset:focus-visible { border-color: var(--gold-light); outline: 2px solid rgba(210, 189, 145, .28); outline-offset: 2px; }
 .archon-filters__reset { height: 3rem; padding: 0 1rem; border: 1px solid var(--line); background: transparent; color: var(--gold-light); cursor: pointer; white-space: nowrap; }
+.archon-chapter-nav { position: sticky; top: 0; z-index: 4; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1rem; padding: .8rem 1rem; border: 1px solid var(--line); background: rgba(17, 25, 35, .97); box-shadow: 0 .6rem 1.4rem rgba(5, 10, 15, .22); }
+.archon-chapter-nav__label { color: var(--muted); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+.archon-chapter-nav__links { display: flex; gap: .35rem; min-width: 0; overflow-x: auto; padding-bottom: .15rem; scrollbar-color: var(--line) transparent; }
+.archon-chapter-nav__links a { flex: 0 0 auto; display: inline-flex; gap: .45rem; align-items: center; min-height: 2.3rem; padding: .45rem .65rem; border: 1px solid transparent; color: var(--muted); font-size: .78rem; white-space: nowrap; transition: border-color .2s, background .2s, color .2s; }
+.archon-chapter-nav__links a:hover, .archon-chapter-nav__links a:focus-visible { border-color: var(--line); color: var(--paper); }
+.archon-chapter-nav__links a.is-active { border-color: rgba(210, 189, 145, .55); background: rgba(180, 154, 105, .12); color: var(--gold-light); }
+.archon-chapter-nav__links small { display: grid; place-items: center; min-width: 1.25rem; height: 1.25rem; border-radius: 50%; background: rgba(180, 154, 105, .12); color: var(--gold); font-size: .65rem; }
 .archon-groups { margin-top: clamp(4rem, 8vw, 6.5rem); }
-.archon-group { scroll-margin-top: 2rem; }
+.archon-group { scroll-margin-top: 5.5rem; }
 .archon-group + .archon-group { margin-top: clamp(4.5rem, 9vw, 7rem); }
 .archon-group__header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .9rem; border-bottom: 1px solid var(--gold); }
 .archon-group__header h3 { margin: 0; font: 500 clamp(2.3rem, 5vw, 3.8rem)/1 var(--serif); }
 .archon-group__header span { color: var(--muted); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.archon-group__header > div { display: flex; gap: 1.25rem; align-items: center; }
+.archon-group__header a { color: var(--gold-light); font-size: .72rem; }
+.archon-group__header a:hover, .archon-group__header a:focus-visible { text-decoration: underline; text-underline-offset: .25rem; }
 .archon-list { margin: 0; padding: 0; list-style: none; }
 .archon-card { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1.5rem; padding: clamp(1.8rem, 4vw, 2.8rem) .7rem; border-bottom: 1px solid var(--line); }
 .archon-card__index { padding-top: .25rem; color: var(--gold); font-size: .8rem; letter-spacing: .14em; }
@@ -73,6 +83,10 @@
   .archon-browser__heading { align-items: flex-start; flex-direction: column; }
   .archon-filters { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
   .archon-filter--search { grid-column: auto; }
+  .archon-chapter-nav { grid-template-columns: 1fr; gap: .35rem; margin-inline: calc((100vw - 100%) / -2); padding-inline: max(1rem, calc((100vw - 100%) / 2)); border-inline: 0; }
+  .archon-chapter-nav__links { margin-inline: -1rem; padding-inline: 1rem; }
+  .archon-group__header { align-items: flex-start; }
+  .archon-group__header > div { align-items: flex-end; flex-direction: column; gap: .35rem; text-align: right; }
   .archon-card { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .7rem; padding-inline: 0; }
   .archon-card__meta { gap-inline: .7rem; }
 }
