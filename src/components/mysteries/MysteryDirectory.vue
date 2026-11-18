@@ -28,7 +28,7 @@ const statusLabels = { open: 'Abierto', 'partially-solved': 'Parcialmente resuel
       <a :href="`/misterios/${entry.id}/`">
         <span class="mystery-list__number">{{ String(index + 1).padStart(2, '0') }}</span>
         <span class="mystery-list__copy">
-          <span class="mystery-list__meta">{{ statusLabels[entry.status] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión verificada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
+          <span class="mystery-list__meta">{{ statusLabels[entry.status] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión completada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
           <strong>{{ entry.title }}</strong>
           <span>{{ entry.summary }}</span>
         </span>

@@ -8,7 +8,7 @@ export const classificationLabels = {
   canon: 'Canon', interpretation: 'Interpretación', theory: 'Teoría', unresolved: 'Sin resolver',
 } satisfies Record<Chronicle['classification'], string>;
 export const reviewLabels = {
-  draft: 'Borrador editorial', 'needs-review': 'Revisión pendiente', verified: 'Verificada',
+  draft: 'Borrador editorial', 'needs-review': 'Revisión pendiente', verified: 'Revisión completada',
 } satisfies Record<Chronicle['reviewStatus'], string>;
 
 export function toChronicle(entry: CollectionEntry<'chronicles'>): Chronicle {

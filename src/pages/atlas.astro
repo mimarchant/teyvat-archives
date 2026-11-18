@@ -3,6 +3,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import '../styles/atlas.css';
 import AtlasExplorer from '../components/atlas/AtlasExplorer.vue';
 import { atlasEntries, atlasCategories, atlasCategoryLabels } from '../data/atlas';
+
+const visibleAtlasCategories = atlasCategories.filter(category =>
+  category.id === 'all' || atlasEntries.some(entry => entry.category === category.id));
 ---
 
 <SiteLayout
@@ -30,14 +33,14 @@ import { atlasEntries, atlasCategories, atlasCategoryLabels } from '../data/atla
     <AtlasExplorer
       client:load
       entries={atlasEntries}
-      categories={atlasCategories}
+      categories={visibleAtlasCategories}
       categoryLabels={atlasCategoryLabels}
     />
   </section>
   <section class="atlas-note-band">
     <div class="page-wrap">
       <span class="atlas-note-band__mark">✧</span>
-      <div><p class="eyebrow">NOTA EDITORIAL</p><p>El Atlas prioriza la claridad sobre la exhaustividad: una entrada en preparación no debe confundirse con una ficha de lore verificada. Las descripciones introductorias son orientativas y las futuras fichas incorporarán fuentes, clasificación y nivel de spoilers.</p></div>
+      <div><p class="eyebrow">NOTA EDITORIAL</p><p>El Atlas prioriza la claridad sobre la exhaustividad: una entrada en preparación no debe confundirse con una ficha cuya revisión editorial está completada. Las descripciones introductorias son orientativas y las futuras fichas incorporarán fuentes, clasificación y nivel de spoilers.</p></div>
     </div>
   </section>
 </SiteLayout>

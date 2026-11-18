@@ -27,7 +27,7 @@ const typeLabels = { archon: 'Misión de Arconte', story: 'Misión legendaria', 
       <a :href="`/misiones/${entry.id}/`">
         <span class="quest-list__number">{{ String(index + 1).padStart(2, '0') }}</span>
         <span class="quest-list__copy">
-          <span class="quest-list__meta">{{ typeLabels[entry.questType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión verificada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
+          <span class="quest-list__meta">{{ typeLabels[entry.questType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión completada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
           <strong>{{ entry.title }}</strong>
           <span>{{ entry.summary }}</span>
         </span>

@@ -27,12 +27,12 @@ function reset() { era.value = ''; region.value = ''; classification.value = '';
       <span>Este índice muestra títulos y resúmenes de crónicas. Revisa el nivel indicado antes de abrir una entrada.</span>
     </aside>
     <form class="chronicles-filters" @submit.prevent>
-      <label>Era<select v-model="era"><option value="">Todas las eras</option><option v-for="value in eras" :key="value">{{ value }}</option></select></label>
+      <label>Marco temporal<select v-model="era"><option value="">Todos los marcos temporales</option><option v-for="value in eras" :key="value">{{ value }}</option></select></label>
       <label>Región<select v-model="region"><option value="">Todas las regiones</option><option v-for="value in regions" :key="value">{{ value }}</option></select></label>
       <label>Clasificación<select v-model="classification"><option value="">Todas las clasificaciones</option><option v-for="(label, value) in classificationLabels" :key="value" :value="value">{{ label }}</option></select></label>
       <button type="button" @click="reset">Limpiar filtros</button>
     </form>
-    <p class="chronicles-note">Los filtros usan la información editorial documentada en cada entrada.</p>
+    <p class="chronicles-note">El marco temporal reproduce el alcance declarado por cada crónica; no equivale a una era histórica confirmada.</p>
     <p role="status">{{ filtered.length }} de {{ entries.length }} entradas</p>
     <p v-if="!filtered.length" class="chronicles-empty">No hay crónicas para esta combinación. Prueba otros filtros.</p>
     <section v-for="group in groups.filter(g => g.entries.length)" :key="group.title" class="chronicles-group" :aria-label="group.title">
