@@ -1,0 +1,71 @@
+.archon-page { padding-bottom: clamp(5rem, 9vw, 8rem); }
+.archon-hero { padding-block: clamp(4.5rem, 10vw, 8rem) clamp(4rem, 8vw, 7rem); }
+.archon-back { display: inline-block; margin-bottom: clamp(3rem, 7vw, 5.5rem); color: var(--gold-light); font-size: .86rem; }
+.archon-hero h1 { max-width: 970px; margin: 1rem 0 1.8rem; font: 500 clamp(3.7rem, 9vw, 7.4rem)/.86 var(--serif); letter-spacing: -.035em; }
+.archon-hero h1 em { color: var(--gold-light); font-weight: 400; }
+.archon-hero__lead { max-width: 720px; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.7; }
+.archon-stats { display: flex; gap: clamp(2rem, 6vw, 5rem); margin: clamp(3.5rem, 7vw, 5.5rem) 0 0; }
+.archon-stats div { display: grid; gap: .25rem; }
+.archon-stats dt { color: var(--muted); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+.archon-stats dd { order: -1; margin: 0; color: var(--paper); font: 500 2.35rem/1 var(--serif); }
+.archon-notice { border-block: 1px solid rgba(210, 189, 145, .38); background: rgba(180, 154, 105, .1); }
+.archon-notice__inner { display: flex; gap: 1.25rem; align-items: center; padding-block: 1.35rem; }
+.archon-notice__mark { flex: 0 0 auto; width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold-light); font: 500 1.35rem var(--serif); }
+.archon-notice h2 { margin: 0 0 .2rem; color: var(--gold-light); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+.archon-notice p { margin: 0; color: #c8c7c1; font-size: .95rem; line-height: 1.55; }
+.archon-method { padding-block: 2.2rem; border-bottom: 1px solid var(--line); }
+.archon-method p { max-width: 900px; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.archon-method strong { color: var(--paper); }
+.archon-content { padding-top: clamp(4.5rem, 9vw, 7rem); }
+.archon-browser__heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2.25rem; }
+.archon-browser__heading h2 { max-width: 720px; margin: .6rem 0 0; font: 500 clamp(2.7rem, 6vw, 4.8rem)/.95 var(--serif); }
+.archon-browser__heading > p { flex: 0 0 auto; margin: 0 0 .45rem; color: var(--muted); font-size: .9rem; }
+.archon-browser__heading > p strong { color: var(--gold-light); font-weight: 600; }
+.archon-filters { display: grid; grid-template-columns: minmax(240px, 1.8fr) minmax(180px, 1fr) minmax(160px, .8fr) auto; gap: .75rem; align-items: end; padding: 1.25rem; border: 1px solid var(--line); background: rgba(27, 41, 54, .55); }
+.archon-filter { display: grid; gap: .4rem; min-width: 0; }
+.archon-filter > span { color: var(--gold-light); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+.archon-filter input, .archon-filter select { width: 100%; min-width: 0; height: 3rem; padding: 0 .9rem; border: 1px solid rgba(180, 154, 105, .35); border-radius: 0; background: #182530; color: var(--paper); outline: none; }
+.archon-filter input::placeholder { color: #8f9aa2; }
+.archon-filter input:focus, .archon-filter select:focus, .archon-filters__reset:focus-visible { border-color: var(--gold-light); outline: 2px solid rgba(210, 189, 145, .28); outline-offset: 2px; }
+.archon-filters__reset { height: 3rem; padding: 0 1rem; border: 1px solid var(--line); background: transparent; color: var(--gold-light); cursor: pointer; white-space: nowrap; }
+.archon-groups { margin-top: clamp(4rem, 8vw, 6.5rem); }
+.archon-group { scroll-margin-top: 2rem; }
+.archon-group + .archon-group { margin-top: clamp(4.5rem, 9vw, 7rem); }
+.archon-group__header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .9rem; border-bottom: 1px solid var(--gold); }
+.archon-group__header h3 { margin: 0; font: 500 clamp(2.3rem, 5vw, 3.8rem)/1 var(--serif); }
+.archon-group__header span { color: var(--muted); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.archon-list { margin: 0; padding: 0; list-style: none; }
+.archon-card { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1.5rem; padding: clamp(1.8rem, 4vw, 2.8rem) .7rem; border-bottom: 1px solid var(--line); }
+.archon-card__index { padding-top: .25rem; color: var(--gold); font-size: .8rem; letter-spacing: .14em; }
+.archon-card__meta { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--gold-light); font-size: .72rem; letter-spacing: .11em; text-transform: uppercase; }
+.archon-card h4 { max-width: 900px; margin: .65rem 0 .75rem; font: 500 clamp(1.75rem, 3.8vw, 2.65rem)/1.03 var(--serif); }
+.archon-card__body > p { max-width: 780px; margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.7; }
+.archon-card__links { display: flex; flex-wrap: wrap; gap: 1rem 1.7rem; margin-top: 1.15rem; }
+.archon-card__links a { color: var(--muted); font-size: .8rem; text-decoration: underline; text-decoration-color: rgba(180, 154, 105, .35); text-underline-offset: .25rem; }
+.archon-card__links a:hover, .archon-card__links a:focus-visible { color: var(--gold-light); text-decoration-color: currentColor; }
+.archon-card__links .archon-card__article { color: var(--gold-light); }
+.archon-empty { margin-top: 3rem; padding: 3.5rem 2rem; border: 1px solid var(--line); text-align: center; }
+.archon-empty strong { font: 500 2rem var(--serif); }
+.archon-empty p { color: var(--muted); }
+.archon-empty button { padding: .75rem 1rem; border: 1px solid var(--gold); background: transparent; color: var(--gold-light); cursor: pointer; }
+@media (min-width: 681px) {
+  .archon-back { font-size: 1rem; }
+  .archon-stats dt, .archon-group__header span, .archon-card__meta { font-size: .82rem; }
+  .archon-notice p, .archon-method p, .archon-browser__heading > p, .archon-card__body > p { font-size: 1.08rem; }
+  .archon-card__links a { font-size: .92rem; }
+}
+@media (max-width: 900px) {
+  .archon-filters { grid-template-columns: 1fr 1fr; }
+  .archon-filter--search { grid-column: 1 / -1; }
+  .archon-filters__reset { justify-self: start; }
+}
+@media (max-width: 680px) {
+  .archon-hero h1 { font-size: clamp(3.35rem, 16vw, 5.4rem); }
+  .archon-stats { flex-wrap: wrap; }
+  .archon-notice__inner { align-items: flex-start; }
+  .archon-browser__heading { align-items: flex-start; flex-direction: column; }
+  .archon-filters { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+  .archon-filter--search { grid-column: auto; }
+  .archon-card { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .7rem; padding-inline: 0; }
+  .archon-card__meta { gap-inline: .7rem; }
+}

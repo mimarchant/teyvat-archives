@@ -1,0 +1,109 @@
+<script setup lang="ts">
+import { computed, ref } from 'vue';
+import type { ArchonQuestEntry, ArchonQuestSourceId } from '../../data/archon-quests';
+
+type QuestSource = { label: string; href: string };
+
+const props = defineProps<{
+  entries: ArchonQuestEntry[];
+  sources: Record<ArchonQuestSourceId, QuestSource>;
+  arcs: string[];
+  versions: string[];
+}>();
+
+const query = ref('');
+const selectedArc = ref('all');
+const selectedVersion = ref('all');
+
+const normalizedQuery = computed(() => query.value.trim().toLocaleLowerCase('es'));
+const filteredEntries = computed(() => props.entries.filter((entry) => {
+  const matchesArc = selectedArc.value === 'all' || entry.arc === selectedArc.value;
+  const matchesVersion = selectedVersion.value === 'all' || entry.version === selectedVersion.value;
+  const searchable = `${entry.title} ${entry.act} ${entry.arc} ${entry.region} ${entry.version} ${entry.summary}`.toLocaleLowerCase('es');
+  return matchesArc && matchesVersion && (!normalizedQuery.value || searchable.includes(normalizedQuery.value));
+}));
+
+const groupedEntries = computed(() => props.arcs
+  .map((arc) => ({ arc, entries: filteredEntries.value.filter((entry) => entry.arc === arc) }))
+  .filter((group) => group.entries.length));
+
+const hasFilters = computed(() => Boolean(normalizedQuery.value) || selectedArc.value !== 'all' || selectedVersion.value !== 'all');
+
+const resetFilters = () => {
+  query.value = '';
+  selectedArc.value = 'all';
+  selectedVersion.value = 'all';
+};
+</script>
+
+<template>
+  <section class="archon-browser" aria-labelledby="archon-browser-title">
+    <div class="archon-browser__heading">
+      <div>
+        <p class="eyebrow"><span></span> EXPLORAR EL ARCHIVO</p>
+        <h2 id="archon-browser-title">Recorre la historia por actos</h2>
+      </div>
+      <p aria-live="polite"><strong>{{ filteredEntries.length }}</strong> de {{ entries.length }} actos</p>
+    </div>
+
+    <form class="archon-filters" role="search" @submit.prevent>
+      <label class="archon-filter archon-filter--search">
+        <span>Buscar</span>
+        <input v-model="query" type="search" placeholder="Título, región o palabra clave" autocomplete="off">
+      </label>
+      <label class="archon-filter">
+        <span>Capítulo</span>
+        <select v-model="selectedArc">
+          <option value="all">Todos los capítulos</option>
+          <option v-for="arc in arcs" :key="arc" :value="arc">{{ arc }}</option>
+        </select>
+      </label>
+      <label class="archon-filter">
+        <span>Versión</span>
+        <select v-model="selectedVersion">
+          <option value="all">Todas las versiones</option>
+          <option v-for="version in versions" :key="version" :value="version">{{ version }}</option>
+        </select>
+      </label>
+      <button v-if="hasFilters" class="archon-filters__reset" type="button" @click="resetFilters">Limpiar filtros</button>
+    </form>
+
+    <div v-if="groupedEntries.length" class="archon-groups" data-pagefind-ignore>
+      <section v-for="group in groupedEntries" :key="group.arc" class="archon-group">
+        <header class="archon-group__header">
+          <h3>{{ group.arc }}</h3>
+          <span>{{ group.entries.length }} {{ group.entries.length === 1 ? 'acto' : 'actos' }}</span>
+        </header>
+        <ol class="archon-list">
+          <li v-for="entry in group.entries" :key="entry.id" class="archon-card">
+            <div class="archon-card__index" aria-hidden="true">{{ String(entry.order).padStart(2, '0') }}</div>
+            <div class="archon-card__body">
+              <div class="archon-card__meta">
+                <span>{{ entry.act }}</span>
+                <span>{{ entry.region }}</span>
+                <span>Versión {{ entry.version }}</span>
+              </div>
+              <h4>{{ entry.title }}</h4>
+              <p>{{ entry.summary }}</p>
+              <div class="archon-card__links">
+                <a :href="sources[entry.sourceId].href" target="_blank" rel="noreferrer">
+                  Fuente de publicación <span aria-hidden="true">↗</span>
+                  <span class="sr-only">: {{ sources[entry.sourceId].label }} (abre en una pestaña nueva)</span>
+                </a>
+                <a v-if="entry.articleHref" class="archon-card__article" :href="entry.articleHref">
+                  Abrir ficha detallada <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <div v-else class="archon-empty" role="status">
+      <strong>No encontramos actos con esos filtros.</strong>
+      <p>Prueba otra búsqueda o vuelve a mostrar el archivo completo.</p>
+      <button type="button" @click="resetFilters">Ver todos los actos</button>
+    </div>
+  </section>
+</template>
