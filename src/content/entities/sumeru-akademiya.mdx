@@ -1,0 +1,95 @@
+---
+title: "La Akademiya de Sumeru"
+summary: "Ficha de la Akademiya limitada al Akasha, el proyecto de los Sabios y el cambio institucional del Capítulo III."
+entityType: "faction"
+spoilerLevel: "sumeru"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "institucion-sumeru"
+    target:
+      collection: "entities"
+      id: "sumeru"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "sumeru"
+    sourceIds: ["capitulo-iii-akademiya", "actualizacion-sumeru-3-2"]
+    explanation: "Las fuentes sitúan a la Akademiya en la administración del conocimiento de Sumeru y documentan la conspiración dirigida por sus Sabios."
+sources:
+  - id: "capitulo-iii-akademiya"
+    type: "quest"
+    title: "Capítulo III: Tras la bruma y el bosque — Pulso de Akasha, fuego que arrasa"
+    gameVersion: "3.0–3.2"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo III."
+    supports: "Muestra la administración del Akasha, el uso de sueños, la reclusión de Nahida y el proyecto de los Sabios para crear un nuevo dios."
+  - id: "actualizacion-sumeru-3-2"
+    type: "official"
+    title: "Akasha Pulses, the Kalpa Flame Rises — Version 3.2 Update Details"
+    gameVersion: "3.2"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/en/news/detail/25356"
+    supports: "Documenta la publicación del acto final de Sumeru y presenta a Nahida como figura recluida en el Santuario Surasthana."
+  - id: "mapa-sumeru-akademiya"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Sumeru"
+    reference: "HoYoverse, versión española consultada el 16 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Presenta oficialmente la nación de Sumeru y su asociación promocional con el conocimiento."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "conocimiento"
+    title: "Administrar el conocimiento"
+    spoilerLevel: "sumeru"
+  - id: "proyecto"
+    title: "El proyecto de los Sabios"
+    spoilerLevel: "sumeru"
+  - id: "cambio"
+    title: "El cambio después del rescate"
+    spoilerLevel: "sumeru"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta entrada se limita a la Akademiya durante el Capítulo III. No enumera sus seis escuelas, todos sus investigadores o la historia completa de la institución.
+</SpoilerSection>
+
+## Administrar el conocimiento
+
+<SpoilerSection level="sumeru" label="Spoilers iniciales de Sumeru">
+Al llegar a Sumeru, el Viajero encuentra una sociedad donde el Akasha regula el acceso a información y conecta a la población. La Akademiya ocupa un lugar central en ese sistema, mientras Nahida permanece apartada de la autoridad pública.
+
+El samsara del Festival Sabzeruz revela que los sueños de los habitantes son utilizados como recurso. La misión presenta esa operación como una decisión de los Sabios, no como una práctica conocida o aprobada por todos los integrantes de la Akademiya.
+
+<EvidenceBlock classification="canon" title="El Akasha como infraestructura de poder" source="Capítulo III de las Misiones de Arconte." reference="capitulo-iii-akademiya" />
+</SpoilerSection>
+
+## El proyecto de los Sabios
+
+<SpoilerSection level="sumeru" label="Spoilers de la conspiración de la Akademiya">
+Los Sabios colaboran con Dottore y utilizan a Scaramuccia como centro de un proyecto destinado a fabricar un nuevo dios. Para protegerlo aíslan a Nahida, controlan información y persiguen a quienes pueden exponer la operación.
+
+Alhacén, Cyno, Dehya, Nilou y otros aliados organizan un plan que aprovecha las propias estructuras institucionales para rescatar a la Arconte y detener a los responsables.
+</SpoilerSection>
+
+## El cambio después del rescate
+
+<SpoilerSection level="sumeru" label="Spoilers de Pulso de Akasha, fuego que arrasa">
+La derrota del dios artificial termina con la detención de los Sabios responsables y con el cierre del Akasha. Nahida asume públicamente su lugar como Arconte, de modo que la institución ya no puede presentarse como sustituto de su autoridad.
+
+<EvidenceBlock classification="canon" title="Fin del proyecto y cierre del Akasha" source="Acto final de Sumeru y detalles oficiales de la versión 3.2." reference="capitulo-iii-akademiya · actualizacion-sumeru-3-2" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no culpa colectivamente a estudiantes, investigadores o escuelas por las decisiones de los Sabios. Tampoco describe la reforma completa de la Akademiya después del capítulo.
+</SpoilerSection>

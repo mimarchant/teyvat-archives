@@ -236,3 +236,34 @@ test('the seven central figures link only to their documented nations', async ()
   assert.equal(graph.edges.length, 7);
   assert.ok(graph.edges.every(edge => edge.type === 'related-to' && edge.classification === 'canon'));
 });
+
+test('the seven institutional records keep their distinct entity types and nation scope', async () => {
+  const records = [
+    ['knights-of-favonius', 'mondstadt', 'mondstadt', 'faction'],
+    ['liyue-qixing', 'liyue', 'liyue', 'faction'],
+    ['tri-commission', 'inazuma', 'inazuma', 'faction'],
+    ['sumeru-akademiya', 'sumeru', 'sumeru', 'faction'],
+    ['fontaine-justice', 'fontaine', 'fontaine', 'concept'],
+    ['natlan-tribes', 'natlan', 'natlan', 'civilization'],
+    ['fatui', 'snezhnaya', 'snezhnaya', 'faction'],
+  ];
+  const load = async (id) => {
+    const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection: 'entities', id, data: { relations: [], ...data } };
+  };
+  const nations = await Promise.all([...new Set(records.map(([, nation]) => nation))].map(load));
+  const institutions = await Promise.all(records.map(async ([id, nation, level, entityType]) => {
+    const entry = await load(id);
+    assert.equal(entry.data.entityType, entityType);
+    assert.equal(entry.data.spoilerLevel, level);
+    assert.equal(entry.data.reviewStatus, 'verified');
+    assert.ok(entry.data.sources.length >= 3);
+    assert.equal(entry.data.relations.length, 1);
+    assert.equal(entry.data.relations[0].target.id, nation);
+    return entry;
+  }));
+  const graph = buildKnowledgeGraph([...nations, ...institutions]);
+  assert.equal(graph.edges.length, 7);
+  assert.ok(graph.edges.every(edge => edge.type === 'located-in' && edge.classification === 'canon'));
+});

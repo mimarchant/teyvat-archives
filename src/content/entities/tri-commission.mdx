@@ -1,0 +1,94 @@
+---
+title: "La Tri-Comisión de Inazuma"
+summary: "Ficha de la Tri-Comisión limitada a su función pública, el Decreto de Captura de Visiones y la crisis institucional del Capítulo II."
+entityType: "faction"
+spoilerLevel: "inazuma"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "institucion-inazuma"
+    target:
+      collection: "entities"
+      id: "inazuma"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "inazuma"
+    sourceIds: ["capitulo-ii-tricomision", "actualizacion-inazuma-2-0"]
+    explanation: "Las fuentes presentan la Tri-Comisión como estructura institucional de Inazuma y documentan la participación de sus ramas en el conflicto del decreto."
+sources:
+  - id: "capitulo-ii-tricomision"
+    type: "quest"
+    title: "Capítulo II: La diosa inmutable y la utopía eterna — Omnipresencia sobre los mortales"
+    gameVersion: "2.0–2.1"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo II."
+    supports: "Muestra las restricciones de Ritou, la ejecución del Decreto de Captura de Visiones, la intervención de la Comisión Yashiro y la exposición de la colaboración de otras comisiones con los Fatui."
+  - id: "actualizacion-inazuma-2-0"
+    type: "official"
+    title: "The Immovable God and the Eternal Euthymia — Version 2.0 Update Details"
+    gameVersion: "2.0"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/m/en/news/detail/103985"
+    supports: "Describe a la Comisión Yashiro como rama de la Tri-Comisión encargada de asuntos ceremoniales y culturales."
+  - id: "actualizacion-inazuma-2-1"
+    type: "official"
+    title: "Floating World Under the Moonlight — Version 2.1 Update Notice"
+    gameVersion: "2.1"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/en/news/detail/104016"
+    supports: "Nombra a la Tri-Comisión entre los elementos centrales del conflicto de Inazuma y documenta la publicación de su acto final."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "estructura"
+    title: "Tres ramas, funciones distintas"
+    spoilerLevel: "inazuma"
+  - id: "decreto"
+    title: "La Tri-Comisión durante el decreto"
+    spoilerLevel: "inazuma"
+  - id: "crisis"
+    title: "Una crisis interna"
+    spoilerLevel: "inazuma"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta ficha presenta la Tri-Comisión como una estructura formada por ramas con funciones y decisiones distintas. No reconstruye cada clan, cargo o cambio posterior al Capítulo II.
+</SpoilerSection>
+
+## Tres ramas, funciones distintas
+
+<SpoilerSection level="inazuma" label="Spoilers iniciales de Inazuma">
+Los detalles oficiales de la versión 2.0 describen a la Comisión Yashiro como la rama que administra asuntos ceremoniales y culturales. La misión muestra además que la llegada a Inazuma está condicionada por controles administrativos en Ritou y por la política del shogunato.
+
+<EvidenceBlock classification="canon" title="Una estructura con responsabilidades diferenciadas" source="Detalles oficiales de la versión 2.0." reference="actualizacion-inazuma-2-0" />
+</SpoilerSection>
+
+## La Tri-Comisión durante el decreto
+
+<SpoilerSection level="inazuma" label="Spoilers del Decreto de Captura de Visiones">
+La Comisión Yashiro, a través de Thoma y Ayaka, ayuda al Viajero a comprender el coste del Decreto de Captura de Visiones y termina apoyando su oposición. Otras ramas participan en la aplicación de restricciones y en el conflicto armado.
+
+La diversidad de conductas impide describir a la Tri-Comisión como un bloque con una sola voluntad durante toda la crisis.
+</SpoilerSection>
+
+## Una crisis interna
+
+<SpoilerSection level="inazuma" label="Spoilers de Omnipresencia sobre los mortales">
+Sara recibe pruebas de que responsables de las comisiones han ocultado información y colaborado con intereses Fatui. La exposición de esa traición debilita la base institucional que sostenía el decreto antes del enfrentamiento final con Ei.
+
+<EvidenceBlock classification="canon" title="Responsabilidad institucional y desacuerdo interno" source="Capítulo II y aviso oficial de la versión 2.1." reference="capitulo-ii-tricomision · actualizacion-inazuma-2-1" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La entrada no atribuye las acciones de un clan a todos los funcionarios, no presenta las tres comisiones como idénticas y no describe su situación completa después de la abolición del decreto.
+</SpoilerSection>
