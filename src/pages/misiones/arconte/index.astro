@@ -7,7 +7,16 @@ import {
   archonQuestSources,
   archonQuestVersions,
 } from '../../../data/archon-quests';
+import {
+  archonQuestExpandedSummaries,
+  archonQuestNarrativeReference,
+} from '../../../data/archon-quest-summaries';
 import '../../../styles/archon-quests.css';
+
+const expandedArchonQuests = archonQuests.map((entry) => ({
+  ...entry,
+  ...archonQuestExpandedSummaries[entry.id],
+}));
 ---
 <SiteLayout
   title="Misiones de Arconte — Teyvat Archives"
@@ -18,7 +27,7 @@ import '../../../styles/archon-quests.css';
       <a class="archon-back" href="/misiones/">← Volver a misiones</a>
       <p class="eyebrow"><span></span> ARCHIVO DE MISIONES DE ARCONTE</p>
       <h1>El viaje, <em>acto por acto</em></h1>
-      <p class="archon-hero__lead">Un recorrido editorial por la historia principal de Genshin Impact: capítulos, regiones, versiones y resúmenes breves reunidos en un solo lugar.</p>
+      <p class="archon-hero__lead">Un recorrido editorial por la historia principal de Genshin Impact: capítulos, regiones, versiones y resúmenes narrativos reunidos en un solo lugar.</p>
       <dl class="archon-stats" aria-label="Resumen del archivo">
         <div><dt>Actos</dt><dd>{archonQuests.length}</dd></div>
         <div><dt>Capítulos</dt><dd>{archonQuestArcs.length}</dd></div>
@@ -37,13 +46,13 @@ import '../../../styles/archon-quests.css';
     </section>
 
     <div class="page-wrap archon-method">
-      <p><strong>Cómo leer este archivo.</strong> Cada resumen ofrece orientación breve, no una transcripción de la misión. Los enlaces respaldan la publicación, numeración y continuidad oficial; las fichas detalladas se amplían por separado mediante revisión documental.</p>
+      <p><strong>Cómo leer este archivo.</strong> Cada entrada reúne una sinopsis, un resumen narrativo y la consecuencia que deja para el viaje. No reemplaza los diálogos completos. Los enlaces de cada acto documentan su publicación oficial y el contenido se cotejó con un <a href={archonQuestNarrativeReference.href} target="_blank" rel="noreferrer">índice narrativo con fuentes<span class="sr-only"> (abre en una pestaña nueva)</span></a>.</p>
     </div>
 
     <div class="page-wrap archon-content">
       <ArchonQuestArchive
         client:load
-        entries={archonQuests}
+        entries={expandedArchonQuests}
         sources={archonQuestSources}
         arcs={archonQuestArcs}
         versions={archonQuestVersions}

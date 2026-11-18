@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { archonQuests, archonQuestSources } from '../src/data/archon-quests.ts';
+import { archonQuestExpandedSummaries } from '../src/data/archon-quest-summaries.ts';
 
 test('the Archon Quest archive covers every act through version 7.2', () => {
   assert.equal(archonQuests.length, 52);
@@ -30,5 +31,14 @@ test('every linked detailed article exists in the content collection', () => {
     const md = fileURLToPath(new URL(`../src/content/quests/${slug}.md`, import.meta.url));
     const mdx = fileURLToPath(new URL(`../src/content/quests/${slug}.mdx`, import.meta.url));
     assert.ok(existsSync(md) || existsSync(mdx), `Missing detailed article for ${entry.id}`);
+  }
+});
+
+test('every act has a substantial narrative summary and an explicit outcome', () => {
+  assert.deepEqual(new Set(Object.keys(archonQuestExpandedSummaries)), new Set(archonQuests.map(({ id }) => id)));
+  for (const entry of archonQuests) {
+    const expanded = archonQuestExpandedSummaries[entry.id];
+    assert.ok(expanded.narrative.length >= 280, `${entry.id} narrative is too short`);
+    assert.ok(expanded.outcome.length >= 100, `${entry.id} outcome is too short`);
   }
 });
