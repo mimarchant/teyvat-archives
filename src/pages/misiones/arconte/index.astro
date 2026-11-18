@@ -1,0 +1,53 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ArchonQuestArchive from '../../../components/quests/ArchonQuestArchive.vue';
+import {
+  archonQuests,
+  archonQuestArcs,
+  archonQuestSources,
+  archonQuestVersions,
+} from '../../../data/archon-quests';
+import '../../../styles/archon-quests.css';
+---
+<SiteLayout
+  title="Misiones de Arconte — Teyvat Archives"
+  description="Archivo cronológico de las Misiones de Arconte de Genshin Impact, desde Mondstadt hasta la versión 7.2."
+>
+  <main class="archon-page">
+    <header class="page-wrap archon-hero">
+      <a class="archon-back" href="/misiones/">← Volver a misiones</a>
+      <p class="eyebrow"><span></span> ARCHIVO DE MISIONES DE ARCONTE</p>
+      <h1>El viaje, <em>acto por acto</em></h1>
+      <p class="archon-hero__lead">Un recorrido editorial por la historia principal de Genshin Impact: capítulos, regiones, versiones y resúmenes breves reunidos en un solo lugar.</p>
+      <dl class="archon-stats" aria-label="Resumen del archivo">
+        <div><dt>Actos</dt><dd>{archonQuests.length}</dd></div>
+        <div><dt>Capítulos</dt><dd>{archonQuestArcs.length}</dd></div>
+        <div><dt>Cobertura</dt><dd>1.0–7.2</dd></div>
+      </dl>
+    </header>
+
+    <section class="archon-notice" aria-labelledby="archon-notice-title">
+      <div class="page-wrap archon-notice__inner">
+        <span class="archon-notice__mark" aria-hidden="true">!</span>
+        <div>
+          <h2 id="archon-notice-title">Advertencia de spoilers</h2>
+          <p>Este archivo resume acontecimientos de la historia principal hasta la versión 7.2. Al continuar encontrarás spoilers de todas las naciones publicadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-wrap archon-method">
+      <p><strong>Cómo leer este archivo.</strong> Cada resumen ofrece orientación breve, no una transcripción de la misión. Los enlaces respaldan la publicación, numeración y continuidad oficial; las fichas detalladas se amplían por separado mediante revisión documental.</p>
+    </div>
+
+    <div class="page-wrap archon-content">
+      <ArchonQuestArchive
+        client:load
+        entries={archonQuests}
+        sources={archonQuestSources}
+        arcs={archonQuestArcs}
+        versions={archonQuestVersions}
+      />
+    </div>
+  </main>
+</SiteLayout>
