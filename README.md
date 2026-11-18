@@ -77,6 +77,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Validación editorial automatizada de que cada sección MDX tenga clasificación de spoilers
 - [x] Persistencia de progreso de lectura
 - [x] Directorio tipado de entidades y fichas territoriales de las siete naciones
+- [x] Archivo de 52 Misiones de Arconte con páginas individuales, fuentes y navegación secuencial
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX muestran una advertencia antes de cada sección sensible, pero no ocultan el contenido.
 

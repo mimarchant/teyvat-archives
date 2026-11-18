@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { archonQuestArcAnchor } from '../../data/archon-quests';
+import { archonQuestArcAnchor, archonQuestEntryHref } from '../../data/archon-quests';
 import type { ArchonQuestEntry, ArchonQuestSourceId } from '../../data/archon-quests';
 
 type QuestSource = { label: string; href: string };
@@ -164,12 +164,15 @@ const resetFilters = () => {
                 <p>{{ entry.outcome }}</p>
               </aside>
               <div class="archon-card__links">
+                <a class="archon-card__article" :href="archonQuestEntryHref(entry.id)">
+                  Leer acto completo <span aria-hidden="true">→</span>
+                </a>
                 <a :href="sources[entry.sourceId].href" target="_blank" rel="noreferrer">
                   Fuente de publicación <span aria-hidden="true">↗</span>
                   <span class="sr-only">: {{ sources[entry.sourceId].label }} (abre en una pestaña nueva)</span>
                 </a>
-                <a v-if="entry.articleHref" class="archon-card__article" :href="entry.articleHref">
-                  Abrir ficha detallada <span aria-hidden="true">→</span>
+                <a v-if="entry.articleHref" :href="entry.articleHref">
+                  Ficha documental <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
