@@ -1,0 +1,93 @@
+---
+title: "Las tribus de Natlan"
+summary: "Ficha colectiva de las seis tribus limitada al Peregrinaje, la reputación tribal y la defensa de Natlan frente al Abismo."
+entityType: "civilization"
+spoilerLevel: "natlan"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "comunidades-natlan"
+    target:
+      collection: "entities"
+      id: "natlan"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "natlan"
+    sourceIds: ["capitulo-v-tribus", "actualizacion-tribus-5-2"]
+    explanation: "Las fuentes presentan seis tribus dentro de Natlan y documentan su participación conjunta en la defensa de la nación. La relación no elimina sus diferencias internas."
+sources:
+  - id: "capitulo-v-tribus"
+    type: "quest"
+    title: "Capítulo V: Un viaje glorioso y ardiente — Oda incandescente de la resurrección"
+    gameVersion: "5.0–5.3"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo V."
+    supports: "Muestra el Peregrinaje del Retorno del Fuego Sagrado, las alianzas entre tribus y su defensa conjunta durante la invasión del Abismo."
+  - id: "actualizacion-tribus-5-2"
+    type: "official"
+    title: "Tapestry of Spirit and Flame — Version 5.2 Update Details"
+    gameVersion: "5.2"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/en/news/detail/126992"
+    supports: "Documenta la reputación de las tribus de Natlan, nombra nuevas comunidades y describe a sus guerreros combatiendo por el honor y la gloria de su gente."
+  - id: "mapa-natlan-tribus"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Natlan"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/en/map?region=6"
+    supports: "Presenta asentamientos de los Vástagos del Dosel, los Nanatzcayan y la Comunidad de la Feracidad, junto con rasgos territoriales acotados."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "pluralidad"
+    title: "Seis comunidades, una nación"
+    spoilerLevel: "natlan"
+  - id: "peregrinaje"
+    title: "El Peregrinaje y la representación tribal"
+    spoilerLevel: "natlan"
+  - id: "defensa"
+    title: "La defensa frente al Abismo"
+    spoilerLevel: "natlan"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+La entrada trata a las tribus como comunidades distintas que participan en una estructura nacional compartida. No las reduce a un gobierno único ni desarrolla toda su cultura, territorio o relación con los saurios.
+</SpoilerSection>
+
+## Seis comunidades, una nación
+
+<SpoilerSection level="natlan" label="Spoilers iniciales de Natlan">
+Las publicaciones oficiales describen seis tribus y sistemas de reputación propios. El mapa presenta asentamientos vinculados con paisajes y saurios diferentes, mientras el Capítulo V muestra que esas comunidades conservan identidades particulares dentro de Natlan.
+
+<EvidenceBlock classification="canon" title="Pluralidad territorial y comunitaria" source="Mapa y detalles oficiales de Natlan." reference="mapa-natlan-tribus · actualizacion-tribus-5-2" />
+</SpoilerSection>
+
+## El Peregrinaje y la representación tribal
+
+<SpoilerSection level="natlan" label="Spoilers de Un viaje glorioso y ardiente">
+El Peregrinaje del Retorno del Fuego Sagrado reúne combatientes de distintas tribus y decide quiénes participan en la expedición vinculada con la guerra. La competencia expresa orgullo y representación comunitaria, pero también alimenta un mecanismo de defensa que supera a cada asentamiento.
+
+Las notas de la versión 5.2 vinculan el avance de la misión con la apertura de sistemas de reputación tribal, lo que confirma su tratamiento diferenciado dentro del juego.
+</SpoilerSection>
+
+## La defensa frente al Abismo
+
+<SpoilerSection level="natlan" label="Spoilers de la invasión del Abismo">
+Cuando la invasión se convierte en una guerra abierta, las tribus coordinan guerreros, territorio y conocimiento para sostener el plan de Mavuika. La victoria final depende de esa alianza y del Viajero, no de una comunidad presentada como representante exclusiva de Natlan.
+
+<EvidenceBlock classification="canon" title="Una alianza durante la guerra" source="Capítulo V de las Misiones de Arconte." reference="capitulo-v-tribus" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no enumera todos los clanes o cargos, no generaliza una costumbre a las seis tribus y no presenta su cooperación militar como ausencia de tensiones o diferencias.
+</SpoilerSection>

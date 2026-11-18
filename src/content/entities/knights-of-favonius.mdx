@@ -1,0 +1,92 @@
+---
+title: "Caballeros de Favonius"
+summary: "Ficha de los Caballeros limitada a su defensa de Mondstadt y a su papel institucional durante la crisis de Dvalin."
+entityType: "faction"
+spoilerLevel: "mondstadt"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "institucion-mondstadt"
+    target:
+      collection: "entities"
+      id: "mondstadt"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "mondstadt"
+    sourceIds: ["prologo-caballeros", "visita-mondstadt-caballeros"]
+    explanation: "Las fuentes presentan a los Caballeros como una institución activa en la ciudad de Mondstadt. La relación no afirma jurisdicción exhaustiva sobre todo el territorio."
+sources:
+  - id: "prologo-caballeros"
+    type: "quest"
+    title: "Prólogo: El forastero que atrapó el viento — Canción del dragón y la libertad"
+    gameVersion: "1.0"
+    reference: "Genshin Impact, misiones de Arconte del prólogo publicadas con la versión 1.0."
+    supports: "Muestra a Amber, Kaeya, Lisa y Jean coordinando la recepción del Viajero y la defensa de Mondstadt durante la crisis de Dvalin."
+  - id: "visita-mondstadt-caballeros"
+    type: "official"
+    title: "First Visit to Mondstadt"
+    reference: "Relato promocional oficial de HoYoverse. https://genshin.hoyoverse.com/m/en/town/mondstadt?noteId=1335"
+    supports: "Presenta a una integrante de los Caballeros guiando al visitante por la ciudad y sitúa su cuartel como parte del recorrido urbano."
+  - id: "mapa-mondstadt-caballeros"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Mondstadt"
+    reference: "HoYoverse, versión española consultada el 16 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Presenta el territorio y la ciudad donde actúa la institución."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "institucion"
+    title: "Una institución de la ciudad"
+    spoilerLevel: "mondstadt"
+  - id: "dvalin"
+    title: "La defensa durante la crisis de Dvalin"
+    spoilerLevel: "mondstadt"
+  - id: "resultado"
+    title: "Qué deja establecido el prólogo"
+    spoilerLevel: "mondstadt"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta entrada describe a los Caballeros de Favonius durante el prólogo de Mondstadt. No enumera todos sus rangos, miembros, expediciones o transformaciones históricas.
+</SpoilerSection>
+
+## Una institución de la ciudad
+
+<SpoilerSection level="mondstadt" label="Spoilers iniciales de Mondstadt">
+El relato promocional *First Visit to Mondstadt* presenta a una integrante de los Caballeros como guía del visitante y sitúa el cuartel dentro de la ciudad. En la misión, Amber conduce al Viajero hasta Mondstadt y lo vincula con Jean, Kaeya y Lisa mientras la ciudad responde a los ataques de Stormterror.
+
+<EvidenceBlock classification="canon" title="Presencia pública en Mondstadt" source="Relato oficial y prólogo del juego." reference="visita-mondstadt-caballeros · prologo-caballeros" />
+</SpoilerSection>
+
+## La defensa durante la crisis de Dvalin
+
+<SpoilerSection level="mondstadt" label="Spoilers del prólogo de Mondstadt">
+Los Caballeros coordinan la limpieza de los templos que alimentan la tormenta y colaboran con el Viajero para proteger la ciudad. Jean participa después en el grupo que acompaña a Venti y Diluc hasta la Guarida de Stormterror.
+
+La resolución no atribuye toda la victoria a la institución: la purificación del Viajero, el vínculo de Venti con Dvalin y la intervención de aliados externos son partes indispensables del desenlace.
+</SpoilerSection>
+
+## Qué deja establecido el prólogo
+
+<SpoilerSection level="mondstadt" label="Spoilers de Canción del dragón y la libertad">
+Mondstadt conserva una defensa organizada que puede cooperar con actores ajenos a su cadena formal. El capítulo también muestra que Jean debe equilibrar la seguridad pública con la verdad sobre Dvalin y Barbatos.
+
+<EvidenceBlock classification="canon" title="Una defensa coordinada, no exclusiva" source="Misiones del prólogo." reference="prologo-caballeros" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no presenta a los Caballeros como gobierno absoluto de Mondstadt, no describe la expedición de Varka y no generaliza las decisiones de Jean a todos los integrantes. El relato promocional documenta una escena de visita, no un organigrama institucional.
+</SpoilerSection>

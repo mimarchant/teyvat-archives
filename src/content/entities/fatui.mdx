@@ -1,0 +1,96 @@
+---
+title: "Los Fatui"
+summary: "Ficha de los Fatui limitada a su intervención en las Misiones de Arconte y a las fracturas que aparecen al llegar a Snezhnaya."
+entityType: "faction"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "faccion-snezhnaya"
+    target:
+      collection: "entities"
+      id: "snezhnaya"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["misiones-fatui", "actualizacion-snezhnaya-7-1"]
+    explanation: "Las misiones vinculan a los Fatui con Snezhnaya y muestran sus operaciones dentro y fuera de la nación. La relación no equipara a todos sus miembros con la población o el gobierno civil."
+sources:
+  - id: "misiones-fatui"
+    type: "quest"
+    title: "Misiones de Arconte: capítulos I, II, III, IV, V y VII"
+    gameVersion: "1.1–7.2"
+    reference: "Genshin Impact, intervenciones Fatui documentadas a lo largo de la historia principal."
+    supports: "Muestra la búsqueda de Gnosis, operaciones de los Heraldos, fábricas de Engaños, proyectos con la Akademiya, negociaciones en Fontaine y fracturas internas en Snezhnaya."
+  - id: "actualizacion-liyue-fatui"
+    type: "official"
+    title: "A New Star Approaches — Version 1.1 Details"
+    gameVersion: "1.1"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/m/en/news/detail/6638"
+    supports: "Documenta la publicación del capítulo de Liyue y presenta a Tartaglia como personaje asociado con el bloque narrativo."
+  - id: "actualizacion-snezhnaya-7-1"
+    type: "official"
+    title: "Detalles de la versión 7.1: Un réquiem para el inframundo"
+    gameVersion: "7.1"
+    reference: "HoYoverse. https://genshin.hoyoverse.com/m/es/news/detail/166383"
+    supports: "Documenta fuerzas al servicio de la Zarina y sistemas institucionales de Snezhnaya durante el Capítulo VII."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "gnosis"
+    title: "Una fuerza recurrente en el viaje"
+    spoilerLevel: "liyue"
+  - id: "metodos"
+    title: "Operaciones y métodos distintos"
+    spoilerLevel: "fontaine"
+  - id: "snezhnaya"
+    title: "Los Fatui dentro de Snezhnaya"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta entrada reúne el patrón más visible de los Fatui en la historia principal. No es un catálogo de Heraldos, rangos, soldados, divisiones o operaciones secundarias.
+</SpoilerSection>
+
+## Una fuerza recurrente en el viaje
+
+<SpoilerSection level="liyue" label="Spoilers de Mondstadt y Liyue">
+Signora obtiene la Gnosis Anemo después de la crisis de Dvalin. En Liyue, Tartaglia interviene en la investigación de Rex Lapis y libera a Osial, mientras Signora recibe la Gnosis Geo entregada por Zhongli como parte de un contrato.
+
+Estos episodios establecen la reunión de Gnosis como un objetivo persistente, pero no demuestran que cada agente conozca el acuerdo completo de la Zarina.
+
+<EvidenceBlock classification="canon" title="La búsqueda de las Gnosis" source="Misiones de Arconte y publicación oficial de la versión 1.1." reference="misiones-fatui · actualizacion-liyue-fatui" />
+</SpoilerSection>
+
+## Operaciones y métodos distintos
+
+<SpoilerSection level="fontaine" label="Spoilers hasta Fontaine">
+En Inazuma, los Fatui distribuyen Engaños y prolongan el conflicto. En Sumeru, Dottore participa en el proyecto de los Sabios y negocia con Nahida. En Fontaine, Arlecchino presiona a Furina, pero sus subordinados también investigan la amenaza que pone en riesgo a la nación.
+
+La sucesión de métodos y objetivos muestra una organización con figuras capaces de actuar de manera diferente. La ficha no convierte esas diferencias en prueba automática de independencia total o de una única doctrina compartida.
+</SpoilerSection>
+
+## Los Fatui dentro de Snezhnaya
+
+<SpoilerSection level="snezhnaya" label="Spoilers del Capítulo VII">
+Al llegar a Snezhnaya, el Viajero encuentra instituciones civiles, redes clandestinas y proyectos que ni siquiera todos los Fatui conocen. La estrategia de la Zarina distribuye información y responsabilidades de forma deliberada, hasta el punto de que algunos participantes desconocen partes del plan.
+
+<EvidenceBlock classification="canon" title="Una organización no equivalente a toda la nación" source="Capítulo VII y detalles oficiales de la versión 7.1." reference="misiones-fatui · actualizacion-snezhnaya-7-1" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no equipara a los Fatui con toda la población de Snezhnaya, no atribuye las acciones de un Heraldo a cada miembro y no reconstruye una jerarquía completa. Las notas de versión respaldan publicación y presentación; los acontecimientos proceden de las misiones identificadas.
+</SpoilerSection>
