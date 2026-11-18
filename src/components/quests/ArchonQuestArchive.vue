@@ -3,9 +3,10 @@ import { computed, ref } from 'vue';
 import type { ArchonQuestEntry, ArchonQuestSourceId } from '../../data/archon-quests';
 
 type QuestSource = { label: string; href: string };
+type ExpandedQuestEntry = ArchonQuestEntry & { narrative: string; outcome: string };
 
 const props = defineProps<{
-  entries: ArchonQuestEntry[];
+  entries: ExpandedQuestEntry[];
   sources: Record<ArchonQuestSourceId, QuestSource>;
   arcs: string[];
   versions: string[];
@@ -84,7 +85,15 @@ const resetFilters = () => {
                 <span>Versión {{ entry.version }}</span>
               </div>
               <h4>{{ entry.title }}</h4>
-              <p>{{ entry.summary }}</p>
+              <p class="archon-card__lead">{{ entry.summary }}</p>
+              <div class="archon-card__narrative">
+                <span>Resumen del acto</span>
+                <p>{{ entry.narrative }}</p>
+              </div>
+              <aside class="archon-card__outcome">
+                <strong>Qué deja establecido</strong>
+                <p>{{ entry.outcome }}</p>
+              </aside>
               <div class="archon-card__links">
                 <a :href="sources[entry.sourceId].href" target="_blank" rel="noreferrer">
                   Fuente de publicación <span aria-hidden="true">↗</span>

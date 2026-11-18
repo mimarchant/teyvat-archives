@@ -16,6 +16,7 @@
 .archon-method { padding-block: 2.2rem; border-bottom: 1px solid var(--line); }
 .archon-method p { max-width: 900px; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.65; }
 .archon-method strong { color: var(--paper); }
+.archon-method a { color: var(--gold-light); text-decoration: underline; text-underline-offset: .22rem; }
 .archon-content { padding-top: clamp(4.5rem, 9vw, 7rem); }
 .archon-browser__heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2.25rem; }
 .archon-browser__heading h2 { max-width: 720px; margin: .6rem 0 0; font: 500 clamp(2.7rem, 6vw, 4.8rem)/.95 var(--serif); }
@@ -39,7 +40,12 @@
 .archon-card__index { padding-top: .25rem; color: var(--gold); font-size: .8rem; letter-spacing: .14em; }
 .archon-card__meta { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--gold-light); font-size: .72rem; letter-spacing: .11em; text-transform: uppercase; }
 .archon-card h4 { max-width: 900px; margin: .65rem 0 .75rem; font: 500 clamp(1.75rem, 3.8vw, 2.65rem)/1.03 var(--serif); }
-.archon-card__body > p { max-width: 780px; margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.7; }
+.archon-card__lead { max-width: 780px; margin: 0; color: var(--gold-light); font: 500 1.12rem/1.55 var(--reading, var(--serif)); }
+.archon-card__narrative { max-width: 800px; margin-top: 1.25rem; }
+.archon-card__narrative > span, .archon-card__outcome strong { display: block; margin-bottom: .4rem; color: var(--gold); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+.archon-card__narrative p, .archon-card__outcome p { margin: 0; color: #d4d6d5; font-size: .98rem; line-height: 1.75; }
+.archon-card__outcome { max-width: 800px; margin-top: 1.25rem; padding: 1rem 1.1rem; border-left: 2px solid var(--gold); background: rgba(180, 154, 105, .07); }
+.archon-card__outcome p { color: var(--muted); }
 .archon-card__links { display: flex; flex-wrap: wrap; gap: 1rem 1.7rem; margin-top: 1.15rem; }
 .archon-card__links a { color: var(--muted); font-size: .8rem; text-decoration: underline; text-decoration-color: rgba(180, 154, 105, .35); text-underline-offset: .25rem; }
 .archon-card__links a:hover, .archon-card__links a:focus-visible { color: var(--gold-light); text-decoration-color: currentColor; }
@@ -51,7 +57,8 @@
 @media (min-width: 681px) {
   .archon-back { font-size: 1rem; }
   .archon-stats dt, .archon-group__header span, .archon-card__meta { font-size: .82rem; }
-  .archon-notice p, .archon-method p, .archon-browser__heading > p, .archon-card__body > p { font-size: 1.08rem; }
+  .archon-notice p, .archon-method p, .archon-browser__heading > p, .archon-card__narrative p, .archon-card__outcome p { font-size: 1.08rem; }
+  .archon-card__lead { font-size: 1.25rem; }
   .archon-card__links a { font-size: .92rem; }
 }
 @media (max-width: 900px) {
