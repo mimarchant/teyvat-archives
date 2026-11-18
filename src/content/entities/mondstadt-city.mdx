@@ -1,0 +1,93 @@
+---
+title: "Ciudad de Mondstadt"
+summary: "Recorrido por la ciudad insular, sus espacios públicos y su papel durante la crisis de Dvalin."
+entityType: "location"
+spoilerLevel: "mondstadt"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "ciudad-en-mondstadt"
+    target:
+      collection: "entities"
+      id: "mondstadt"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "none"
+    sourceIds: ["mapa-ciudad-mondstadt", "visita-ciudad-mondstadt"]
+    explanation: "El mapa y el relato de viaje oficiales sitúan la ciudad en una isla del Lago de Sidra, dentro de Mondstadt."
+sources:
+  - id: "mapa-ciudad-mondstadt"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Mondstadt"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Sitúa la ciudad en una isla del Lago de Sidra y presenta el paisaje general de Mondstadt."
+  - id: "visita-ciudad-mondstadt"
+    type: "official"
+    title: "First Visit to Mondstadt"
+    reference: "Relato promocional oficial de HoYoverse. https://genshin.hoyoverse.com/m/en/town/mondstadt?noteId=1335"
+    supports: "Describe los canales, la fuente, el mercado, la catedral y el recorrido de un visitante por la ciudad."
+  - id: "prologo-ciudad-mondstadt"
+    type: "quest"
+    title: "Prólogo: El forastero que atrapó el viento"
+    gameVersion: "1.0"
+    reference: "Genshin Impact, misiones de Arconte del prólogo."
+    supports: "Muestra la llegada del Viajero, el ataque de Dvalin y la respuesta coordinada desde la ciudad."
+sections:
+  - id: "isla"
+    title: "Una ciudad dentro del lago"
+    spoilerLevel: "none"
+  - id: "espacios"
+    title: "Plaza, mercado y catedral"
+    spoilerLevel: "none"
+  - id: "crisis"
+    title: "La ciudad durante la crisis de Dvalin"
+    spoilerLevel: "mondstadt"
+  - id: "papel"
+    title: "Qué representa en el prólogo"
+    spoilerLevel: "mondstadt"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Una ciudad dentro del lago
+
+<SpoilerSection level="none" label="Descripción territorial sin spoilers">
+El mapa oficial sitúa la ciudad de Mondstadt en una isla del Lago de Sidra. El agua, los puentes y las murallas hacen de la llegada a la ciudad un paso visible entre las planicies de la región y su principal núcleo urbano.
+
+<EvidenceBlock classification="canon" title="Emplazamiento de la ciudad" source="Mapa oficial de Teyvat." reference="mapa-ciudad-mondstadt" />
+</SpoilerSection>
+
+## Plaza, mercado y catedral
+
+<SpoilerSection level="none" label="Recorrido urbano sin spoilers">
+*First Visit to Mondstadt* describe antiguos canales que conducen el agua hasta la gran fuente de la plaza. Desde allí, el recorrido asciende hacia la catedral y contrasta su entorno sereno con el mercado cercano. El relato también asocia las calles con música, vino, plegarias y visitantes, pero conserva la mirada subjetiva de un bardo viajero.
+
+<EvidenceBlock classification="canon" title="Un recorrido por espacios públicos" source="Relato promocional oficial." reference="visita-ciudad-mondstadt" />
+</SpoilerSection>
+
+## La ciudad durante la crisis de Dvalin
+
+<SpoilerSection level="mondstadt" label="Spoilers del prólogo de Mondstadt">
+La primera entrada del Viajero coincide con un ataque de Dvalin. La plaza y el cuartel de los Caballeros se convierten en puntos de encuentro desde los que se organiza la respuesta. La amenaza no queda confinada dentro de las murallas: resolverla exige investigar templos y llegar finalmente a la Guarida de Stormterror.
+</SpoilerSection>
+
+## Qué representa en el prólogo
+
+<SpoilerSection level="mondstadt" label="Spoilers de Canción del dragón y la libertad">
+La ciudad funciona como hogar que debe ser protegido y como espacio donde personas con lealtades distintas cooperan. Los Caballeros, Venti, Diluc y el Viajero no actúan desde una única institución, de modo que el desenlace presenta la defensa de Mondstadt como una alianza circunstancial.
+
+<EvidenceBlock classification="canon" title="Centro de una defensa compartida" source="Misiones de Arconte del prólogo." reference="prologo-ciudad-mondstadt" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no reconstruye todos los barrios, edificios o etapas históricas de la ciudad. El relato de viaje no se trata como un censo y el prólogo solo respalda su papel durante la crisis de Dvalin.
+</SpoilerSection>
+

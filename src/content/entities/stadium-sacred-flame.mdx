@@ -1,0 +1,93 @@
+---
+title: "Estadio de la Llama Sagrada"
+summary: "El gran punto de encuentro de Natlan, donde la peregrinación enlaza competencia, nombres antiguos y guerra contra el Abismo."
+entityType: "location"
+spoilerLevel: "natlan"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "estadio-en-natlan"
+    target:
+      collection: "entities"
+      id: "natlan"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "natlan"
+    sourceIds: ["version-cinco-cero-estadio", "version-cinco-dos-estadio"]
+    explanation: "Las notas oficiales de las versiones 5.0 y 5.2 sitúan el estadio dentro de Natlan y lo usan como referencia para acceder a áreas cercanas."
+sources:
+  - id: "version-cinco-cero-estadio"
+    type: "official"
+    title: "Detalles de la versión 5.0 — Un viaje glorioso y ardiente"
+    gameVersion: "5.0"
+    reference: "HoYoverse, 28 de agosto de 2024. https://genshin.hoyoverse.com/es/news/detail/125553"
+    supports: "Documenta la apertura inicial de Natlan y las primeras misiones del Capítulo V."
+  - id: "capitulo-cinco-estadio"
+    type: "quest"
+    title: "Capítulo V: Oda incandescente de la resurrección"
+    gameVersion: "5.0–5.3"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo V."
+    supports: "Presenta la Peregrinación del Retorno de la Llama Sagrada, la participación de Kachina y el papel del estadio en la defensa de Natlan."
+  - id: "version-cinco-dos-estadio"
+    type: "official"
+    title: "Tapestry of Spirit and Flame — Version 5.2 Update Details"
+    gameVersion: "5.2"
+    reference: "HoYoverse, 20 de noviembre de 2024. https://genshin.hoyoverse.com/en/news/detail/126992"
+    supports: "Usa el estadio como referencia territorial y confirma la peregrinación del acto I como requisito de sistemas regionales."
+sections:
+  - id: "encuentro"
+    title: "Un punto de encuentro entre tribus"
+    spoilerLevel: "none"
+  - id: "peregrinacion"
+    title: "La Peregrinación del Retorno"
+    spoilerLevel: "natlan"
+  - id: "kachina"
+    title: "La ausencia de Kachina"
+    spoilerLevel: "natlan"
+  - id: "defensa"
+    title: "El estadio durante la guerra"
+    spoilerLevel: "natlan"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Un punto de encuentro entre tribus
+
+<SpoilerSection level="none" label="Presentación sin spoilers argumentales">
+El estadio es un espacio común dentro de una nación organizada en comunidades distintas. Las notas de la versión 5.2 lo utilizan como referencia para ubicar nuevas áreas al noroeste, una señal de su función como hito territorial además de escenario ceremonial.
+
+<EvidenceBlock classification="canon" title="Un hito central de Natlan" source="Notas oficiales de la versión 5.2." reference="version-cinco-dos-estadio" />
+</SpoilerSection>
+
+## La Peregrinación del Retorno
+
+<SpoilerSection level="natlan" label="Spoilers del acto I del Capítulo V">
+La Peregrinación del Retorno de la Llama Sagrada reúne combatientes de las tribus en el estadio. La competición selecciona a quienes participarán en la guerra nocturna: ganar no es solo un reconocimiento deportivo, sino el paso previo a combatir al Abismo en el Reino de la Noche.
+</SpoilerSection>
+
+## La ausencia de Kachina
+
+<SpoilerSection level="natlan" label="Spoilers de Un viaje glorioso y ardiente">
+Kachina obtiene la victoria con su equipo, pero no regresa mediante la Oda de la Resurrección después de la expedición. Su ausencia convierte la celebración del estadio en el punto de partida de una crisis: el Viajero y sus aliados descienden al Reino de la Noche para encontrarla y demostrar que su nombre antiguo no se había perdido.
+
+<EvidenceBlock classification="canon" title="De la competición al rescate" source="Misiones de Arconte del Capítulo V." reference="capitulo-cinco-estadio" />
+</SpoilerSection>
+
+## El estadio durante la guerra
+
+<SpoilerSection level="natlan" label="Spoilers del arco de Natlan">
+El estadio sirve como espacio de coordinación y refugio cuando el ataque del Abismo se extiende por Natlan. Su centralidad no reemplaza a las tribus: la defensa depende de combatientes, saurios y comunidades distribuidas por todo el territorio, unidos por el plan de Mavuika.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no cataloga todas las dependencias del estadio ni presenta la peregrinación como la única tradición de Natlan. Se limita a los usos mostrados por el Capítulo V y a la ubicación respaldada por las notas oficiales.
+</SpoilerSection>
+

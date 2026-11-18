@@ -1,0 +1,91 @@
+---
+title: "Puerto de Liyue"
+summary: "Ficha del puerto comercial y del escenario donde el Capítulo I confronta a adepti, autoridades y ciudadanía."
+entityType: "location"
+spoilerLevel: "liyue"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "puerto-en-liyue"
+    target:
+      collection: "entities"
+      id: "liyue"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "none"
+    sourceIds: ["anuncio-puerto-liyue", "mapa-puerto-liyue"]
+    explanation: "Las presentaciones oficiales ubican el puerto frente al océano, dentro de la nación de Liyue."
+sources:
+  - id: "anuncio-puerto-liyue"
+    type: "official"
+    title: "Genshin Impact New Area Announcement: Of the Land Amidst Monoliths"
+    reference: "HoYoverse, 14 de enero de 2020. https://genshin.hoyoverse.com/en/news/detail/2124"
+    supports: "Presenta al Puerto de Liyue como un próspero puerto mercante orientado al océano."
+  - id: "mapa-puerto-liyue"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Liyue"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Describe a Liyue como un puerto al este de Teyvat y contextualiza sus montañas, ríos y llanuras."
+  - id: "capitulo-uno-puerto"
+    type: "quest"
+    title: "Capítulo I: Adiós, amo perfeccionado"
+    gameVersion: "1.0–1.1"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo I."
+    supports: "Sitúa en el puerto el Rito del Descenso, la crisis de Osial y la transición política posterior."
+sections:
+  - id: "puerto"
+    title: "Un puerto abierto al océano"
+    spoilerLevel: "none"
+  - id: "rito"
+    title: "El Rito del Descenso"
+    spoilerLevel: "liyue"
+  - id: "crisis"
+    title: "La batalla sobre el puerto"
+    spoilerLevel: "liyue"
+  - id: "transicion"
+    title: "Una nueva responsabilidad humana"
+    spoilerLevel: "liyue"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Un puerto abierto al océano
+
+<SpoilerSection level="none" label="Presentación territorial sin spoilers">
+El anuncio de área de 2020 presentó al Puerto de Liyue como un gran centro mercante frente al mar. El mapa oficial amplía ese contexto con montañas, bosques de piedra, llanuras y ríos: el puerto es un núcleo de la nación, no un sustituto de toda su diversidad territorial.
+
+<EvidenceBlock classification="canon" title="Presentación del puerto" source="Anuncio oficial de área y mapa de Teyvat." reference="anuncio-puerto-liyue · mapa-puerto-liyue" />
+</SpoilerSection>
+
+## El Rito del Descenso
+
+<SpoilerSection level="liyue" label="Spoilers iniciales del Capítulo I">
+El Viajero llega durante el Rito del Descenso, ceremonia pública que conecta la vida del puerto con Rex Lapis. La aparente muerte de la deidad transforma el espacio ceremonial en una escena de investigación y obliga al Viajero a buscar respuestas entre las Siete Estrellas, los adepti y los Fatui.
+</SpoilerSection>
+
+## La batalla sobre el puerto
+
+<SpoilerSection level="liyue" label="Spoilers de Una nueva estrella en ascenso">
+Cuando Tartaglia libera a Osial, el conflicto converge sobre el puerto. Adepti, Siete Estrellas, Millelith y el Viajero colaboran desde la Cámara de Jade para detener la amenaza. La destrucción de la cámara protege la ciudad, pero el episodio no borra las tensiones previas entre las partes.
+
+<EvidenceBlock classification="canon" title="Escenario de la crisis de Osial" source="Misiones de Arconte del Capítulo I." reference="capitulo-uno-puerto" />
+</SpoilerSection>
+
+## Una nueva responsabilidad humana
+
+<SpoilerSection level="liyue" label="Spoilers del desenlace del Capítulo I">
+Tras la batalla, Rex Lapis confirma que había preparado una prueba para comprobar si Liyue podía avanzar sin su gobierno directo. El puerto queda como escenario visible de esa transición: sus instituciones humanas asumen una responsabilidad mayor, aunque los adepti y los contratos históricos no desaparecen.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La entrada no reduce Liyue a su puerto ni presenta el comercio como su única identidad. Tampoco describe cada distrito, gremio o ruta mercante; se limita a la presentación territorial y a los acontecimientos del Capítulo I.
+</SpoilerSection>
+

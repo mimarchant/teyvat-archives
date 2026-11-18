@@ -1,0 +1,91 @@
+---
+title: "Ciudad de Inazuma"
+summary: "La ciudad de la isla Narukami como centro del decreto, la resistencia política y el desenlace del Capítulo II."
+entityType: "location"
+spoilerLevel: "inazuma"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "ciudad-en-inazuma"
+    target:
+      collection: "entities"
+      id: "inazuma"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "inazuma"
+    sourceIds: ["actualizacion-dos-cero-inazuma", "capitulo-dos-ciudad"]
+    explanation: "La versión 2.0 abrió la isla Narukami y el Capítulo II sitúa allí la ciudad y el Tenshukaku."
+sources:
+  - id: "actualizacion-dos-cero-inazuma"
+    type: "official"
+    title: "Version 2.0 — The Immovable God and the Eternal Euthymia"
+    gameVersion: "2.0"
+    reference: "HoYoverse, 21 de julio de 2021. https://genshin.hoyoverse.com/m/en/news/detail/103985"
+    supports: "Documenta la apertura de la isla Narukami y el inicio del Capítulo II."
+  - id: "mapa-ciudad-inazuma"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Inazuma"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Presenta Inazuma como un archipiélago y contextualiza la isla Narukami dentro de la nación."
+  - id: "capitulo-dos-ciudad"
+    type: "quest"
+    title: "Capítulo II: Omnipresencia sobre los mortales"
+    gameVersion: "2.0–2.1"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo II."
+    supports: "Sitúa en la ciudad y el Tenshukaku la ejecución del Decreto de Captura de Visiones y su confrontación final."
+sections:
+  - id: "narukami"
+    title: "Una ciudad en la isla Narukami"
+    spoilerLevel: "none"
+  - id: "decreto"
+    title: "La ciudad bajo el decreto"
+    spoilerLevel: "inazuma"
+  - id: "tenshukaku"
+    title: "El Tenshukaku como centro del conflicto"
+    spoilerLevel: "inazuma"
+  - id: "cambio"
+    title: "El cambio después de la confrontación"
+    spoilerLevel: "inazuma"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Una ciudad en la isla Narukami
+
+<SpoilerSection level="none" label="Contexto territorial sin spoilers argumentales">
+La versión 2.0 abrió la isla Narukami junto con Kannazuka y Yashiori. La ciudad de Inazuma ocupa una parte de Narukami y conduce hacia el Tenshukaku; esta ficha no la presenta como representación exhaustiva de las demás islas del archipiélago.
+
+<EvidenceBlock classification="canon" title="Contexto de apertura" source="Notas oficiales de la versión 2.0." reference="actualizacion-dos-cero-inazuma" />
+</SpoilerSection>
+
+## La ciudad bajo el decreto
+
+<SpoilerSection level="inazuma" label="Spoilers del inicio del Capítulo II">
+Después de escapar de Ritou, el Viajero llega a una ciudad marcada por el Decreto de Captura de Visiones. La ceremonia de confiscación de la Visión de Thoma vuelve pública la política de la Shogun y empuja al Viajero a intervenir directamente.
+</SpoilerSection>
+
+## El Tenshukaku como centro del conflicto
+
+<SpoilerSection level="inazuma" label="Spoilers de Omnipresencia sobre los mortales">
+El Tenshukaku reúne varias líneas del conflicto: la autoridad de la Shogun, la influencia de los Fatui y el desafío de quienes se oponen al decreto. Allí Signora es derrotada y el Viajero enfrenta las consecuencias del duelo antes de que la resistencia llegue a la ciudad.
+
+<EvidenceBlock classification="canon" title="Convergencia del conflicto" source="Misiones de Arconte del Capítulo II." reference="capitulo-dos-ciudad" />
+</SpoilerSection>
+
+## El cambio después de la confrontación
+
+<SpoilerSection level="inazuma" label="Spoilers del desenlace de Inazuma">
+La confrontación en el Plano de la eutimia lleva a Ei a abolir el Decreto de Captura de Visiones. El cambio modifica la política visible en la ciudad, pero no resuelve automáticamente las heridas de la guerra civil ni elimina las distintas responsabilidades de la Tri-Comisión.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no cubre cada barrio, santuario o instalación de Narukami. Tampoco confunde la ciudad con todo el archipiélago: Watatsumi, Kannazuka, Yashiori y las demás islas tienen historias y comunidades propias.
+</SpoilerSection>
