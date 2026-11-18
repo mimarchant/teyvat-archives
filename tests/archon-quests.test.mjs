@@ -2,7 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { archonQuests, archonQuestArcAnchor, archonQuestArcs, archonQuestSources } from '../src/data/archon-quests.ts';
+import {
+  archonQuests,
+  archonQuestArcAnchor,
+  archonQuestArcs,
+  archonQuestEntryHref,
+  archonQuestSources,
+} from '../src/data/archon-quests.ts';
 import { archonQuestExpandedSummaries } from '../src/data/archon-quest-summaries.ts';
 
 test('the Archon Quest archive covers every act through version 7.2', () => {
@@ -48,4 +54,14 @@ test('chapter navigation anchors are stable, readable and unique', () => {
   assert.equal(new Set(anchors).size, archonQuestArcs.length);
   for (const anchor of anchors) assert.match(anchor, /^capitulo-[a-z0-9]+(?:-[a-z0-9]+)*$/);
   assert.equal(archonQuestArcAnchor('Canción lunar'), 'capitulo-cancion-lunar');
+});
+
+test('every act has a stable, shareable detail route', () => {
+  const routes = archonQuests.map(({ id }) => archonQuestEntryHref(id));
+  assert.equal(new Set(routes).size, archonQuests.length);
+  for (const [index, route] of routes.entries()) {
+    assert.equal(route, `/misiones/arconte/${archonQuests[index].id}/`);
+  }
+  const page = fileURLToPath(new URL('../src/pages/misiones/arconte/[id].astro', import.meta.url));
+  assert.ok(existsSync(page), 'Missing generated Archon Quest detail page');
 });

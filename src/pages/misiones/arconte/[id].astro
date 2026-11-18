@@ -1,0 +1,128 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import {
+  archonQuestArcAnchor,
+  archonQuestEntryHref,
+  archonQuests,
+  archonQuestSources,
+} from '../../../data/archon-quests';
+import {
+  archonQuestExpandedSummaries,
+  archonQuestNarrativeReference,
+} from '../../../data/archon-quest-summaries';
+import '../../../styles/archon-quest-entry.css';
+
+import type { ArchonQuestEntry } from '../../../data/archon-quests';
+import type { ArchonQuestExpandedSummary } from '../../../data/archon-quest-summaries';
+
+type AdjacentEntry = Pick<ArchonQuestEntry, 'id' | 'title' | 'act' | 'arc'>;
+type Props = {
+  entry: ArchonQuestEntry;
+  expanded: ArchonQuestExpandedSummary;
+  previous?: AdjacentEntry;
+  next?: AdjacentEntry;
+};
+
+export function getStaticPaths() {
+  return archonQuests.map((entry, index) => ({
+    params: { id: entry.id },
+    props: {
+      entry,
+      expanded: archonQuestExpandedSummaries[entry.id],
+      previous: archonQuests[index - 1],
+      next: archonQuests[index + 1],
+    },
+  }));
+}
+
+const { entry, expanded, previous, next } = Astro.props as Props;
+const source = archonQuestSources[entry.sourceId];
+const archiveHref = `/misiones/arconte/#${archonQuestArcAnchor(entry.arc)}`;
+---
+<SiteLayout
+  title={`${entry.title} — Misiones de Arconte — Teyvat Archives`}
+  description={`${entry.arc}, ${entry.act}: ${entry.summary}`}
+>
+  <main class="archon-entry">
+    <div class="page-wrap archon-entry__shell">
+      <a class="archon-entry__back" href={archiveHref}>← Volver a {entry.arc}</a>
+
+      <header class="archon-entry__header">
+        <p class="eyebrow"><span></span> MISIÓN DE ARCONTE · {entry.arc.toUpperCase()}</p>
+        <div class="archon-entry__meta" aria-label="Datos del acto">
+          <span>{entry.act}</span>
+          <span>{entry.region}</span>
+          <span>Versión {entry.version}</span>
+          <span>Acto {String(entry.order).padStart(2, '0')} del archivo</span>
+        </div>
+        <h1>{entry.title}</h1>
+      </header>
+
+      <aside class="archon-entry__warning" aria-labelledby="archon-entry-warning-title">
+        <span aria-hidden="true">!</span>
+        <div>
+          <h2 id="archon-entry-warning-title">Advertencia de spoilers</h2>
+          <p>Esta página resume el argumento y las consecuencias de {entry.arc}, {entry.act}. Continúa solo si quieres conocer los acontecimientos de esta parte del viaje.</p>
+        </div>
+      </aside>
+
+      <article class="archon-entry__article">
+        <p class="archon-entry__lead">{entry.summary}</p>
+
+        <section aria-labelledby="resumen-del-acto">
+          <p class="eyebrow">LECTURA EDITORIAL</p>
+          <h2 id="resumen-del-acto">Resumen del acto</h2>
+          <p>{expanded.narrative}</p>
+        </section>
+
+        <section class="archon-entry__outcome" aria-labelledby="resultado-del-acto">
+          <p class="eyebrow">QUÉ DEJA ESTABLECIDO</p>
+          <h2 id="resultado-del-acto">Resultado para el viaje</h2>
+          <p>{expanded.outcome}</p>
+        </section>
+
+        <section class="archon-entry__sources" aria-labelledby="fuentes-del-acto">
+          <p class="eyebrow">TRAZABILIDAD</p>
+          <h2 id="fuentes-del-acto">Fuentes y alcance</h2>
+          <p>La fuente oficial documenta la publicación de este bloque narrativo. El resumen argumental se cotejó con el índice narrativo enlazado por el archivo general; esta página no sustituye los diálogos ni una transcripción completa del juego.</p>
+          <ul>
+            <li>
+              <a href={source.href} target="_blank" rel="noreferrer">{source.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (abre en una pestaña nueva)</span></a>
+              <span>Fuente oficial de publicación · {entry.version}</span>
+            </li>
+            <li>
+              <a href={archonQuestNarrativeReference.href} target="_blank" rel="noreferrer">{archonQuestNarrativeReference.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (abre en una pestaña nueva)</span></a>
+              <span>Referencia narrativa complementaria</span>
+            </li>
+          </ul>
+        </section>
+
+        {entry.articleHref && (
+          <aside class="archon-entry__documented">
+            <p class="eyebrow">DOCUMENTACIÓN ADICIONAL</p>
+            <h2>Ficha editorial disponible</h2>
+            <p>Este acto también cuenta con una ficha separada que registra fuentes, alcance y límites documentales con mayor detalle.</p>
+            <a href={entry.articleHref}>Abrir ficha documental <span aria-hidden="true">→</span></a>
+          </aside>
+        )}
+      </article>
+
+      <nav class="archon-entry__pagination" aria-label="Actos anterior y siguiente" data-pagefind-ignore>
+        {previous ? (
+          <a href={archonQuestEntryHref(previous.id)} rel="prev">
+            <span>← Acto anterior</span>
+            <strong>{previous.title}</strong>
+            <small>{previous.arc} · {previous.act}</small>
+          </a>
+        ) : <span></span>}
+        {next && (
+          <a href={archonQuestEntryHref(next.id)} rel="next">
+            <span>Acto siguiente →</span>
+            <strong>{next.title}</strong>
+            <small>{next.arc} · {next.act}</small>
+          </a>
+        )}
+      </nav>
+    </div>
+  </main>
+</SiteLayout>

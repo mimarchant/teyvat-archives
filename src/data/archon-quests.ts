@@ -138,3 +138,5 @@ export const archonQuestArcAnchor = (arc: string) => `capitulo-${arc
   .toLocaleLowerCase('es')
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/(^-|-$)/g, '')}`;
+
+export const archonQuestEntryHref = (id: string) => `/misiones/arconte/${encodeURIComponent(id)}/`;
