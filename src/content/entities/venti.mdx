@@ -1,0 +1,92 @@
+---
+title: "Venti: el Arconte Anemo"
+summary: "Ficha de Venti limitada a su identidad como Barbatos y a su intervención en la crisis de Dvalin."
+entityType: "deity"
+spoilerLevel: "mondstadt"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "vinculado-mondstadt"
+    target:
+      collection: "entities"
+      id: "mondstadt"
+    type: "related-to"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "mondstadt"
+    sourceIds: ["prologo-mondstadt", "mapa-mondstadt-venti"]
+    explanation: "La misión identifica a Venti como Barbatos y el mapa oficial presenta a Mondstadt mediante su vínculo con el Arconte Anemo. La relación no resume toda la historia religiosa de la nación."
+sources:
+  - id: "prologo-mondstadt"
+    type: "quest"
+    title: "Prólogo, acto III: Canción del dragón y la libertad"
+    gameVersion: "1.0"
+    reference: "Genshin Impact, misión de Arconte publicada con la versión 1.0."
+    supports: "Muestra la intervención de Venti en la liberación de Dvalin, revela su identidad como Barbatos y registra la pérdida de la Gnosis Anemo ante Signora."
+  - id: "mapa-mondstadt-venti"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Mondstadt"
+    reference: "HoYoverse, versión española consultada el 16 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Presenta Mondstadt como la Capital de la Libertad y nombra a Barbatos en su descripción promocional."
+  - id: "travail-venti"
+    type: "cinematic"
+    title: "Teyvat Chapter Storyline Preview: Travail"
+    reference: "Canal oficial verificado Genshin Impact, 27 de septiembre de 2020. https://www.youtube.com/watch?v=TAlKhARUcoY"
+    supports: "Sitúa el prólogo de Mondstadt al comienzo del recorrido narrativo de Teyvat."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "identidad"
+    title: "El bardo y Barbatos"
+    spoilerLevel: "mondstadt"
+  - id: "dvalin"
+    title: "La crisis de Dvalin"
+    spoilerLevel: "mondstadt"
+  - id: "resultado"
+    title: "Qué deja establecido"
+    spoilerLevel: "mondstadt"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta entrada registra el papel de Venti en el prólogo de Mondstadt. No intenta reconstruir toda la historia de Barbatos, la Iglesia de Favonius o los antiguos conflictos de la nación.
+</SpoilerSection>
+
+## El bardo y Barbatos
+
+<SpoilerSection level="mondstadt" label="Spoilers del prólogo de Mondstadt">
+Venti aparece ante el Viajero como un bardo capaz de comunicarse con Dvalin. Durante la resolución de la crisis confirma que es Barbatos, el Arconte Anemo asociado con Mondstadt. La ficha territorial oficial también nombra a Barbatos al presentar la Capital de la Libertad, pero no expone por sí sola la identidad del bardo.
+
+<EvidenceBlock classification="canon" title="Una identidad revelada durante la misión" source="Prólogo, acto III y mapa oficial de Mondstadt." reference="prologo-mondstadt · mapa-mondstadt-venti" />
+</SpoilerSection>
+
+## La crisis de Dvalin
+
+<SpoilerSection level="mondstadt" label="Spoilers de Canción del dragón y la libertad">
+Venti reúne al Viajero, Jean y Diluc para entrar en la Guarida de Stormterror. El objetivo no es destruir al dragón, sino liberarlo de la corrupción que alimenta su dolor y su enfrentamiento con la ciudad. La capacidad del Viajero para purificar las lágrimas de Dvalin hace posible reparar la lira y alcanzar el desenlace.
+
+La reconciliación devuelve a Dvalin su voluntad y cierra la amenaza inmediata sobre Mondstadt. La misión presenta así a Venti como mediador de una relación rota, no como gobernante cotidiano de la ciudad.
+</SpoilerSection>
+
+## Qué deja establecido
+
+<SpoilerSection level="mondstadt" label="Spoilers del final del prólogo">
+Después de la liberación de Dvalin, Signora embosca a Venti y obtiene la Gnosis Anemo. El prólogo termina con Mondstadt en paz, pero abre el conflicto mayor de los Fatui y su búsqueda de las Gnosis.
+
+<EvidenceBlock classification="canon" title="Mondstadt se libera; la Gnosis cambia de manos" source="Desenlace del prólogo de Mondstadt." reference="prologo-mondstadt" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La entrada no enumera poderes, títulos históricos, amistades, intervenciones posteriores o detalles de perfil desbloqueables. *Travail* se usa únicamente para ubicar el prólogo dentro del recorrido promocional; no respalda cada acontecimiento de la misión.
+</SpoilerSection>
