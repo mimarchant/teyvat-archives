@@ -1,0 +1,92 @@
+---
+title: "Ciudad de Sumeru"
+summary: "La ciudad académica como escenario del samsara del Festival Sabzeruz y de la operación para rescatar a Nahida."
+entityType: "location"
+spoilerLevel: "sumeru"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "ciudad-en-sumeru"
+    target:
+      collection: "entities"
+      id: "sumeru"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "none"
+    sourceIds: ["mapa-ciudad-sumeru", "actualizacion-tres-dos-sumeru"]
+    explanation: "El mapa oficial presenta la ciudad académica dentro de Sumeru y las notas de la versión 3.2 sitúan allí el cierre del arco inicial."
+sources:
+  - id: "mapa-ciudad-sumeru"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Sumeru"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Presenta la ciudad académica entre la selva y el desierto de Sumeru."
+  - id: "capitulo-tres-ciudad"
+    type: "quest"
+    title: "Capítulo III: La verdad entre las páginas de la Purana"
+    gameVersion: "3.0–3.2"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo III, actos I–V."
+    supports: "Muestra el Festival Sabzeruz, el samsara, la red Akasha y la operación para rescatar a Nahida."
+  - id: "actualizacion-tres-dos-sumeru"
+    type: "official"
+    title: "Akasha Pulses, the Kalpa Flame Rises — Version 3.2 Update Details"
+    gameVersion: "3.2"
+    reference: "HoYoverse, 2 de noviembre de 2022. https://genshin.hoyoverse.com/en/news/detail/25356"
+    supports: "Documenta la disponibilidad del acto V del Capítulo III y su cierre en la versión 3.2."
+sections:
+  - id: "academica"
+    title: "La ciudad académica"
+    spoilerLevel: "none"
+  - id: "sabzeruz"
+    title: "El samsara del Festival Sabzeruz"
+    spoilerLevel: "sumeru"
+  - id: "akasha"
+    title: "Una ciudad conectada por la Akasha"
+    spoilerLevel: "sumeru"
+  - id: "rescate"
+    title: "La operación para rescatar a Nahida"
+    spoilerLevel: "sumeru"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## La ciudad académica
+
+<SpoilerSection level="none" label="Presentación territorial sin spoilers">
+El mapa oficial describe Sumeru como una nación de selva y desierto y señala una ciudad asociada a la Akademiya. Esa identificación explica su peso en la historia, pero no convierte la experiencia urbana de los eruditos en una imagen completa de los pueblos del bosque o de las comunidades del desierto.
+
+<EvidenceBlock classification="canon" title="La ciudad dentro de una nación diversa" source="Mapa oficial de Teyvat." reference="mapa-ciudad-sumeru" />
+</SpoilerSection>
+
+## El samsara del Festival Sabzeruz
+
+<SpoilerSection level="sumeru" label="Spoilers del acto II del Capítulo III">
+Durante el Festival Sabzeruz, los habitantes repiten el mismo día sin reconocerlo. La Akademiya utiliza la Akasha para recoger sueños mientras la población duerme. El Viajero y Nahida identifican el ciclo y buscan a la persona cuyo sueño sostiene el espacio compartido para poder terminarlo.
+</SpoilerSection>
+
+## Una ciudad conectada por la Akasha
+
+<SpoilerSection level="sumeru" label="Spoilers del arco de Sumeru">
+La Akasha facilita información y coordinación cotidiana, pero también permite que los sabios administren conocimiento, sueños y percepciones a gran escala. La ciudad muestra así dos caras del mismo sistema: una infraestructura útil y una herramienta de control cuando su autoridad no encuentra contrapesos.
+
+<EvidenceBlock classification="canon" title="Infraestructura y control" source="Misiones de Arconte del Capítulo III." reference="capitulo-tres-ciudad" />
+</SpoilerSection>
+
+## La operación para rescatar a Nahida
+
+<SpoilerSection level="sumeru" label="Spoilers del acto V del Capítulo III">
+El plan de rescate coordina aliados dentro y fuera de la ciudad, engaña a los sabios y libera a Nahida del Santuario de Surasthana. Después de derrotar al dios artificial creado con Scaramuccia, Nahida asume una presencia pública mayor y desactiva la Akasha. La ciudad no deja de ser un centro de conocimiento, pero pierde la red que había organizado gran parte de su vida diaria.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La entrada no resume las seis Darshans ni la historia completa de la Akademiya. Tampoco proyecta la cultura de la ciudad sobre Aaru, Vanarana o el resto del territorio de Sumeru.
+</SpoilerSection>
+

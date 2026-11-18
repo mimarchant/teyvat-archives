@@ -267,3 +267,35 @@ test('the seven institutional records keep their distinct entity types and natio
   assert.equal(graph.edges.length, 7);
   assert.ok(graph.edges.every(edge => edge.type === 'located-in' && edge.classification === 'canon'));
 });
+
+test('the seven landmark records link only to their documented nations', async () => {
+  const records = [
+    ['mondstadt-city', 'mondstadt', 'mondstadt'],
+    ['liyue-harbor', 'liyue', 'liyue'],
+    ['inazuma-city', 'inazuma', 'inazuma'],
+    ['sumeru-city', 'sumeru', 'sumeru'],
+    ['court-of-fontaine', 'fontaine', 'fontaine'],
+    ['stadium-sacred-flame', 'natlan', 'natlan'],
+    ['novokitezhgrad', 'snezhnaya', 'snezhnaya'],
+  ];
+  const load = async (id) => {
+    const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection: 'entities', id, data: { relations: [], ...data } };
+  };
+  const nations = await Promise.all(records.map(([, nation]) => nation).filter((id, index, ids) =>
+    ids.indexOf(id) === index).map(load));
+  const landmarks = await Promise.all(records.map(async ([id, nation, level]) => {
+    const entry = await load(id);
+    assert.equal(entry.data.entityType, 'location');
+    assert.equal(entry.data.spoilerLevel, level);
+    assert.equal(entry.data.reviewStatus, 'verified');
+    assert.ok(entry.data.sources.length >= 3);
+    assert.equal(entry.data.relations.length, 1);
+    assert.equal(entry.data.relations[0].target.id, nation);
+    return entry;
+  }));
+  const graph = buildKnowledgeGraph([...nations, ...landmarks]);
+  assert.equal(graph.edges.length, 7);
+  assert.ok(graph.edges.every(edge => edge.type === 'located-in' && edge.classification === 'canon'));
+});

@@ -1,0 +1,97 @@
+---
+title: "Corte de Fontaine"
+summary: "La capital elevada de Fontaine, sus conexiones con el sistema judicial y su lugar en el cumplimiento de la profecía."
+entityType: "location"
+spoilerLevel: "fontaine"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "corte-en-fontaine"
+    target:
+      collection: "entities"
+      id: "fontaine"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "none"
+    sourceIds: ["actualizacion-cuatro-cero-corte", "mapa-corte-fontaine"]
+    explanation: "Las fuentes oficiales presentan la Corte de Fontaine como capital y como una de las áreas abiertas dentro de Fontaine."
+sources:
+  - id: "actualizacion-cuatro-cero-corte"
+    type: "official"
+    title: "As Light Rain Falls Without Reason — Version 4.0 Update Details"
+    gameVersion: "4.0"
+    reference: "HoYoverse, 16 de agosto de 2023. https://genshin.hoyoverse.com/en/news/detail/112690"
+    supports: "Presenta la capital y documenta la apertura de la región de la Corte de Fontaine en la versión 4.0."
+  - id: "mapa-corte-fontaine"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Fontaine"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Contextualiza la capital elevada y el territorio acuático de Fontaine."
+  - id: "capitulo-cuatro-corte"
+    type: "quest"
+    title: "Capítulo IV: Mascarada de los culpables"
+    gameVersion: "4.0–4.2"
+    reference: "Genshin Impact, misiones de Arconte del Capítulo IV."
+    supports: "Conecta la Corte, la Ópera de la Epíclesis, los juicios públicos y la profecía que amenaza a Fontaine."
+  - id: "actualizacion-cuatro-dos-corte"
+    type: "official"
+    title: "Masquerade of the Guilty — Version 4.2 Update Details"
+    gameVersion: "4.2"
+    reference: "HoYoverse, 8 de noviembre de 2023. https://genshin.hoyoverse.com/en/news/detail/113561"
+    supports: "Documenta la publicación del acto V del Capítulo IV."
+sections:
+  - id: "capital"
+    title: "Una capital sobre el mar interior"
+    spoilerLevel: "none"
+  - id: "instituciones"
+    title: "De la ciudad a sus instituciones"
+    spoilerLevel: "fontaine"
+  - id: "juicio"
+    title: "El juicio que expone la profecía"
+    spoilerLevel: "fontaine"
+  - id: "inundacion"
+    title: "La inundación de Fontaine"
+    spoilerLevel: "fontaine"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Una capital sobre el mar interior
+
+<SpoilerSection level="none" label="Presentación territorial sin spoilers">
+Las notas de la versión 4.0 presentan la capital en lo alto del mar interior y distinguen la región de la Corte de Fontaine de las regiones de Berilo y Belleau. La ciudad concentra servicios y administración, mientras canales y rutas acuáticas la enlazan con otras áreas.
+
+<EvidenceBlock classification="canon" title="Apertura de la Corte de Fontaine" source="Notas oficiales de la versión 4.0." reference="actualizacion-cuatro-cero-corte" />
+</SpoilerSection>
+
+## De la ciudad a sus instituciones
+
+<SpoilerSection level="fontaine" label="Spoilers iniciales del Capítulo IV">
+La historia conecta la vida de la Corte con el Steambird, la Maison Gardiennage y el sistema de justicia. Los juicios principales se celebran en la Ópera de la Epíclesis, fuera del núcleo urbano: la ficha conserva esa separación en lugar de atribuir todos los espacios institucionales a un solo edificio o barrio.
+</SpoilerSection>
+
+## El juicio que expone la profecía
+
+<SpoilerSection level="fontaine" label="Spoilers de Mascarada de los culpables">
+Cuando la crisis de las aguas primordiales se vuelve inevitable, los aliados organizan un juicio contra Furina para obligarla a revelar lo que oculta. La operación muestra que su actuación pública había sostenido durante siglos una parte del plan de Focalors, aun cuando Furina desconocía su desenlace completo.
+
+<EvidenceBlock classification="canon" title="La capital ante la profecía" source="Misiones de Arconte del Capítulo IV." reference="capitulo-cuatro-corte" />
+</SpoilerSection>
+
+## La inundación de Fontaine
+
+<SpoilerSection level="fontaine" label="Spoilers del final del Capítulo IV">
+La profecía culmina con la inundación de Fontaine. El sacrificio de Focalors devuelve a Neuvillette la autoridad completa del Dragón Soberano Hydro; con ella, él transforma la condición de los fontainianos antes de que suban las aguas. La Corte sobrevive, pero el resultado no se debe a que la profecía fuera falsa, sino a que cambió la naturaleza de quienes debían sufrirla.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no confunde la Corte con toda Fontaine ni ubica la Ópera dentro del centro urbano. Tampoco cataloga cada nivel, canal o servicio de la ciudad; se concentra en su presentación y en su función dentro del Capítulo IV.
+</SpoilerSection>

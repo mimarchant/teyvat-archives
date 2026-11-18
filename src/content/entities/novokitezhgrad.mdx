@@ -1,0 +1,92 @@
+---
+title: "Novokitezhgrado"
+summary: "Ficha de la ciudad abierta en la versión 7.2, su acceso ferroviario y los motivos históricos presentados oficialmente."
+entityType: "location"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "novokitezhgrado-en-snezhnaya"
+    target:
+      collection: "entities"
+      id: "snezhnaya"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["detalles-siete-dos-novokitezhgrado", "tierras-inexploradas-novokitezhgrado"]
+    explanation: "Las publicaciones oficiales de la versión 7.2 identifican Novokitezhgrado como una nueva área de Snezhnaya."
+sources:
+  - id: "detalles-siete-dos-novokitezhgrado"
+    type: "official"
+    title: "Detalles de la versión 7.2 — La hora de la destrucción"
+    gameVersion: "7.2"
+    reference: "HoYoverse, 4 de noviembre de 2026. https://genshin.hoyoverse.com/es/news/detail/167187"
+    supports: "Documenta la apertura de Novokitezhgrado, el mapa ferroviario, los Puntos de encuentro y contenido localizado en el área."
+  - id: "tierras-inexploradas-novokitezhgrado"
+    type: "official"
+    title: "Hacia las tierras inexploradas de Snezhnaya"
+    gameVersion: "7.2"
+    reference: "HoYoverse, 1 de noviembre de 2026. https://genshin.hoyoverse.com/es/news/detail/167140"
+    supports: "Presenta la ciudad gobernada por hadas y asocia la nueva zona con rastros de la calamidad y secretos bajo cristales."
+  - id: "mapa-novokitezhgrado"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Snezhnaya"
+    gameVersion: "7.2"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Contextualiza Novokitezhgrado dentro de la nación del invierno eterno."
+sections:
+  - id: "apertura"
+    title: "Una ciudad abierta en la versión 7.2"
+    spoilerLevel: "snezhnaya"
+  - id: "presentacion"
+    title: "La ciudad gobernada por hadas"
+    spoilerLevel: "snezhnaya"
+  - id: "ferrocarril"
+    title: "Ferrocarril y puntos de encuentro"
+    spoilerLevel: "snezhnaya"
+  - id: "historia"
+    title: "Rastros históricos, no respuestas cerradas"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Una ciudad abierta en la versión 7.2
+
+<SpoilerSection level="snezhnaya" label="Información de exploración de la versión 7.2">
+Las notas oficiales abren Novokitezhgrado junto con Cumbre Alada. La ciudad pertenece a la expansión de Snezhnaya publicada en 7.2; esta ficha no la presenta como capital ni como resumen de toda la nación.
+
+<EvidenceBlock classification="canon" title="Apertura documentada" source="Detalles oficiales de la versión 7.2." reference="detalles-siete-dos-novokitezhgrado" />
+</SpoilerSection>
+
+## La ciudad gobernada por hadas
+
+<SpoilerSection level="snezhnaya" label="Presentación promocional de Novokitezhgrado">
+La presentación previa a la actualización llama a Novokitezhgrado una ciudad gobernada por hadas y pregunta cuántas historias quedan por descubrir allí. El archivo conserva esa fórmula como descripción promocional: no deduce la forma de gobierno, la identidad de cada habitante ni una respuesta a los interrogantes del anuncio.
+</SpoilerSection>
+
+## Ferrocarril y puntos de encuentro
+
+<SpoilerSection level="snezhnaya" label="Sistemas de exploración de la versión 7.2">
+El acceso a las nuevas áreas amplía el mapa ferroviario. Las mismas notas incorporan Puntos de encuentro vinculados al Oasis de Teplo y a la Real Agencia de Transporte Ferroviario, y sitúan recetas, enemigos y encargos en torno a Novokitezhgrado. Estos datos muestran una red de movilidad y servicios sin convertirla en un plano urbano exhaustivo.
+
+<EvidenceBlock classification="canon" title="Una ciudad conectada por ferrocarril" source="Notas oficiales de La hora de la destrucción." reference="detalles-siete-dos-novokitezhgrado" />
+</SpoilerSection>
+
+## Rastros históricos, no respuestas cerradas
+
+<SpoilerSection level="snezhnaya" label="Motivos promocionales de la versión 7.2">
+*Hacia las tierras inexploradas de Snezhnaya* menciona una mina marcada por la calamidad, capas de cristal y secretos sepultados. La publicación formula estos elementos como invitación a explorar. Por eso la ficha registra los motivos históricos, pero no afirma qué ocurrió, quién fue responsable o cómo se relaciona cada ruina con la ciudad.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+No se auditan los diálogos ni el argumento de las misiones de la versión 7.2. La entrada usa únicamente el mapa, la presentación del área y las notas oficiales; cualquier ampliación argumental requerirá un cotejo separado.
+</SpoilerSection>
