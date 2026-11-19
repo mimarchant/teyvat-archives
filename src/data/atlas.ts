@@ -28,6 +28,7 @@ export const atlasEntries: AtlasEntry[] = [
   { id: 'villa-nasha', name: 'Villa Nasha', category: 'location', subtitle: 'Referencia de acceso regional', description: 'Asentamiento situado junto al Punto de teletransporte que abre el acceso temprano a Nod Krai.', status: 'available', spoilerLevel: 'Spoilers hasta Snezhnaya', href: '/entidades/villa-nasha/', order: 12 },
   { id: 'descendientes-lunaescarcha', name: 'Descendientes Lunaescarcha', category: 'civilization', subtitle: 'Comunidad del Enclave Lunaescarcha', description: 'Comunidad lunar documentada mediante su Punto de encuentro, la presentación de Lauma y un ritual oficial.', status: 'available', spoilerLevel: 'Spoilers hasta Snezhnaya', href: '/entidades/descendientes-lunaescarcha/', order: 13 },
   { id: 'khaenriah', name: "Khaenri'ah", category: 'civilization', subtitle: 'La civilización caída', description: 'Crónica editorial acotada a un testimonio de Dainsleif, con el alcance de su verificación declarado dentro del artículo.', status: 'available', spoilerLevel: 'Alto · varias regiones', href: '/cronicas/khaenriah/', order: 14 },
+  { id: 'celestia', name: 'Celestia', category: 'location', subtitle: 'El lugar que permanece fuera de alcance', description: 'Ficha documental sobre sus apariciones, la tradición del ascenso y la diferencia entre un lugar y una autoridad todavía no explicada.', status: 'available', spoilerLevel: 'Spoilers hasta Fontaine', href: '/entidades/celestia/', order: 15 },
 ];
 
 export const atlasCategories: { id: 'all' | AtlasCategory; label: string }[] = [

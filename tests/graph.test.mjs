@@ -407,3 +407,61 @@ test('the Atlas exposes the documented Nod Krai region, places and community wit
   assert.deepEqual(visibleCategories.map(category => category.id),
     ['all', 'nation', 'region', 'location', 'civilization']);
 });
+
+test('the Teyvat lore pillars keep four sourced relations and two ordered chronicles', async () => {
+  const records = [
+    ['entities', 'celestia', 'location'],
+    ['entities', 'principios-celestiales', 'concept'],
+    ['entities', 'descensores', 'concept'],
+    ['entities', 'soberanos-dragones', 'creature'],
+    ['entities', 'sustentadora-principios-celestiales', 'character'],
+    ['chronicles', 'guerra-arcontes', null],
+    ['chronicles', 'cataclismo', null],
+  ];
+  const load = async (collection, id) => {
+    const raw = await readFile(new URL(`../src/content/${collection}/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection, id, data: { relations: [], ...data } };
+  };
+  const entries = await Promise.all(records.map(async ([collection, id, entityType]) => {
+    const entry = await load(collection, id);
+    if (entityType) assert.equal(entry.data.entityType, entityType);
+    assert.equal(entry.data.reviewStatus, 'verified');
+    assert.ok(entry.data.sources.length >= 3);
+    assert.ok(entry.data.sections.length >= 5);
+    return entry;
+  }));
+  const targets = await Promise.all([
+    ['entities', 'traveler'], ['entities', 'neuvillette'], ['chronicles', 'khaenriah'],
+  ].map(async ([collection, id]) => {
+    const entry = await load(collection, id);
+    return { ...entry, data: { ...entry.data, relations: [] } };
+  }));
+  const graph = buildKnowledgeGraph([...entries, ...targets]);
+  assert.equal(graph.edges.length, 4);
+  assert.deepEqual(graph.edges.map(edge => `${edge.from}->${edge.to}`).sort(), [
+    'chronicles:cataclismo->chronicles:khaenriah',
+    'entities:descensores->entities:traveler',
+    'entities:soberanos-dragones->entities:neuvillette',
+    'entities:sustentadora-principios-celestiales->entities:principios-celestiales',
+  ]);
+  const war = entries.find(entry => entry.id === 'guerra-arcontes');
+  const cataclysm = entries.find(entry => entry.id === 'cataclismo');
+  assert.equal(war.data.chronologyConfirmed, true);
+  assert.equal(war.data.timelineOrder, 100);
+  assert.equal(cataclysm.data.chronologyConfirmed, true);
+  assert.equal(cataclysm.data.timelineOrder, 200);
+});
+
+test('the Atlas adds Celestia as a documented place without a new empty category', () => {
+  const celestia = atlasEntries.find(entry => entry.id === 'celestia');
+  assert.ok(celestia);
+  assert.equal(celestia.category, 'location');
+  assert.equal(celestia.status, 'available');
+  assert.equal(celestia.href, '/entidades/celestia/');
+  assert.equal(atlasEntries.length, 15);
+  const visibleCategories = atlasCategories.filter(category =>
+    category.id === 'all' || atlasEntries.some(entry => entry.category === category.id));
+  assert.deepEqual(visibleCategories.map(category => category.id),
+    ['all', 'nation', 'region', 'location', 'civilization']);
+});
