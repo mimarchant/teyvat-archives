@@ -1,0 +1,93 @@
+---
+title: "Villa Nasha"
+summary: "Ficha de Villa Nasha como punto de entrada documentado a Nod Krai, sin atribuirle un rango político que las fuentes de apertura no declaran."
+entityType: "location"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "nasha-en-nod-krai"
+    target:
+      collection: "entities"
+      id: "nod-krai"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["detalles-luna-i-nasha", "mapa-oficial-nasha"]
+    explanation: "Las notas de Luna I sitúan expresamente Villa Nasha en Nod Krai y colocan un Punto de teletransporte al sur del asentamiento."
+sources:
+  - id: "detalles-luna-i-nasha"
+    type: "official"
+    title: "Detalles de la versión Luna I"
+    gameVersion: "Luna I"
+    reference: "HoYoverse, 10 de septiembre de 2025. https://genshin.hoyoverse.com/es/news/detail/159349"
+    supports: "Nombra Villa Nasha y documenta el Punto de teletransporte al sur que facilita el acceso inicial a Nod Krai."
+  - id: "mapa-oficial-nasha"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Nod Krai"
+    gameVersion: "7.2"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Sitúa Villa Nasha dentro del mapa regional."
+  - id: "acto-i-nasha"
+    type: "quest"
+    title: "Canción lunar, acto I: Danza de las mareas nevadas y las arboledas escarchadas"
+    gameVersion: "Luna I"
+    reference: "Genshin Impact, primera Misión de Arconte del arco de Nod Krai."
+    supports: "Aporta el contexto del arribo del Viajero y del primer contacto con la región."
+sections:
+  - id: "acceso"
+    title: "Un acceso temprano a Nod Krai"
+    spoilerLevel: "snezhnaya"
+  - id: "villa"
+    title: "Una villa, no una capital declarada"
+    spoilerLevel: "snezhnaya"
+  - id: "recorrido"
+    title: "El arribo del Viajero"
+    spoilerLevel: "snezhnaya"
+  - id: "mapa"
+    title: "Función dentro del Atlas"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Un acceso temprano a Nod Krai
+
+<SpoilerSection level="snezhnaya" label="Información de acceso de Luna I">
+Tras completar el prólogo de Mondstadt, Luna I desbloquea automáticamente un Punto de teletransporte al sur de Villa Nasha. La medida permite llegar a Nod Krai sin completar todos los capítulos anteriores y convierte el asentamiento en una referencia práctica de entrada a la región.
+
+<EvidenceBlock classification="canon" title="Un acceso publicado por HoYoverse" source="Detalles oficiales de Luna I." reference="detalles-luna-i-nasha" />
+</SpoilerSection>
+
+## Una villa, no una capital declarada
+
+<SpoilerSection level="snezhnaya" label="Alcance territorial de Villa Nasha">
+La fuente española la denomina «Villa Nasha». Esta ficha conserva ese rango y no la llama capital, ciudad-Estado ni sede de gobierno. La importancia como punto de acceso no demuestra una jerarquía política.
+</SpoilerSection>
+
+## El arribo del Viajero
+
+<SpoilerSection level="snezhnaya" label="Spoilers iniciales de Canción lunar">
+El primer acto introduce el viaje por Nod Krai y el contacto con habitantes de la región. Villa Nasha pertenece a ese umbral narrativo, pero el arco pronto se extiende por las islas y sus comunidades; el asentamiento no resume por sí solo la identidad regional.
+</SpoilerSection>
+
+## Función dentro del Atlas
+
+<SpoilerSection level="snezhnaya" label="Lectura geográfica del asentamiento">
+En el Atlas, Villa Nasha sirve como referencia habitable dentro de una entrada regional que hasta ahora solo mostraba naciones. Su inclusión no pretende ser un plano urbano: permite pasar de Nod Krai a un lugar concreto respaldado por el mapa y las notas de apertura.
+
+<EvidenceBlock classification="canon" title="Asentamiento situado en el mapa" source="Mapa oficial de Teyvat." reference="mapa-oficial-nasha" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no enumera servicios, habitantes ni edificios de Villa Nasha. Tampoco interpreta el desbloqueo automático como prueba de que el asentamiento sea el único acceso posible dentro de la ficción.
+</SpoilerSection>
+

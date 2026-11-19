@@ -1,0 +1,91 @@
+---
+title: "Isla Lempo"
+summary: "Ficha territorial de una de las tres áreas iniciales de Nod Krai, limitada a su apertura en Luna I y a su función dentro del primer recorrido regional."
+entityType: "location"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "lempo-en-nod-krai"
+    target:
+      collection: "entities"
+      id: "nod-krai"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["detalles-luna-i-lempo", "mapa-oficial-lempo"]
+    explanation: "Las notas de Luna I y el mapa oficial identifican Isla Lempo como una de las áreas de la región de Nod Krai."
+sources:
+  - id: "detalles-luna-i-lempo"
+    type: "official"
+    title: "Detalles de la versión Luna I"
+    gameVersion: "Luna I"
+    reference: "HoYoverse, 10 de septiembre de 2025. https://genshin.hoyoverse.com/es/news/detail/159349"
+    supports: "Incluye Isla Lempo entre las tres áreas iniciales de Nod Krai y documenta sistemas regionales disponibles desde esa versión."
+  - id: "mapa-oficial-lempo"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Nod Krai"
+    gameVersion: "7.2"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Sitúa Isla Lempo dentro del archipiélago de Nod Krai y permite diferenciarla de Hiisi y Paha."
+  - id: "acto-i-lempo"
+    type: "quest"
+    title: "Canción lunar, acto I: Danza de las mareas nevadas y las arboledas escarchadas"
+    gameVersion: "Luna I"
+    reference: "Genshin Impact, primera Misión de Arconte publicada para Nod Krai."
+    supports: "Introduce el recorrido regional y las comunidades del arco sin convertir esta ficha en una guía completa de objetivos."
+sections:
+  - id: "apertura"
+    title: "Una de las tres islas iniciales"
+    spoilerLevel: "snezhnaya"
+  - id: "recorrido"
+    title: "Parte del primer recorrido regional"
+    spoilerLevel: "snezhnaya"
+  - id: "sistemas"
+    title: "Exploración compartida con Nod Krai"
+    spoilerLevel: "snezhnaya"
+  - id: "lectura"
+    title: "Una ficha geográfica, no un resumen de misión"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Una de las tres islas iniciales
+
+<SpoilerSection level="snezhnaya" label="Información territorial de Luna I">
+Isla Lempo se abre junto con Isla Hiisi e Isla Paha en Luna I. Las notas la presentan como parte de Nod Krai, por lo que el Atlas la registra como lugar interno de la región y no como una nación o región independiente.
+
+<EvidenceBlock classification="canon" title="Apertura y pertenencia regional" source="Detalles de Luna I y mapa oficial." reference="detalles-luna-i-lempo · mapa-oficial-lempo" />
+</SpoilerSection>
+
+## Parte del primer recorrido regional
+
+<SpoilerSection level="snezhnaya" label="Spoilers iniciales de Canción lunar">
+El acto I abre el viaje por el archipiélago y presenta a sus habitantes antes de que el conflicto lunar alcance su escala posterior. Isla Lempo pertenece a ese primer marco de exploración, pero la misión recorre más de una comunidad y no debe leerse como la historia exclusiva de una isla.
+</SpoilerSection>
+
+## Exploración compartida con Nod Krai
+
+<SpoilerSection level="snezhnaya" label="Sistemas de exploración de Luna I">
+Las insignias Lunares, la brújula regional, los encargos y los Puntos de encuentro se publican como sistemas de Nod Krai. La ficha no los atribuye exclusivamente a Lempo: los menciona para explicar que la isla forma parte de una red regional compartida.
+</SpoilerSection>
+
+## Una ficha geográfica, no un resumen de misión
+
+<SpoilerSection level="snezhnaya" label="Alcance narrativo de la ficha">
+Los acontecimientos de *Canción lunar* se organizan en la sección de Misiones. Aquí se conserva la identidad territorial de Lempo y su lugar dentro de la apertura de Luna I, sin repetir escenas ni asignar a toda la isla las decisiones de personajes concretos.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+No se presenta una lista completa de asentamientos, ruinas, enemigos o misiones mundiales de Isla Lempo. La entrada solo certifica su apertura, nombre, pertenencia regional y participación en el recorrido inicial.
+</SpoilerSection>
+

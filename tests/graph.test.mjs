@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { parse } from 'yaml';
 import { buildKnowledgeGraph } from '../src/data/graph.ts';
+import { atlasEntries, atlasCategories } from '../src/data/atlas.ts';
 
 // Synthetic editorial fixtures, never loaded into the site's content collections.
 const source = { id: 'fixture-source', type: 'book', title: 'Fixture source', supports: 'Fixture statement' };
@@ -344,4 +345,65 @@ test('the core character pack keeps identities distinct and adds only five sourc
   assert.equal(graph.edges.find(edge => edge.from === 'entities:sandrone').type, 'part-of');
   assert.ok(graph.edges.filter(edge => edge.from !== 'entities:sandrone').every(edge => edge.type === 'related-to'));
   assert.equal(graph.edges.some(edge => edge.from === 'entities:paimon' || edge.from === 'entities:columbina'), false);
+});
+
+test('the Nod Krai pack adds one region, four places, one community and Nicole', async () => {
+  const records = [
+    ['nod-krai', 'region'],
+    ['isla-lempo', 'location'],
+    ['isla-hiisi', 'location'],
+    ['isla-paha', 'location'],
+    ['villa-nasha', 'location'],
+    ['descendientes-lunaescarcha', 'civilization'],
+    ['nicole-reeyn', 'character'],
+  ];
+  const load = async (id) => {
+    const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection: 'entities', id, data: { relations: [], ...data } };
+  };
+  const entries = await Promise.all(records.map(async ([id, entityType]) => {
+    const entry = await load(id);
+    assert.equal(entry.data.entityType, entityType);
+    assert.equal(entry.data.spoilerLevel, 'snezhnaya');
+    assert.equal(entry.data.reviewStatus, 'verified');
+    assert.ok(entry.data.sources.length >= 3);
+    assert.ok(entry.data.sections.length >= 4);
+    return entry;
+  }));
+  const graph = buildKnowledgeGraph(entries);
+  assert.equal(graph.nodes.length, 7);
+  assert.equal(graph.edges.length, 5);
+  assert.ok(graph.edges.every(edge => edge.type === 'located-in' && edge.to === 'entities:nod-krai'));
+  assert.deepEqual(graph.edges.map(edge => edge.from).sort(), [
+    'entities:descendientes-lunaescarcha',
+    'entities:isla-hiisi',
+    'entities:isla-lempo',
+    'entities:isla-paha',
+    'entities:villa-nasha',
+  ]);
+  assert.equal(graph.edges.some(edge => edge.from === 'entities:nicole-reeyn'), false);
+});
+
+test('the Atlas exposes the documented Nod Krai region, places and community without empty filters', () => {
+  const expected = [
+    ['nod-krai', 'region'],
+    ['isla-lempo', 'location'],
+    ['isla-hiisi', 'location'],
+    ['isla-paha', 'location'],
+    ['villa-nasha', 'location'],
+    ['descendientes-lunaescarcha', 'civilization'],
+  ];
+  for (const [id, category] of expected) {
+    const entry = atlasEntries.find(item => item.id === id);
+    assert.ok(entry, `Missing Atlas entry ${id}`);
+    assert.equal(entry.category, category);
+    assert.equal(entry.status, 'available');
+    assert.equal(entry.href, `/entidades/${id}/`);
+  }
+  assert.ok(atlasCategories.some(category => category.id === 'location' && category.label === 'Lugares'));
+  const visibleCategories = atlasCategories.filter(category =>
+    category.id === 'all' || atlasEntries.some(entry => entry.category === category.id));
+  assert.deepEqual(visibleCategories.map(category => category.id),
+    ['all', 'nation', 'region', 'location', 'civilization']);
 });

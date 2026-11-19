@@ -26,6 +26,8 @@ const countLabel = computed(() => {
   const count = filteredEntries.value.length;
   return `${count} ${count === 1 ? 'entrada' : 'entradas'}`;
 });
+
+const isChronicle = (entry: AtlasEntry) => entry.href?.startsWith('/cronicas/') ?? false;
 </script>
 
 <template>
@@ -70,10 +72,10 @@ const countLabel = computed(() => {
           <p class="atlas-entry__description">{{ entry.description }}</p>
           <div class="atlas-entry__footer">
             <span class="atlas-entry__status" :class="{ 'is-ready': entry.status === 'available' }">
-              {{ entry.status === 'available' ? (entry.category === 'nation' ? 'Ficha documentada' : 'Crónica relacionada') : 'Entrada en preparación' }}
+              {{ entry.status === 'available' ? (isChronicle(entry) ? 'Crónica relacionada' : 'Ficha documentada') : 'Entrada en preparación' }}
             </span>
             <span class="atlas-entry__spoiler">{{ entry.spoilerLevel }}</span>
-            <a v-if="entry.href" :href="entry.href" class="atlas-entry__link">{{ entry.category === 'nation' ? 'Abrir ficha' : 'Leer crónica' }} <span aria-hidden="true">↗</span></a>
+            <a v-if="entry.href" :href="entry.href" class="atlas-entry__link">{{ isChronicle(entry) ? 'Leer crónica' : 'Abrir ficha' }} <span aria-hidden="true">↗</span></a>
             <span v-else class="atlas-entry__coming">Próximamente</span>
           </div>
         </div>

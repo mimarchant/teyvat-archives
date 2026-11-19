@@ -1,0 +1,91 @@
+---
+title: "Isla Hiisi"
+summary: "Ficha territorial de Isla Hiisi como área inicial de Nod Krai, con el alcance limitado a su publicación, mapa y presencia en Canción lunar."
+entityType: "location"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "hiisi-en-nod-krai"
+    target:
+      collection: "entities"
+      id: "nod-krai"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["detalles-luna-i-hiisi", "mapa-oficial-hiisi"]
+    explanation: "Las notas de Luna I y el mapa oficial identifican Isla Hiisi como una de las áreas de la región de Nod Krai."
+sources:
+  - id: "detalles-luna-i-hiisi"
+    type: "official"
+    title: "Detalles de la versión Luna I"
+    gameVersion: "Luna I"
+    reference: "HoYoverse, 10 de septiembre de 2025. https://genshin.hoyoverse.com/es/news/detail/159349"
+    supports: "Incluye Isla Hiisi entre las tres áreas iniciales de Nod Krai y documenta la apertura regional."
+  - id: "mapa-oficial-hiisi"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Nod Krai"
+    gameVersion: "7.2"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Sitúa Isla Hiisi dentro del archipiélago de Nod Krai y permite diferenciarla de Lempo y Paha."
+  - id: "actos-i-ii-hiisi"
+    type: "quest"
+    title: "Canción lunar, actos I y II"
+    gameVersion: "Luna I"
+    reference: "Genshin Impact, primeras Misiones de Arconte del arco de Nod Krai."
+    supports: "Desarrolla el primer tramo de la historia regional y el contacto con sus comunidades."
+sections:
+  - id: "apertura"
+    title: "Hiisi en la apertura de Luna I"
+    spoilerLevel: "snezhnaya"
+  - id: "archipielago"
+    title: "Una parte del archipiélago"
+    spoilerLevel: "snezhnaya"
+  - id: "historia"
+    title: "El territorio dentro de Canción lunar"
+    spoilerLevel: "snezhnaya"
+  - id: "fuentes"
+    title: "Qué prueban las fuentes utilizadas"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Hiisi en la apertura de Luna I
+
+<SpoilerSection level="snezhnaya" label="Información territorial de Luna I">
+Isla Hiisi forma parte de las tres áreas con las que Nod Krai se abre en Luna I. La publicación oficial la nombra junto con Lempo y Paha, estableciendo una división territorial inicial que el mapa conserva.
+
+<EvidenceBlock classification="canon" title="Un área publicada de Nod Krai" source="Detalles de Luna I y mapa oficial." reference="detalles-luna-i-hiisi · mapa-oficial-hiisi" />
+</SpoilerSection>
+
+## Una parte del archipiélago
+
+<SpoilerSection level="snezhnaya" label="Geografía regional de Nod Krai">
+La ficha clasifica Hiisi como lugar y la conecta únicamente con Nod Krai. No deduce una administración propia, una capital ni fronteras políticas a partir de la separación visual entre islas.
+</SpoilerSection>
+
+## El territorio dentro de Canción lunar
+
+<SpoilerSection level="snezhnaya" label="Spoilers iniciales de Canción lunar">
+Los actos I y II presentan el primer tramo de la historia regional y distribuyen el recorrido entre comunidades, ruinas y conflictos lunares. Hiisi funciona dentro de ese escenario compartido; los acontecimientos completos permanecen en las fichas de misión para conservar su secuencia.
+</SpoilerSection>
+
+## Qué prueban las fuentes utilizadas
+
+<SpoilerSection level="snezhnaya" label="Alcance de las fuentes de Luna I">
+Las notas oficiales prueban la fecha y el alcance de apertura. El mapa respalda el nombre y la posición relativa. Las misiones aportan el contexto narrativo general. Ninguna de esas fuentes, aislada, autoriza a convertir una descripción ambiental en una cronología histórica completa.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La entrada no enumera cada subzona ni resume misiones mundiales. Tampoco atribuye a todos los habitantes de Hiisi las creencias de una comunidad particular de Nod Krai.
+</SpoilerSection>
+
