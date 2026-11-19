@@ -81,6 +81,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Fichas documentales de las figuras centrales de las siete naciones
 - [x] Fichas de instituciones, comunidades y fuerzas centrales de las siete naciones
 - [x] Fichas de lugares representativos de las siete naciones
+- [x] Portada con recorrido real de las 52 Misiones de Arconte y estados editoriales precisos
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX muestran una advertencia antes de cada sección sensible, pero no ocultan el contenido.
 

@@ -21,6 +21,7 @@ const typeLabels: Record<EntityType, string> = {
   creature: 'Criaturas', nation: 'Naciones',
 };
 const entityTypes = (Object.keys(typeLabels) as EntityType[])
+  .filter(type => props.entries.some(entry => entry.entityType === type))
   .sort((a, b) => typeLabels[a].localeCompare(typeLabels[b], 'es'));
 const filteredEntries = computed(() => props.entries.filter(entry => activeType.value === 'all' || entry.entityType === activeType.value));
 function updateType(type: string | null) {
@@ -53,7 +54,7 @@ onMounted(() => {
       <a :href="`/entidades/${entry.id}/`">
         <span class="entity-list__number">{{ String(index + 1).padStart(2, '0') }}</span>
         <span class="entity-list__copy">
-          <span class="entity-list__meta">{{ typeLabels[entry.entityType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión verificada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
+          <span class="entity-list__meta">{{ typeLabels[entry.entityType] }} · {{ entry.reviewStatus === 'verified' ? 'Revisión completada' : 'Revisión pendiente' }}<template v-if="entry.spoilerLevel !== 'none'"> · Spoilers hasta {{ entry.spoilerLevel }}</template></span>
           <strong>{{ entry.title }}</strong>
           <span>{{ entry.summary }}</span>
         </span>

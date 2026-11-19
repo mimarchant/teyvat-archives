@@ -10,6 +10,7 @@ import {
   archonQuestSources,
 } from '../src/data/archon-quests.ts';
 import { archonQuestExpandedSummaries } from '../src/data/archon-quest-summaries.ts';
+import { homeJourneyStages } from '../src/data/home-journey.ts';
 
 test('the Archon Quest archive covers every act through version 7.2', () => {
   assert.equal(archonQuests.length, 52);
@@ -17,6 +18,15 @@ test('the Archon Quest archive covers every act through version 7.2', () => {
   assert.equal(archonQuests.at(-1).id, 'capitulo-vii-acto-vi');
   assert.equal(archonQuests.at(-1).version, '7.2');
   assert.deepEqual(archonQuests.map(({ order }) => order), Array.from({ length: 52 }, (_, index) => index + 1));
+});
+
+test('the home journey presents every documented act once', () => {
+  const coveredOrders = homeJourneyStages.flatMap(({ firstOrder, lastOrder }) =>
+    Array.from({ length: lastOrder - firstOrder + 1 }, (_, index) => firstOrder + index));
+  assert.deepEqual(coveredOrders, archonQuests.map(({ order }) => order));
+  assert.equal(homeJourneyStages.reduce((total, stage) => total + stage.actCount, 0), archonQuests.length);
+  assert.equal(homeJourneyStages.at(-1).versionLabel, '7.0 — 7.2');
+  assert.ok(homeJourneyStages.every(stage => stage.href.startsWith('/misiones/arconte/#capitulo-')));
 });
 
 test('entries and source references are unique and complete', () => {

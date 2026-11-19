@@ -141,7 +141,7 @@ onUnmounted(() => {
 <template>
   <section class="reading-progress" aria-label="Tu progreso de lectura" data-pagefind-ignore>
     <p class="eyebrow">TU LECTURA</p>
-    <p v-if="!ready">Cargando tu progreso…</p>
+    <p v-if="!ready">Tu progreso se guarda localmente en este navegador.</p>
     <template v-else>
       <p v-if="outdated">El artículo cambió desde tu última visita. Tu posición anterior es una referencia para revisarlo.</p>
       <p v-else-if="completed">Marcado como leído.</p>

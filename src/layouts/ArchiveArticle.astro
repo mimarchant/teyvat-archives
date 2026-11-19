@@ -23,7 +23,7 @@ const articleLabel = articleLabels[entry.collection];
 const { Content, headings } = await render(entry);
 const revision = await contentRevision(entry.body ?? '', headings, entry.data.updatedAt.toISOString());
 const date = entry.data.updatedAt.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-const statusLabel = entry.data.reviewStatus === 'verified' ? 'Verificada' : entry.data.reviewStatus === 'needs-review' ? 'Revisión pendiente' : 'Borrador editorial';
+const statusLabel = entry.data.reviewStatus === 'verified' ? 'Revisión completada' : entry.data.reviewStatus === 'needs-review' ? 'Revisión pendiente' : 'Borrador editorial';
 const classificationLabel = {
   canon: 'Canon',
   interpretation: 'Interpretación',
