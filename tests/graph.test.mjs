@@ -299,3 +299,49 @@ test('the seven landmark records link only to their documented nations', async (
   assert.equal(graph.edges.length, 7);
   assert.ok(graph.edges.every(edge => edge.type === 'located-in' && edge.classification === 'canon'));
 });
+
+test('the core character pack keeps identities distinct and adds only five sourced links', async () => {
+  const records = [
+    ['traveler', 'character', 'snezhnaya'],
+    ['abyss-sibling', 'character', 'snezhnaya'],
+    ['paimon', 'character', 'snezhnaya'],
+    ['furina', 'character', 'fontaine'],
+    ['focalors', 'deity', 'fontaine'],
+    ['columbina', 'character', 'snezhnaya'],
+    ['sandrone', 'character', 'snezhnaya'],
+  ];
+  const targets = ['abyss-order', 'fatui', 'fontaine'];
+  const load = async (id) => {
+    const raw = await readFile(new URL(`../src/content/entities/${id}.mdx`, import.meta.url), 'utf8');
+    const data = parse(raw.match(/^---\r?\n([\s\S]*?)\r?\n---/u)[1]);
+    return { collection: 'entities', id, data: { relations: [], ...data } };
+  };
+  const figures = await Promise.all(records.map(async ([id, entityType, spoilerLevel]) => {
+    const entry = await load(id);
+    assert.equal(entry.data.entityType, entityType);
+    assert.equal(entry.data.spoilerLevel, spoilerLevel);
+    assert.equal(entry.data.reviewStatus, 'verified');
+    assert.ok(entry.data.sources.length >= 3);
+    assert.ok(entry.data.sections.length >= 4);
+    return entry;
+  }));
+  const graph = buildKnowledgeGraph([
+    ...figures,
+    ...await Promise.all(targets.map(async (id) => {
+      const target = await load(id);
+      return { ...target, data: { ...target.data, relations: [] } };
+    })),
+  ]);
+  assert.equal(graph.nodes.length, 10);
+  assert.equal(graph.edges.length, 5);
+  assert.deepEqual(graph.edges.map(edge => `${edge.from}->${edge.to}`).sort(), [
+    'entities:abyss-sibling->entities:abyss-order',
+    'entities:focalors->entities:fontaine',
+    'entities:furina->entities:fontaine',
+    'entities:sandrone->entities:fatui',
+    'entities:traveler->entities:paimon',
+  ]);
+  assert.equal(graph.edges.find(edge => edge.from === 'entities:sandrone').type, 'part-of');
+  assert.ok(graph.edges.filter(edge => edge.from !== 'entities:sandrone').every(edge => edge.type === 'related-to'));
+  assert.equal(graph.edges.some(edge => edge.from === 'entities:paimon' || edge.from === 'entities:columbina'), false);
+});
