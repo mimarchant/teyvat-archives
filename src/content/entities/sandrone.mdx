@@ -1,0 +1,93 @@
+---
+title: "Sandrone: Marioneta y constructora"
+summary: "Ficha de Sandrone centrada en su presentación oficial como Heraldo de los Fatui, su vínculo con los autómatas y su publicación jugable."
+entityType: "character"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "heraldo-fatui"
+    target:
+      collection: "entities"
+      id: "fatui"
+    type: "part-of"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["presentacion-cancion-lunar-sandrone"]
+    explanation: "La presentación oficial identifica expresamente a Sandrone como Heraldo de los Fatui y da su nombre en clave. La relación no atribuye a toda la organización sus decisiones individuales."
+sources:
+  - id: "presentacion-cancion-lunar-sandrone"
+    type: "official"
+    title: "Song of the Welkin Moon Teaser: Moonlit Ballad of the Night"
+    reference: "HoYoverse, 22 de julio de 2025. https://genshin.hoyoverse.com/en/news/detail/157790"
+    supports: "Identifica a Sandrone como Heraldo de los Fatui con el nombre en clave Marionette."
+  - id: "habilidades-sandrone"
+    type: "official"
+    title: "Demo de habilidades de personaje — Sandrone, la Analizadora de Reflejos"
+    gameVersion: "Luna VIII"
+    reference: "HoYoverse, 24 de junio de 2026. https://genshin.hoyoverse.com/es/news/detail/164943"
+    supports: "Documenta su publicación como personaje Cryo durante Luna VIII."
+  - id: "teaser-sandrone"
+    type: "official"
+    title: "Character Teaser — Sandrone: First Light of Dawn"
+    gameVersion: "Luna VIII"
+    reference: "HoYoverse, 25 de junio de 2026. https://genshin.hoyoverse.com/en/news/detail/164974"
+    supports: "Presenta oficialmente los motivos de engranajes, autómatas, memoria y reencuentro asociados con el personaje."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "heraldo"
+    title: "La Heraldo Marioneta"
+    spoilerLevel: "snezhnaya"
+  - id: "constructos"
+    title: "Engranajes, autómatas y memoria"
+    spoilerLevel: "snezhnaya"
+  - id: "jugable"
+    title: "La publicación en Luna VIII"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Esta entrada reúne solo lo necesario para situar a Sandrone como Heraldo y como figura del arco lunar. No cataloga todos sus constructos, diálogos, experimentos o apariciones secundarias.
+</SpoilerSection>
+
+## La Heraldo Marioneta
+
+<SpoilerSection level="snezhnaya" label="Spoilers de Canción lunar">
+La presentación oficial de *Canción lunar* identifica de forma explícita a Sandrone como Heraldo de los Fatui y da «Marionette» como su nombre en clave. Esta afiliación está documentada, pero no implica que cada decisión suya represente una orden compartida por todos los Fatui.
+
+<EvidenceBlock classification="canon" title="Una afiliación expresamente nombrada" source="Presentación oficial de Canción lunar." reference="presentacion-cancion-lunar-sandrone" />
+</SpoilerSection>
+
+## Engranajes, autómatas y memoria
+
+<SpoilerSection level="snezhnaya" label="Spoilers de la presentación de Sandrone">
+La demo de habilidades y el teaser de personaje relacionan a Sandrone con máquinas, engranajes y autómatas. *First Light of Dawn* añade motivos de recuerdos y reencuentro, pero su texto promocional no explica por sí solo la identidad de cada figura que aparece.
+
+El archivo mantiene separados esos niveles de evidencia: una imagen promocional puede confirmar un motivo visual, pero no sustituye los diálogos de las misiones ni autoriza a completar una biografía mediante semejanzas.
+
+<EvidenceBlock classification="canon" title="Motivos visuales documentados" source="Demo de habilidades y teaser oficial." reference="habilidades-sandrone · teaser-sandrone" />
+</SpoilerSection>
+
+## La publicación en Luna VIII
+
+<SpoilerSection level="snezhnaya" label="Spoilers de la versión Luna VIII">
+HoYoverse publicó a Sandrone como personaje Cryo en Luna VIII bajo el título «la Analizadora de Reflejos». La demo de habilidades acredita esa presentación jugable; no demuestra por sí sola el origen de sus máquinas ni permite proyectar sus capacidades de combate sobre todos los acontecimientos del lore.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no identifica automáticamente a Sandrone con cada marioneta o autómata del juego, no reconstruye una jerarquía completa de los Heraldos y no atribuye sus actos a toda Snezhnaya. Los títulos oficiales se conservan como títulos, no como explicaciones exhaustivas.
+</SpoilerSection>

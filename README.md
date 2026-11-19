@@ -82,6 +82,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Fichas de instituciones, comunidades y fuerzas centrales de las siete naciones
 - [x] Fichas de lugares representativos de las siete naciones
 - [x] Portada con recorrido real de las 52 Misiones de Arconte y estados editoriales precisos
+- [x] Paquete de personajes centrales: Viajero, gemelo, Paimon, Furina, Focalors, Columbina y Sandrone
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX muestran una advertencia antes de cada sección sensible, pero no ocultan el contenido.
 
@@ -90,6 +91,8 @@ El archivo incorpora una segunda línea documental desde el teaser oficial *Nigh
 La colección de misiones se abre con una [ficha verificada del Capítulo I, acto IV](docs/first-quest-entry.md). Registra su publicación original, su sinopsis y los requisitos anunciados en 2021, además de una conexión editorial acotada con la crónica de Khaenri'ah.
 
 El Atlas enlaza un [paquete territorial de las siete naciones](docs/nations-atlas-pack.md), ampliado después con [fuentes oficiales específicas para cada región](docs/seven-nations-expansion.md). Las fichas distinguen la presentación general, el alcance de cada actualización y el encuadre histórico de *Travail*; no resumen arcos completos ni inventan relaciones entre territorios.
+
+El Archivo incorpora además un [paquete de siete personajes centrales](docs/core-characters-pack.md). Separa a Furina de Focalors, conserva la elección del gemelo protagonista, limita a Paimon a funciones documentadas y distingue las presentaciones oficiales de Columbina y Sandrone de las inferencias todavía no confirmadas.
 
 ## Recursos visuales
 
