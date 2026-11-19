@@ -83,6 +83,7 @@ Estados editoriales: `draft`, `needs-review`, `verified`.
 - [x] Fichas de lugares representativos de las siete naciones
 - [x] Portada con recorrido real de las 52 Misiones de Arconte y estados editoriales precisos
 - [x] Paquete de personajes centrales: Viajero, gemelo, Paimon, Furina, Focalors, Columbina y Sandrone
+- [x] Paquete regional de Nod Krai con islas, Villa Nasha, Descendientes Lunaescarcha y Nicole
 
 La entrada de Khaenri'ah tiene sus tres pasajes contrastados visualmente en una grabación histórica del juego, con textos en español. La revisión editorial está completada para ese alcance histórico; la [auditoría del diálogo](docs/khaenriah-dialogue-audit.md) registra los momentos exactos y los límites del cotejo. No se comprobó el cliente 7.2. Los bloques MDX muestran una advertencia antes de cada sección sensible, pero no ocultan el contenido.
 
@@ -93,6 +94,8 @@ La colección de misiones se abre con una [ficha verificada del Capítulo I, act
 El Atlas enlaza un [paquete territorial de las siete naciones](docs/nations-atlas-pack.md), ampliado después con [fuentes oficiales específicas para cada región](docs/seven-nations-expansion.md). Las fichas distinguen la presentación general, el alcance de cada actualización y el encuadre histórico de *Travail*; no resumen arcos completos ni inventan relaciones entre territorios.
 
 El Archivo incorpora además un [paquete de siete personajes centrales](docs/core-characters-pack.md). Separa a Furina de Focalors, conserva la elección del gemelo protagonista, limita a Paimon a funciones documentadas y distingue las presentaciones oficiales de Columbina y Sandrone de las inferencias todavía no confirmadas.
+
+El [paquete regional de Nod Krai](docs/nod-krai-regional-pack.md) añade la primera región tipada del Atlas, cuatro lugares, una comunidad y la ficha de Nicole. Las relaciones se detienen en la pertenencia territorial publicada y no convierten a Nod Krai en sinónimo administrativo de Snezhnaya.
 
 ## Recursos visuales
 

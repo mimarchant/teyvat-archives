@@ -1,0 +1,91 @@
+---
+title: "Isla Paha"
+summary: "Ficha territorial de Isla Paha como una de las áreas publicadas con la apertura de Nod Krai en la versión Luna I."
+entityType: "location"
+spoilerLevel: "snezhnaya"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "paha-en-nod-krai"
+    target:
+      collection: "entities"
+      id: "nod-krai"
+    type: "located-in"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "snezhnaya"
+    sourceIds: ["detalles-luna-i-paha", "mapa-oficial-paha"]
+    explanation: "Las notas de Luna I y el mapa oficial identifican Isla Paha como una de las áreas de la región de Nod Krai."
+sources:
+  - id: "detalles-luna-i-paha"
+    type: "official"
+    title: "Detalles de la versión Luna I"
+    gameVersion: "Luna I"
+    reference: "HoYoverse, 10 de septiembre de 2025. https://genshin.hoyoverse.com/es/news/detail/159349"
+    supports: "Incluye Isla Paha entre las tres áreas iniciales de Nod Krai y documenta la apertura regional."
+  - id: "mapa-oficial-paha"
+    type: "official"
+    title: "Mapa oficial de Teyvat — Nod Krai"
+    gameVersion: "7.2"
+    reference: "HoYoverse, versión española consultada el 18 de noviembre de 2026. https://genshin.hoyoverse.com/m/es/map"
+    supports: "Sitúa Isla Paha dentro del archipiélago de Nod Krai y permite diferenciarla de Lempo y Hiisi."
+  - id: "cancion-lunar-paha"
+    type: "quest"
+    title: "Canción lunar, actos I–VIII"
+    gameVersion: "Luna I–Luna IV"
+    reference: "Genshin Impact, primer bloque completo de Misiones de Arconte de Nod Krai."
+    supports: "Da contexto al recorrido regional sin convertir cada acontecimiento del arco en un hecho exclusivo de Isla Paha."
+sections:
+  - id: "apertura"
+    title: "Paha en el mapa inicial"
+    spoilerLevel: "snezhnaya"
+  - id: "region"
+    title: "Pertenencia regional documentada"
+    spoilerLevel: "snezhnaya"
+  - id: "arco"
+    title: "Una isla dentro de un arco compartido"
+    spoilerLevel: "snezhnaya"
+  - id: "lectura"
+    title: "Separar geografía y argumento"
+    spoilerLevel: "snezhnaya"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Paha en el mapa inicial
+
+<SpoilerSection level="snezhnaya" label="Información territorial de Luna I">
+Isla Paha aparece en las notas de Luna I como una de las tres áreas iniciales de Nod Krai. La mención establece su apertura y pertenencia regional, sin asignarle por sí sola un papel político o histórico independiente.
+
+<EvidenceBlock classification="canon" title="Área inicial confirmada" source="Detalles de Luna I y mapa oficial." reference="detalles-luna-i-paha · mapa-oficial-paha" />
+</SpoilerSection>
+
+## Pertenencia regional documentada
+
+<SpoilerSection level="snezhnaya" label="Geografía regional de Nod Krai">
+El Atlas conecta Paha con Nod Krai mediante una relación territorial. No enlaza la isla directamente con Snezhnaya porque las fuentes seleccionadas para esta ficha documentan la región inmediata y no definen aquí una jerarquía administrativa más amplia.
+</SpoilerSection>
+
+## Una isla dentro de un arco compartido
+
+<SpoilerSection level="snezhnaya" label="Spoilers generales de Canción lunar">
+Los primeros ocho actos de *Canción lunar* utilizan el archipiélago como un escenario interconectado. Las decisiones de Columbina, los Descendientes Lunaescarcha, los Fatui y otros participantes atraviesan el arco regional; la ficha no adjudica el conflicto entero a Paha.
+</SpoilerSection>
+
+## Separar geografía y argumento
+
+<SpoilerSection level="snezhnaya" label="Alcance editorial de la ficha">
+Las páginas de Misiones conservan el orden de los acontecimientos. Esta entrada permite localizar Paha dentro del archivo sin repetir esos resúmenes ni presentar las rutas jugables como una cronología del lore.
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+No se catalogan todas las subzonas, ruinas o criaturas de Paha. Cualquier ampliación histórica deberá citar diálogos, objetos o misiones concretas en vez de deducirse del mapa.
+</SpoilerSection>
+
