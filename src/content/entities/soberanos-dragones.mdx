@@ -1,0 +1,98 @@
+---
+title: "Los Soberanos dragón: autoridad elemental anterior a los Arcontes"
+summary: "Ficha sobre los dragones soberanos, su relación con la autoridad elemental y los casos documentados de Apep y Neuvillette."
+entityType: "creature"
+spoilerLevel: "fontaine"
+classification: "canon"
+reviewStatus: "verified"
+updatedAt: 2026-11-18
+relations:
+  - id: "incluye-neuvillette-hydro"
+    target:
+      collection: "entities"
+      id: "neuvillette"
+    type: "related-to"
+    classification: "canon"
+    reviewStatus: "verified"
+    spoilerLevel: "fontaine"
+    sourceIds: ["capitulo-iv-acto-v-soberano-hydro"]
+    explanation: "El desenlace de Fontaine presenta a Neuvillette recuperando la autoridad del Dragón Soberano Hydro. La relación no generaliza su caso a todos los dragones."
+sources:
+  - id: "antes-sol-luna"
+    type: "book"
+    title: "Antes del sol y la luna"
+    gameVersion: "2.4"
+    reference: "Genshin Impact, libro obtenido en Enkanomiya."
+    supports: "Conserva un relato sobre los antiguos soberanos y el orden previo a la llegada de una nueva autoridad."
+  - id: "actualizacion-2-4-enkanomiya"
+    type: "official"
+    title: "Fleeting Colors in Flight — Version 2.4 Update Details"
+    gameVersion: "2.4"
+    reference: "HoYoverse, 5 de enero de 2022. https://genshin.hoyoverse.com/en/news/detail/104157"
+    supports: "Documenta la apertura de Enkanomiya, procedencia del libro citado; no valida por sí sola cada afirmación del texto interno."
+  - id: "nahida-acto-ii-apep"
+    type: "quest"
+    title: "Capítulo Sapientia Oromasdis, acto II: Regreso a casa"
+    gameVersion: "3.6"
+    reference: "Genshin Impact, segunda misión legendaria de Nahida."
+    supports: "Presenta a Apep como Dragona de Dendro y conserva su testimonio sobre el conflicto antiguo."
+  - id: "capitulo-iv-acto-v-soberano-hydro"
+    type: "quest"
+    title: "Capítulo IV, acto V: Mascarada de los culpables"
+    gameVersion: "4.2"
+    reference: "Genshin Impact, desenlace de la Misión de Arconte de Fontaine."
+    supports: "Expone la devolución de la autoridad Hydro a Neuvillette y sus consecuencias inmediatas."
+sections:
+  - id: "alcance"
+    title: "Alcance de la ficha"
+    spoilerLevel: "none"
+  - id: "orden-antiguo"
+    title: "Un orden elemental anterior"
+    spoilerLevel: "inazuma"
+  - id: "apep"
+    title: "Apep y la memoria de Dendro"
+    spoilerLevel: "sumeru"
+  - id: "hydro"
+    title: "La autoridad Hydro recuperada"
+    spoilerLevel: "fontaine"
+  - id: "limites"
+    title: "Límites documentales"
+    spoilerLevel: "none"
+---
+
+import SpoilerSection from '../../components/editorial/SpoilerSection.astro';
+import EvidenceBlock from '../../components/editorial/EvidenceBlock.astro';
+
+## Alcance de la ficha
+
+<SpoilerSection level="none" label="Alcance sin spoilers">
+Los Soberanos dragón forman parte del orden elemental más antiguo descrito por varias fuentes. Esta entrada distingue los relatos históricos de Enkanomiya, el testimonio de Apep y el caso observado de Neuvillette.
+</SpoilerSection>
+
+## Un orden elemental anterior
+
+<SpoilerSection level="inazuma" label="Spoilers de Enkanomiya">
+*Antes del sol y la luna* narra un mundo gobernado por siete soberanos antes de la llegada de una nueva autoridad. El libro es una fuente interna: documenta lo que preserva esa tradición, pero debe leerse como texto del mundo y no como una narración externa omnisciente.
+
+<EvidenceBlock classification="canon" title="Un texto antiguo dentro del juego" source="Antes del sol y la luna." reference="antes-sol-luna" />
+</SpoilerSection>
+
+## Apep y la memoria de Dendro
+
+<SpoilerSection level="sumeru" label="Spoilers de la segunda misión legendaria de Nahida">
+Apep aparece como Dragona de Dendro y ofrece su propia memoria del conflicto entre dragones y la autoridad llegada después. Su testimonio confirma que los soberanos no son solo una categoría libresca, aunque su perspectiva no explica por sí sola cada región ni el destino de todos los demás.
+</SpoilerSection>
+
+## La autoridad Hydro recuperada
+
+<SpoilerSection level="fontaine" label="Spoilers del desenlace de Fontaine">
+Focalors destruye el trono de la Arconte Hydro y devuelve a Neuvillette la autoridad vinculada con el Dragón Soberano Hydro. El resultado le permite intervenir sobre la condición de los habitantes de Fontaine durante la profecía.
+
+<EvidenceBlock classification="canon" title="La devolución de una autoridad elemental" source="Capítulo IV, acto V." reference="capitulo-iv-acto-v-soberano-hydro" />
+</SpoilerSection>
+
+## Límites documentales
+
+<SpoilerSection level="none" label="Límites sin spoilers">
+La ficha no presenta una lista completa de encarnaciones actuales, no equipara a todo dragón con un Soberano y no asume que el caso Hydro se repetirá de la misma manera en cada elemento. Los títulos y las autoridades se registran solo cuando una fuente los establece.
+</SpoilerSection>
